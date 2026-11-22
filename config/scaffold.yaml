@@ -1,0 +1,16 @@
+# İskele ve kart slotu.
+#
+# Bu dosya koşul yapılandırması değil; `tests/test_config_schema.py` onu koşul
+# saymıyor.
+
+# Slot konumu. Şu an tek geçerli değer var ama alan config'de duruyor, çünkü
+# konum sonradan tartışılacak bir parametre.
+#
+# `before_user_task`: yönergelerin sonu ile görev talimatı bloğunun başı arası
+# (K-24). Konum statik, tur başına değişmiyor; böylece prefix cache bozulmuyor.
+slot_position: before_user_task
+
+# Slot boşken hiçbir şey basılmıyor, fazladan satır sonu bile bırakılmıyor
+# (K-25). Aksi hâlde tokenleştirme değişir ve "aynı yörünge" ölçütü tesadüfen
+# bozulur.
+empty_slot_renders_nothing: true

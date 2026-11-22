@@ -1,0 +1,40 @@
+{
+  "what": "the measured cost of one 32B episode, and the design projected from it",
+  "database": "results/zihin-3.sqlite",
+  "prefix": "b32c",
+  "model_tag": "qwen2.5-coder:32b-instruct-q4_K_M",
+  "episodes": 31,
+  "first_episode_utc": "2026-08-25 18:55:59",
+  "last_episode_utc": "2026-08-25 19:50:17",
+  "episode_clock": {
+    "total_seconds": 3007.6,
+    "mean_seconds": 97.0,
+    "median_seconds": 83.7,
+    "min_seconds": 27.8,
+    "max_seconds": 261.2,
+    "hours_per_episode": 0.02695
+  },
+  "session_clock": {
+    "total_seconds": 3341.7,
+    "hours": 0.928,
+    "hours_per_episode": 0.02994,
+    "overhead_ratio": 1.111
+  },
+  "tokens": {
+    "input_total": 3433678,
+    "output_total": 61863,
+    "input_per_episode": 110763.8,
+    "output_per_episode": 1995.6
+  },
+  "design": {
+    "assumption": "123 evaluation tasks (test_normal minus the 45 setup touched; answer-type tasks are stratified by K-144, not removed) x 5 conditions (K-145 did not write naive_compiler) x 3 seeds. A lower bound: the session clock is measured from the first episode's start to the last one's end, so per-session setup -- clone, install, pulling the model -- is outside it, and 1845 episodes do not fit one session.",
+    "is_a_lower_bound": true,
+    "evaluation_tasks": 123,
+    "conditions": 5,
+    "seeds": 3,
+    "episodes": 1845,
+    "episode_clock_hours": 49.7,
+    "session_clock_hours": 55.2
+  },
+  "units_per_hour": null
+}

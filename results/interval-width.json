@@ -1,0 +1,382 @@
+{
+  "status": "superseded",
+  "superseded_by": "results/interval-width-action.json",
+  "why": "both strata together, 119 tasks; the primary sample is the action stratum (K-144), so this table describes a sample the primary estimate is not read on (K-174)",
+  "what": "the width of the primary estimate's bootstrap interval, by pass rate and effect",
+  "evaluation_tasks": 119,
+  "ceiling_rule": {
+    "multiplier": 2,
+    "floor": 20,
+    "cap": 150
+  },
+  "passing_cost_observations": 92,
+  "passing_cost_median": 12.0,
+  "noise_cv": 0.075,
+  "bootstrap_seed": 20260819,
+  "bootstrap_iterations": 10000,
+  "replicates": 12,
+  "grid_saving": [
+    {
+      "pass_rate": 0.1,
+      "saving": 0.1,
+      "true_mean": -0.14,
+      "ci_width": 0.18,
+      "width_over_effect": 1.29,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.08
+    },
+    {
+      "pass_rate": 0.1,
+      "saving": 0.2,
+      "true_mean": -0.24,
+      "ci_width": 0.29,
+      "width_over_effect": 1.23,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.1,
+      "saving": 0.3,
+      "true_mean": -0.58,
+      "ci_width": 0.63,
+      "width_over_effect": 1.08,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.08
+    },
+    {
+      "pass_rate": 0.1,
+      "saving": 0.5,
+      "true_mean": -0.76,
+      "ci_width": 0.86,
+      "width_over_effect": 1.13,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.2,
+      "saving": 0.1,
+      "true_mean": -0.33,
+      "ci_width": 0.3,
+      "width_over_effect": 0.9,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.5
+    },
+    {
+      "pass_rate": 0.2,
+      "saving": 0.2,
+      "true_mean": -0.59,
+      "ci_width": 0.44,
+      "width_over_effect": 0.75,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.92
+    },
+    {
+      "pass_rate": 0.2,
+      "saving": 0.3,
+      "true_mean": -0.95,
+      "ci_width": 0.73,
+      "width_over_effect": 0.77,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.2,
+      "saving": 0.5,
+      "true_mean": -1.6,
+      "ci_width": 1.25,
+      "width_over_effect": 0.78,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.37,
+      "saving": 0.1,
+      "true_mean": -0.52,
+      "ci_width": 0.37,
+      "width_over_effect": 0.71,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.92
+    },
+    {
+      "pass_rate": 0.37,
+      "saving": 0.2,
+      "true_mean": -1.21,
+      "ci_width": 0.66,
+      "width_over_effect": 0.55,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.37,
+      "saving": 0.3,
+      "true_mean": -1.67,
+      "ci_width": 0.93,
+      "width_over_effect": 0.56,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.37,
+      "saving": 0.5,
+      "true_mean": -2.86,
+      "ci_width": 1.61,
+      "width_over_effect": 0.56,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.5,
+      "saving": 0.1,
+      "true_mean": -0.71,
+      "ci_width": 0.4,
+      "width_over_effect": 0.57,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.5,
+      "saving": 0.2,
+      "true_mean": -1.47,
+      "ci_width": 0.71,
+      "width_over_effect": 0.49,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.5,
+      "saving": 0.3,
+      "true_mean": -2.12,
+      "ci_width": 0.99,
+      "width_over_effect": 0.47,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.5,
+      "saving": 0.5,
+      "true_mean": -3.79,
+      "ci_width": 1.63,
+      "width_over_effect": 0.43,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.7,
+      "saving": 0.1,
+      "true_mean": -1.02,
+      "ci_width": 0.45,
+      "width_over_effect": 0.44,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.7,
+      "saving": 0.2,
+      "true_mean": -2.18,
+      "ci_width": 0.79,
+      "width_over_effect": 0.36,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.7,
+      "saving": 0.3,
+      "true_mean": -3.08,
+      "ci_width": 0.97,
+      "width_over_effect": 0.31,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    },
+    {
+      "pass_rate": 0.7,
+      "saving": 0.5,
+      "true_mean": -4.97,
+      "ci_width": 1.66,
+      "width_over_effect": 0.33,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 1.0
+    }
+  ],
+  "grid_flips": [
+    {
+      "pass_rate": 0.1,
+      "flips": 2,
+      "true_mean": -0.73,
+      "ci_width": 2.13,
+      "width_over_effect": 2.91,
+      "excludes_zero": 0.17,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.1,
+      "flips": 5,
+      "true_mean": -2.13,
+      "ci_width": 3.97,
+      "width_over_effect": 1.87,
+      "excludes_zero": 0.92,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.1,
+      "flips": 10,
+      "true_mean": -3.81,
+      "ci_width": 5.57,
+      "width_over_effect": 1.46,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.1,
+      "flips": 20,
+      "true_mean": -7.5,
+      "ci_width": 7.67,
+      "width_over_effect": 1.02,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.67
+    },
+    {
+      "pass_rate": 0.2,
+      "flips": 2,
+      "true_mean": -0.63,
+      "ci_width": 1.68,
+      "width_over_effect": 2.65,
+      "excludes_zero": 0.33,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.2,
+      "flips": 5,
+      "true_mean": -1.94,
+      "ci_width": 3.58,
+      "width_over_effect": 1.84,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.2,
+      "flips": 10,
+      "true_mean": -4.29,
+      "ci_width": 5.77,
+      "width_over_effect": 1.35,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.2,
+      "flips": 20,
+      "true_mean": -7.68,
+      "ci_width": 7.48,
+      "width_over_effect": 0.97,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.75
+    },
+    {
+      "pass_rate": 0.37,
+      "flips": 2,
+      "true_mean": -0.63,
+      "ci_width": 1.87,
+      "width_over_effect": 2.97,
+      "excludes_zero": 0.08,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.37,
+      "flips": 5,
+      "true_mean": -1.83,
+      "ci_width": 3.39,
+      "width_over_effect": 1.85,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.37,
+      "flips": 10,
+      "true_mean": -3.7,
+      "ci_width": 5.66,
+      "width_over_effect": 1.53,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.37,
+      "flips": 20,
+      "true_mean": -7.94,
+      "ci_width": 8.08,
+      "width_over_effect": 1.02,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.58
+    },
+    {
+      "pass_rate": 0.5,
+      "flips": 2,
+      "true_mean": -0.9,
+      "ci_width": 2.27,
+      "width_over_effect": 2.52,
+      "excludes_zero": 0.42,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.5,
+      "flips": 5,
+      "true_mean": -1.84,
+      "ci_width": 3.57,
+      "width_over_effect": 1.93,
+      "excludes_zero": 0.92,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.5,
+      "flips": 10,
+      "true_mean": -3.64,
+      "ci_width": 4.93,
+      "width_over_effect": 1.35,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.5,
+      "flips": 20,
+      "true_mean": -8.56,
+      "ci_width": 8.39,
+      "width_over_effect": 0.98,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.58
+    },
+    {
+      "pass_rate": 0.7,
+      "flips": 2,
+      "true_mean": -0.9,
+      "ci_width": 2.39,
+      "width_over_effect": 2.65,
+      "excludes_zero": 0.25,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.7,
+      "flips": 5,
+      "true_mean": -2.15,
+      "ci_width": 4.46,
+      "width_over_effect": 2.07,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.7,
+      "flips": 10,
+      "true_mean": -3.61,
+      "ci_width": 5.25,
+      "width_over_effect": 1.45,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.0
+    },
+    {
+      "pass_rate": 0.7,
+      "flips": 20,
+      "true_mean": -8.79,
+      "ci_width": 8.84,
+      "width_over_effect": 1.01,
+      "excludes_zero": 1.0,
+      "factor_of_two_readable": 0.5
+    }
+  ]
+}

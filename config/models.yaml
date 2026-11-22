@@ -1,0 +1,60 @@
+# Model sunum katmanı.
+#
+# Bu dosya koşul yapılandırması değil; `tests/test_config_schema.py` onu koşul
+# saymıyor.
+
+# Ölçek ekseninin noktaları. Etiketler boyut ve kuantalama dahil tam hâliyle
+# sabit. Kısaltılmış etiket kullanılmıyor, çünkü künyeden hangi ağırlıkların
+# koştuğu okunamaz hâle gelir.
+#
+# 32B, 21 Ağustos 2026'da eklendi (K-137). Aynı işlem, aynı gerekçe ailesi:
+# yerel donanım kilidi zaten açıktı, açılan yeni kilit yok. A100 80 GB'da
+# koşuyor. OpenRouter'daki 32B ölçümü ayrı bir nokta değil — o barındırılan ve
+# kuantalaması bilinmiyor; bu nokta bizim kuantalamamızla.
+#
+# 14B, 20 Ağustos 2026'da eklendi (K-133). Ekseni bir nokta yukarı taşıyor ve
+# yalnız tek bir kilidi açıyor: "model yerel donanımda koşuyor" kısıtı. Aile
+# kilidi duruyor — dördü de aynı aile ve aynı kuantalama, çünkü eksenin
+# ölçtüğü şey boyut, aile değil. Yerel makinede koşamaz (8 GB VRAM'e sığmıyor,
+# S-14); Colab'ın GPU'sunda koşuyor.
+models:
+  - qwen2.5-coder:1.5b-instruct-q4_K_M
+  - qwen2.5-coder:3b-instruct-q4_K_M
+  - qwen2.5-coder:7b-instruct-q4_K_M
+  - qwen2.5-coder:14b-instruct-q4_K_M
+  - qwen2.5-coder:32b-instruct-q4_K_M
+
+# Bağlam penceresi. Ollama'nın VRAM'e dayalı varsayılanı bu makinede 4096
+# çıkıyor ve yönerge dosyası tek başına onu dolduruyor. Değer sunucu tarafında
+# OLLAMA_CONTEXT_LENGTH ile veriliyor ve koşu başına doğrulanıyor (K-37).
+num_ctx: 32768
+
+# Sıcaklık sabit ama sıfırdan büyük (K-20). Sıfırda seed anlamsızlaşır ve
+# tohumlar arası yayılım ölür; bütün istatistik planı o yayılıma dayanıyor.
+temperature: 0.2
+
+# Seed epizot başına ve deterministik: run_id, task_id ve seed_index
+# üçlüsünden türetiliyor. Buradaki değer türetmenin tabanı.
+base_seed: 123
+seed_count: 3
+
+# Model epizotlar arasında diskten yeniden yüklenmesin diye uzun. Nihai değeri
+# S-13 ile birlikte belirlenecek; yükleme protokolü tekrarlanabilirlik için
+# tersini gerektirebilir.
+keep_alive: 30m
+
+# Sunucu günlüğünün yolu. Sunucu Windows tarafında koşuyor, bu süreç WSL
+# içinde; ayarlar `os.environ` üzerinden boş geliyor ve künyeye giren sunucu
+# ayarları bu dosyadan okunuyor (K-37). Yani ölçüme giren bir değer, ve o yüzden
+# sabit bir yol olarak koda gömülü duramaz: kullanıcı adı taşıyan bir yol
+# REPRODUCE.md'yi bu makine dışında yanlış yapar.
+# Bu değer GERİ DÜŞÜŞ. Öncelik `ZIHIN_SERVER_LOG` ortam değişkeninde: günlüğün
+# yeri, sunucunun koştuğu makinenin özelliği, projenin değil. Aşağıdaki yol
+# geliştirme makinesi için doğru ve başka her yerde yanlış — Colab'da bu dosya
+# yok ve künye yazılamadan koşu düşüyor (K-135).
+server_log: /mnt/c/Users/yusuf/AppData/Local/Temp/zihin-ollama.log
+
+# Sunucu sürecine geçen ayarlar. İstemciye değil sunucuya geçtikleri için
+# scripts/serve_models.ps1 içinden veriliyor ve künyeye yazılıyor.
+kv_cache_type: q8_0
+flash_attention: true

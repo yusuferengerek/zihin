@@ -1,0 +1,613 @@
+{
+  "what": "the pass-rate threshold derived from the preregistration's own distinctions",
+  "primary_sample": 104,
+  "stratum": "action-type tasks only (K-144)",
+  "bootstrap_seed": 20260819,
+  "bootstrap_iterations": 10000,
+  "replicates": 9,
+  "noise_cv": 0.075,
+  "limitation": "S-66: the noise coefficient was measured on two cells, so every width here is a lower bound and every derived threshold is optimistic",
+  "structural_ratios": {
+    "subgroup": 1.430075187969925,
+    "subtractive": 0.7931034482758621
+  },
+  "measured": [
+    {
+      "pass_rate": 0.1,
+      "effect": 0.1,
+      "effect_abs": 0.1058,
+      "width": 0.2019,
+      "ratio": 1.9091,
+      "rho_sub": 1.4286,
+      "rho_dod": 0.7857
+    },
+    {
+      "pass_rate": 0.1,
+      "effect": 0.2,
+      "effect_abs": 0.25,
+      "width": 0.4038,
+      "ratio": 1.6154,
+      "rho_sub": 1.5294,
+      "rho_dod": 0.7931
+    },
+    {
+      "pass_rate": 0.1,
+      "effect": 0.3,
+      "effect_abs": 0.4519,
+      "width": 0.5673,
+      "ratio": 1.2553,
+      "rho_sub": 1.4516,
+      "rho_dod": 0.8028
+    },
+    {
+      "pass_rate": 0.1,
+      "effect": 0.5,
+      "effect_abs": 0.6538,
+      "width": 0.875,
+      "ratio": 1.3382,
+      "rho_sub": 1.3636,
+      "rho_dod": 0.7931
+    },
+    {
+      "pass_rate": 0.15,
+      "effect": 0.1,
+      "effect_abs": 0.2885,
+      "width": 0.3558,
+      "ratio": 1.2333,
+      "rho_sub": 1.2941,
+      "rho_dod": 0.7308
+    },
+    {
+      "pass_rate": 0.15,
+      "effect": 0.2,
+      "effect_abs": 0.4038,
+      "width": 0.4231,
+      "ratio": 1.0476,
+      "rho_sub": 1.4231,
+      "rho_dod": 0.8182
+    },
+    {
+      "pass_rate": 0.15,
+      "effect": 0.3,
+      "effect_abs": 0.7115,
+      "width": 0.7115,
+      "ratio": 1.0,
+      "rho_sub": 1.2432,
+      "rho_dod": 0.7619
+    },
+    {
+      "pass_rate": 0.15,
+      "effect": 0.5,
+      "effect_abs": 1.2115,
+      "width": 1.1923,
+      "ratio": 0.9841,
+      "rho_sub": 1.3871,
+      "rho_dod": 0.7705
+    },
+    {
+      "pass_rate": 0.2,
+      "effect": 0.1,
+      "effect_abs": 0.2981,
+      "width": 0.3654,
+      "ratio": 1.2258,
+      "rho_sub": 1.3684,
+      "rho_dod": 0.9487
+    },
+    {
+      "pass_rate": 0.2,
+      "effect": 0.2,
+      "effect_abs": 0.4808,
+      "width": 0.4904,
+      "ratio": 1.02,
+      "rho_sub": 1.5814,
+      "rho_dod": 0.7727
+    },
+    {
+      "pass_rate": 0.2,
+      "effect": 0.3,
+      "effect_abs": 0.7885,
+      "width": 0.8269,
+      "ratio": 1.0488,
+      "rho_sub": 1.5714,
+      "rho_dod": 0.7791
+    },
+    {
+      "pass_rate": 0.2,
+      "effect": 0.5,
+      "effect_abs": 1.5577,
+      "width": 1.2404,
+      "ratio": 0.7963,
+      "rho_sub": 1.3333,
+      "rho_dod": 0.7483
+    },
+    {
+      "pass_rate": 0.25,
+      "effect": 0.1,
+      "effect_abs": 0.3269,
+      "width": 0.3558,
+      "ratio": 1.0882,
+      "rho_sub": 1.4118,
+      "rho_dod": 0.8235
+    },
+    {
+      "pass_rate": 0.25,
+      "effect": 0.2,
+      "effect_abs": 0.6538,
+      "width": 0.5481,
+      "ratio": 0.8382,
+      "rho_sub": 1.4462,
+      "rho_dod": 0.76
+    },
+    {
+      "pass_rate": 0.25,
+      "effect": 0.3,
+      "effect_abs": 1.1923,
+      "width": 0.8269,
+      "ratio": 0.6935,
+      "rho_sub": 1.3271,
+      "rho_dod": 0.7778
+    },
+    {
+      "pass_rate": 0.25,
+      "effect": 0.5,
+      "effect_abs": 1.9135,
+      "width": 1.3269,
+      "ratio": 0.6935,
+      "rho_sub": 1.3188,
+      "rho_dod": 0.771
+    },
+    {
+      "pass_rate": 0.3,
+      "effect": 0.1,
+      "effect_abs": 0.3846,
+      "width": 0.4327,
+      "ratio": 1.125,
+      "rho_sub": 1.5111,
+      "rho_dod": 0.8444
+    },
+    {
+      "pass_rate": 0.3,
+      "effect": 0.2,
+      "effect_abs": 0.8365,
+      "width": 0.5673,
+      "ratio": 0.6782,
+      "rho_sub": 1.3521,
+      "rho_dod": 0.8276
+    },
+    {
+      "pass_rate": 0.3,
+      "effect": 0.3,
+      "effect_abs": 1.2692,
+      "width": 0.875,
+      "ratio": 0.6894,
+      "rho_sub": 1.3333,
+      "rho_dod": 0.7619
+    },
+    {
+      "pass_rate": 0.3,
+      "effect": 0.5,
+      "effect_abs": 2.0288,
+      "width": 1.4038,
+      "ratio": 0.6919,
+      "rho_sub": 1.5302,
+      "rho_dod": 0.7652
+    },
+    {
+      "pass_rate": 0.37,
+      "effect": 0.1,
+      "effect_abs": 0.4712,
+      "width": 0.4519,
+      "ratio": 0.9592,
+      "rho_sub": 1.5319,
+      "rho_dod": 0.84
+    },
+    {
+      "pass_rate": 0.37,
+      "effect": 0.2,
+      "effect_abs": 1.0769,
+      "width": 0.7596,
+      "ratio": 0.7054,
+      "rho_sub": 1.4884,
+      "rho_dod": 0.8101
+    },
+    {
+      "pass_rate": 0.37,
+      "effect": 0.3,
+      "effect_abs": 1.5673,
+      "width": 0.9615,
+      "ratio": 0.6135,
+      "rho_sub": 1.4316,
+      "rho_dod": 0.7292
+    },
+    {
+      "pass_rate": 0.37,
+      "effect": 0.5,
+      "effect_abs": 2.6635,
+      "width": 1.5865,
+      "ratio": 0.5957,
+      "rho_sub": 1.4088,
+      "rho_dod": 0.7638
+    },
+    {
+      "pass_rate": 0.45,
+      "effect": 0.1,
+      "effect_abs": 0.625,
+      "width": 0.5481,
+      "ratio": 0.8769,
+      "rho_sub": 1.4386,
+      "rho_dod": 0.9574
+    },
+    {
+      "pass_rate": 0.45,
+      "effect": 0.2,
+      "effect_abs": 1.25,
+      "width": 0.8365,
+      "ratio": 0.6692,
+      "rho_sub": 1.4565,
+      "rho_dod": 0.8276
+    },
+    {
+      "pass_rate": 0.45,
+      "effect": 0.3,
+      "effect_abs": 2.0096,
+      "width": 1.0385,
+      "ratio": 0.5167,
+      "rho_sub": 1.3608,
+      "rho_dod": 0.8173
+    },
+    {
+      "pass_rate": 0.45,
+      "effect": 0.5,
+      "effect_abs": 3.3173,
+      "width": 1.6442,
+      "ratio": 0.4957,
+      "rho_sub": 1.4465,
+      "rho_dod": 0.7562
+    },
+    {
+      "pass_rate": 0.55,
+      "effect": 0.1,
+      "effect_abs": 0.7115,
+      "width": 0.5192,
+      "ratio": 0.7297,
+      "rho_sub": 1.4286,
+      "rho_dod": 0.94
+    },
+    {
+      "pass_rate": 0.55,
+      "effect": 0.2,
+      "effect_abs": 1.4808,
+      "width": 0.7885,
+      "ratio": 0.5325,
+      "rho_sub": 1.2727,
+      "rho_dod": 0.8941
+    },
+    {
+      "pass_rate": 0.55,
+      "effect": 0.3,
+      "effect_abs": 2.3077,
+      "width": 0.9808,
+      "ratio": 0.425,
+      "rho_sub": 1.4217,
+      "rho_dod": 0.7788
+    },
+    {
+      "pass_rate": 0.55,
+      "effect": 0.5,
+      "effect_abs": 4.0385,
+      "width": 1.5769,
+      "ratio": 0.3905,
+      "rho_sub": 1.4691,
+      "rho_dod": 0.767
+    },
+    {
+      "pass_rate": 0.65,
+      "effect": 0.1,
+      "effect_abs": 0.8269,
+      "width": 0.5481,
+      "ratio": 0.6628,
+      "rho_sub": 1.434,
+      "rho_dod": 0.9245
+    },
+    {
+      "pass_rate": 0.65,
+      "effect": 0.2,
+      "effect_abs": 1.6923,
+      "width": 0.7692,
+      "ratio": 0.4545,
+      "rho_sub": 1.4,
+      "rho_dod": 0.8625
+    },
+    {
+      "pass_rate": 0.65,
+      "effect": 0.3,
+      "effect_abs": 2.9231,
+      "width": 1.0865,
+      "ratio": 0.3717,
+      "rho_sub": 1.3878,
+      "rho_dod": 0.7876
+    },
+    {
+      "pass_rate": 0.65,
+      "effect": 0.5,
+      "effect_abs": 4.7115,
+      "width": 1.6827,
+      "ratio": 0.3571,
+      "rho_sub": 1.4717,
+      "rho_dod": 0.7676
+    },
+    {
+      "pass_rate": 0.75,
+      "effect": 0.1,
+      "effect_abs": 0.9904,
+      "width": 0.6346,
+      "ratio": 0.6408,
+      "rho_sub": 1.4328,
+      "rho_dod": 0.9333
+    },
+    {
+      "pass_rate": 0.75,
+      "effect": 0.2,
+      "effect_abs": 2.1154,
+      "width": 0.8077,
+      "ratio": 0.3818,
+      "rho_sub": 1.3784,
+      "rho_dod": 0.8118
+    },
+    {
+      "pass_rate": 0.75,
+      "effect": 0.3,
+      "effect_abs": 3.0673,
+      "width": 1.0192,
+      "ratio": 0.3323,
+      "rho_sub": 1.463,
+      "rho_dod": 0.787
+    },
+    {
+      "pass_rate": 0.75,
+      "effect": 0.5,
+      "effect_abs": 5.3942,
+      "width": 1.7692,
+      "ratio": 0.328,
+      "rho_sub": 1.4625,
+      "rho_dod": 0.8
+    },
+    {
+      "pass_rate": 0.85,
+      "effect": 0.1,
+      "effect_abs": 1.1635,
+      "width": 0.6058,
+      "ratio": 0.5207,
+      "rho_sub": 1.5357,
+      "rho_dod": 0.9855
+    },
+    {
+      "pass_rate": 0.85,
+      "effect": 0.2,
+      "effect_abs": 2.4423,
+      "width": 0.8462,
+      "ratio": 0.3465,
+      "rho_sub": 1.4947,
+      "rho_dod": 0.8523
+    },
+    {
+      "pass_rate": 0.85,
+      "effect": 0.3,
+      "effect_abs": 3.3942,
+      "width": 1.0192,
+      "ratio": 0.3003,
+      "rho_sub": 1.4528,
+      "rho_dod": 0.8681
+    },
+    {
+      "pass_rate": 0.85,
+      "effect": 0.5,
+      "effect_abs": 6.1635,
+      "width": 1.5962,
+      "ratio": 0.259,
+      "rho_sub": 1.2541,
+      "rho_dod": 0.7677
+    }
+  ],
+  "shapes": {
+    "conservative": {
+      "volume_share": 0.25,
+      "single_share": 0.5,
+      "axis_gap": 0.5
+    },
+    "lenient": {
+      "volume_share": 0.5,
+      "single_share": 1.0,
+      "axis_gap": 1.0
+    }
+  },
+  "derivation": {
+    "conservative": {
+      "requirements": [
+        {
+          "id": "Y-1",
+          "declaration": "the paired difference is distinguishable from zero",
+          "distinction": "an effect against no effect",
+          "bound": 2.0,
+          "why": "an interval that excludes zero has half-width below the effect, so the width is below twice it",
+          "readable_at": {
+            "0.1": 0.1,
+            "0.2": 0.1,
+            "0.3": 0.1,
+            "0.5": 0.1
+          }
+        },
+        {
+          "id": "Y-2",
+          "declaration": "unseen gain over seen gain, threshold one half",
+          "distinction": "half the gain against none of it",
+          "bound": 0.34963196635120924,
+          "why": "the gate reads a subgroup, whose interval is wider by the measured ratio",
+          "readable_at": {
+            "0.1": null,
+            "0.2": 0.85,
+            "0.3": 0.75,
+            "0.5": 0.75
+          }
+        },
+        {
+          "id": "Y-6.1",
+          "declaration": "the irrelevant arm is distinguishable from baseline",
+          "distinction": "a volume effect against none",
+          "bound": 0.5,
+          "why": "the volume effect is a declared share of the mechanism effect",
+          "readable_at": {
+            "0.1": null,
+            "0.2": 0.65,
+            "0.3": 0.55,
+            "0.5": 0.45
+          }
+        },
+        {
+          "id": "Y-6.2",
+          "declaration": "the irrelevant arm does not improve as much as the mechanism arm",
+          "distinction": "content against volume",
+          "bound": 1.891304347826087,
+          "why": "the content-minus-volume effect is (1 - share) of the mechanism effect, and the subtractive control's interval is wider by the measured ratio",
+          "readable_at": {
+            "0.1": 0.15,
+            "0.2": 0.1,
+            "0.3": 0.1,
+            "0.5": 0.1
+          }
+        },
+        {
+          "id": "Y-4/Y-5",
+          "declaration": "a single mechanism arm shows an effect",
+          "distinction": "one mechanism working against not working",
+          "bound": 1.0,
+          "why": "a single arm carries a declared share of the combined effect",
+          "readable_at": {
+            "0.1": 0.37,
+            "0.2": 0.25,
+            "0.3": 0.25,
+            "0.5": 0.15
+          }
+        },
+        {
+          "id": "A.11",
+          "declaration": "the axis is flat rather than falling",
+          "distinction": "one shape against another",
+          "bound": 0.7071067811865475,
+          "why": "the two points differ by a declared share of the effect, and their difference comes from independent runs, so its interval widens by root two",
+          "readable_at": {
+            "0.1": 0.65,
+            "0.2": 0.3,
+            "0.3": 0.25,
+            "0.5": 0.25
+          }
+        }
+      ],
+      "threshold": {
+        "0.1": null,
+        "0.2": 0.85,
+        "0.3": 0.75,
+        "0.5": 0.75
+      }
+    },
+    "lenient": {
+      "requirements": [
+        {
+          "id": "Y-1",
+          "declaration": "the paired difference is distinguishable from zero",
+          "distinction": "an effect against no effect",
+          "bound": 2.0,
+          "why": "an interval that excludes zero has half-width below the effect, so the width is below twice it",
+          "readable_at": {
+            "0.1": 0.1,
+            "0.2": 0.1,
+            "0.3": 0.1,
+            "0.5": 0.1
+          }
+        },
+        {
+          "id": "Y-2",
+          "declaration": "unseen gain over seen gain, threshold one half",
+          "distinction": "half the gain against none of it",
+          "bound": 0.34963196635120924,
+          "why": "the gate reads a subgroup, whose interval is wider by the measured ratio",
+          "readable_at": {
+            "0.1": null,
+            "0.2": 0.85,
+            "0.3": 0.75,
+            "0.5": 0.75
+          }
+        },
+        {
+          "id": "Y-6.1",
+          "declaration": "the irrelevant arm is distinguishable from baseline",
+          "distinction": "a volume effect against none",
+          "bound": 1.0,
+          "why": "the volume effect is a declared share of the mechanism effect",
+          "readable_at": {
+            "0.1": 0.37,
+            "0.2": 0.25,
+            "0.3": 0.25,
+            "0.5": 0.15
+          }
+        },
+        {
+          "id": "Y-6.2",
+          "declaration": "the irrelevant arm does not improve as much as the mechanism arm",
+          "distinction": "content against volume",
+          "bound": 1.2608695652173914,
+          "why": "the content-minus-volume effect is (1 - share) of the mechanism effect, and the subtractive control's interval is wider by the measured ratio",
+          "readable_at": {
+            "0.1": 0.15,
+            "0.2": 0.15,
+            "0.3": 0.1,
+            "0.5": 0.15
+          }
+        },
+        {
+          "id": "Y-4/Y-5",
+          "declaration": "a single mechanism arm shows an effect",
+          "distinction": "one mechanism working against not working",
+          "bound": 2.0,
+          "why": "a single arm carries a declared share of the combined effect",
+          "readable_at": {
+            "0.1": 0.1,
+            "0.2": 0.1,
+            "0.3": 0.1,
+            "0.5": 0.1
+          }
+        },
+        {
+          "id": "A.11",
+          "declaration": "the axis is flat rather than falling",
+          "distinction": "one shape against another",
+          "bound": 1.414213562373095,
+          "why": "the two points differ by a declared share of the effect, and their difference comes from independent runs, so its interval widens by root two",
+          "readable_at": {
+            "0.1": 0.15,
+            "0.2": 0.15,
+            "0.3": 0.1,
+            "0.5": 0.1
+          }
+        }
+      ],
+      "threshold": {
+        "0.1": null,
+        "0.2": 0.85,
+        "0.3": 0.75,
+        "0.5": 0.75
+      }
+    }
+  },
+  "observed": {
+    "scan": "results/b32c-taramasi.json",
+    "attempted": 25,
+    "passed": 7,
+    "rate": 0.28,
+    "answer_attempted": 5,
+    "answer_passed": 4,
+    "all_attempted": 30,
+    "all_passed": 11,
+    "all_rate": 0.36666666666666664
+  }
+}

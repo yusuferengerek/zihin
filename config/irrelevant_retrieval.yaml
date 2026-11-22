@@ -1,0 +1,28 @@
+# Koşul: irrelevant_retrieval — her iki kart türü de var ama içerik alakasız.
+# Analiz planının dayandığı iki kritik kontrast bu koşuldan geçiyor:
+# baseline ile arasındaki fark saf bağlam hacmi,
+# skills ile arasındaki fark saf içerik.
+condition: irrelevant_retrieval
+
+skills:
+  source: irrelevant
+
+failures:
+  source: irrelevant
+
+retrieval:
+  mode: symbolic
+  # Declared 25 September 2026 (preregistration A.4, K-175): a skill card must be
+  # expected to save at least one model call. The same in every condition, so no
+  # contrast carries it.
+  min_expected_saving: 1
+
+shield:
+  enabled: true
+
+fill:
+  enabled: true
+
+cards:
+  skill_slots: 5
+  failure_slots: 5

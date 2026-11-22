@@ -1,0 +1,724 @@
+{
+  "what": "how many action tasks bring the memorisation gate into range at the measured rate",
+  "pass_rate": 0.28,
+  "pass_rate_from": "results/pass-threshold.json observed.rate",
+  "gate_bound": 0.5,
+  "gate": "Y-2 reads half the sample; that half's interval must be under half the effect",
+  "pool": 557,
+  "pool_by_split": {
+    "test_normal": 104,
+    "test_challenge": 408,
+    "dev": 45
+  },
+  "anchor_profile_by_split": {
+    "test_normal": {
+      "tasks": 104,
+      "anchor_median": 30.5,
+      "anchor_mean": 32.8,
+      "anchor_max": 126,
+      "share_at_or_above_75": 0.0288
+    },
+    "test_challenge": {
+      "tasks": 408,
+      "anchor_median": 25.0,
+      "anchor_mean": 47.6,
+      "anchor_max": 649,
+      "share_at_or_above_75": 0.125
+    },
+    "dev": {
+      "tasks": 45,
+      "anchor_median": 43,
+      "anchor_mean": 58.9,
+      "anchor_max": 214,
+      "share_at_or_above_75": 0.2222
+    }
+  },
+  "what_changes_besides_precision": "The added tasks come from test_challenge, whose action-task anchors are more dispersed with a far longer tail than test_normal's. Growing the sample therefore changes the population the estimand is about, not only the width of the interval around it.",
+  "expansion_order": [
+    "test_normal",
+    "test_challenge",
+    "dev",
+    "train"
+  ],
+  "current_sample": 104,
+  "sizes": [
+    104,
+    130,
+    160,
+    200,
+    250,
+    300,
+    400,
+    500,
+    557
+  ],
+  "bootstrap_seed": 20260819,
+  "bootstrap_iterations": 10000,
+  "replicates": 7,
+  "noise_cv": 0.075,
+  "limitation": "S-66: the noise coefficient came from two cells, so every width is a lower bound and every required size is optimistic",
+  "curve": [
+    {
+      "tasks": 104,
+      "splits": {
+        "test_normal": 104
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 1.368,
+        "0.2": 1.0,
+        "0.3": 0.942,
+        "0.5": 0.933
+      },
+      "by_replicate": {
+        "0.1": [
+          1.256,
+          1.368,
+          1.6,
+          1.222,
+          1.6,
+          1.647,
+          0.884
+        ],
+        "0.2": [
+          0.949,
+          1.0,
+          1.356,
+          0.985,
+          1.0,
+          1.167,
+          0.946
+        ],
+        "0.3": [
+          0.837,
+          1.495,
+          0.942,
+          0.968,
+          0.925,
+          0.925,
+          1.021
+        ],
+        "0.5": [
+          0.933,
+          0.708,
+          0.938,
+          1.135,
+          1.045,
+          0.832,
+          0.851
+        ]
+      }
+    },
+    {
+      "tasks": 130,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 26
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 1.435,
+        "0.2": 1.191,
+        "0.3": 0.975,
+        "0.5": 0.906
+      },
+      "by_replicate": {
+        "0.1": [
+          1.435,
+          1.067,
+          1.378,
+          1.5,
+          1.5,
+          1.805,
+          1.349
+        ],
+        "0.2": [
+          1.235,
+          1.067,
+          0.946,
+          1.22,
+          1.425,
+          1.191,
+          0.818
+        ],
+        "0.3": [
+          0.853,
+          0.975,
+          0.915,
+          0.797,
+          1.094,
+          1.035,
+          0.985
+        ],
+        "0.5": [
+          1.769,
+          0.906,
+          1.301,
+          0.77,
+          0.78,
+          0.785,
+          0.936
+        ]
+      }
+    },
+    {
+      "tasks": 160,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 56
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 1.123,
+        "0.2": 0.851,
+        "0.3": 0.791,
+        "0.5": 0.747
+      },
+      "by_replicate": {
+        "0.1": [
+          1.227,
+          1.562,
+          1.123,
+          1.029,
+          1.138,
+          1.01,
+          0.894
+        ],
+        "0.2": [
+          0.911,
+          1.062,
+          0.836,
+          0.651,
+          0.75,
+          0.851,
+          0.973
+        ],
+        "0.3": [
+          0.809,
+          2.32,
+          0.71,
+          0.791,
+          0.78,
+          0.945,
+          0.664
+        ],
+        "0.5": [
+          0.747,
+          0.77,
+          0.711,
+          0.793,
+          0.715,
+          0.87,
+          0.715
+        ]
+      }
+    },
+    {
+      "tasks": 200,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 96
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 1.227,
+        "0.2": 0.804,
+        "0.3": 0.737,
+        "0.5": 0.699
+      },
+      "by_replicate": {
+        "0.1": [
+          0.875,
+          1.316,
+          1.227,
+          1.104,
+          1.778,
+          1.072,
+          1.408
+        ],
+        "0.2": [
+          0.724,
+          0.818,
+          0.804,
+          0.79,
+          0.738,
+          0.96,
+          0.813
+        ],
+        "0.3": [
+          0.785,
+          0.75,
+          0.712,
+          0.714,
+          0.714,
+          0.737,
+          0.831
+        ],
+        "0.5": [
+          0.766,
+          0.686,
+          0.611,
+          0.744,
+          0.697,
+          0.699,
+          0.833
+        ]
+      }
+    },
+    {
+      "tasks": 250,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 146
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 0.914,
+        "0.2": 0.748,
+        "0.3": 0.613,
+        "0.5": 0.577
+      },
+      "by_replicate": {
+        "0.1": [
+          0.923,
+          0.914,
+          0.923,
+          0.968,
+          0.837,
+          0.763,
+          0.714
+        ],
+        "0.2": [
+          0.725,
+          0.685,
+          0.748,
+          0.908,
+          0.737,
+          0.904,
+          0.756
+        ],
+        "0.3": [
+          0.594,
+          0.646,
+          0.646,
+          0.516,
+          0.544,
+          0.613,
+          0.645
+        ],
+        "0.5": [
+          0.576,
+          0.697,
+          0.55,
+          0.627,
+          0.54,
+          0.963,
+          0.577
+        ]
+      }
+    },
+    {
+      "tasks": 300,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 196
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 0.854,
+        "0.2": 0.632,
+        "0.3": 0.581,
+        "0.5": 0.615
+      },
+      "by_replicate": {
+        "0.1": [
+          0.932,
+          0.782,
+          0.807,
+          0.854,
+          0.613,
+          0.932,
+          1.115
+        ],
+        "0.2": [
+          0.682,
+          0.65,
+          0.494,
+          0.482,
+          0.657,
+          0.582,
+          0.632
+        ],
+        "0.3": [
+          0.567,
+          0.667,
+          0.507,
+          0.616,
+          0.567,
+          0.581,
+          0.875
+        ],
+        "0.5": [
+          0.587,
+          0.622,
+          0.615,
+          0.657,
+          0.615,
+          0.507,
+          0.552
+        ]
+      }
+    },
+    {
+      "tasks": 400,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 296
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 0.809,
+        "0.2": 0.566,
+        "0.3": 0.541,
+        "0.5": 0.513
+      },
+      "by_replicate": {
+        "0.1": [
+          0.809,
+          0.832,
+          0.743,
+          0.816,
+          0.793,
+          0.89,
+          0.671
+        ],
+        "0.2": [
+          0.558,
+          0.568,
+          0.604,
+          0.556,
+          0.566,
+          0.578,
+          0.495
+        ],
+        "0.3": [
+          0.541,
+          0.498,
+          0.553,
+          0.545,
+          0.528,
+          0.558,
+          0.531
+        ],
+        "0.5": [
+          0.439,
+          0.468,
+          0.519,
+          0.513,
+          0.516,
+          0.509,
+          0.539
+        ]
+      }
+    },
+    {
+      "tasks": 500,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 396
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 0.674,
+        "0.2": 0.483,
+        "0.3": 0.474,
+        "0.5": 0.467
+      },
+      "by_replicate": {
+        "0.1": [
+          0.639,
+          1.014,
+          0.622,
+          0.674,
+          0.807,
+          0.733,
+          0.615
+        ],
+        "0.2": [
+          0.479,
+          0.537,
+          0.469,
+          0.452,
+          0.567,
+          0.483,
+          0.495
+        ],
+        "0.3": [
+          0.497,
+          0.459,
+          0.409,
+          0.434,
+          0.479,
+          0.474,
+          0.518
+        ],
+        "0.5": [
+          0.488,
+          0.389,
+          0.5,
+          0.467,
+          0.483,
+          0.445,
+          0.457
+        ]
+      }
+    },
+    {
+      "tasks": 557,
+      "splits": {
+        "test_normal": 104,
+        "test_challenge": 408,
+        "dev": 45
+      },
+      "subgroup_width_over_effect": {
+        "0.1": 0.707,
+        "0.2": 0.473,
+        "0.3": 0.465,
+        "0.5": 0.424
+      },
+      "by_replicate": {
+        "0.1": [
+          0.792,
+          0.774,
+          0.707,
+          0.546,
+          0.62,
+          0.563,
+          0.783
+        ],
+        "0.2": [
+          0.428,
+          0.493,
+          0.473,
+          0.471,
+          0.489,
+          0.445,
+          0.481
+        ],
+        "0.3": [
+          0.414,
+          0.52,
+          0.432,
+          0.696,
+          0.459,
+          0.489,
+          0.465
+        ],
+        "0.5": [
+          0.447,
+          0.42,
+          0.38,
+          0.764,
+          0.376,
+          0.424,
+          0.452
+        ]
+      }
+    }
+  ],
+  "tasks_needed": {
+    "0.1": null,
+    "0.2": 500,
+    "0.3": 500,
+    "0.5": 500
+  },
+  "tasks_needed_is": "the smallest size at which the median over replicates stays under the bound",
+  "tasks_needed_by_replicate": {
+    "0.1": {
+      "replicates": [
+        {
+          "replicate": 0,
+          "bootstrap_seed": 20260819,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 1,
+          "bootstrap_seed": 20260820,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 2,
+          "bootstrap_seed": 20260821,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 3,
+          "bootstrap_seed": 20260822,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 4,
+          "bootstrap_seed": 20260823,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 5,
+          "bootstrap_seed": 20260824,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 6,
+          "bootstrap_seed": 20260825,
+          "tasks_needed": null
+        }
+      ],
+      "range": null,
+      "unreachable": 7,
+      "unreachable_seeds": [
+        20260819,
+        20260820,
+        20260821,
+        20260822,
+        20260823,
+        20260824,
+        20260825
+      ],
+      "reached_at_the_current_sample": 0
+    },
+    "0.2": {
+      "replicates": [
+        {
+          "replicate": 0,
+          "bootstrap_seed": 20260819,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 1,
+          "bootstrap_seed": 20260820,
+          "tasks_needed": 557
+        },
+        {
+          "replicate": 2,
+          "bootstrap_seed": 20260821,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 3,
+          "bootstrap_seed": 20260822,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 4,
+          "bootstrap_seed": 20260823,
+          "tasks_needed": 557
+        },
+        {
+          "replicate": 5,
+          "bootstrap_seed": 20260824,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 6,
+          "bootstrap_seed": 20260825,
+          "tasks_needed": 400
+        }
+      ],
+      "range": [
+        400,
+        557
+      ],
+      "unreachable": 0,
+      "unreachable_seeds": [],
+      "reached_at_the_current_sample": 0
+    },
+    "0.3": {
+      "replicates": [
+        {
+          "replicate": 0,
+          "bootstrap_seed": 20260819,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 1,
+          "bootstrap_seed": 20260820,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 2,
+          "bootstrap_seed": 20260821,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 3,
+          "bootstrap_seed": 20260822,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 4,
+          "bootstrap_seed": 20260823,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 5,
+          "bootstrap_seed": 20260824,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 6,
+          "bootstrap_seed": 20260825,
+          "tasks_needed": 557
+        }
+      ],
+      "range": [
+        500,
+        557
+      ],
+      "unreachable": 2,
+      "unreachable_seeds": [
+        20260820,
+        20260822
+      ],
+      "reached_at_the_current_sample": 0
+    },
+    "0.5": {
+      "replicates": [
+        {
+          "replicate": 0,
+          "bootstrap_seed": 20260819,
+          "tasks_needed": 400
+        },
+        {
+          "replicate": 1,
+          "bootstrap_seed": 20260820,
+          "tasks_needed": 400
+        },
+        {
+          "replicate": 2,
+          "bootstrap_seed": 20260821,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 3,
+          "bootstrap_seed": 20260822,
+          "tasks_needed": null
+        },
+        {
+          "replicate": 4,
+          "bootstrap_seed": 20260823,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 5,
+          "bootstrap_seed": 20260824,
+          "tasks_needed": 500
+        },
+        {
+          "replicate": 6,
+          "bootstrap_seed": 20260825,
+          "tasks_needed": 500
+        }
+      ],
+      "range": [
+        400,
+        500
+      ],
+      "unreachable": 1,
+      "unreachable_seeds": [
+        20260822
+      ],
+      "reached_at_the_current_sample": 0
+    }
+  }
+}

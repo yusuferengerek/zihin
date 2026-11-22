@@ -1,0 +1,52 @@
+{
+  "what": "how many of our thirty tasks the published gpt-4o run solves",
+  "published_model": "gpt-4o-2024-05-13",
+  "published_split": "test_normal",
+  "published_solved": 82,
+  "published_source": "results/gpt4o-cozulen.json",
+  "our_task_set_from": "results/b32c-taramasi.json",
+  "our_tasks": 30,
+  "overlap": 15,
+  "overlap_tasks": [
+    "024c982_1",
+    "024c982_3",
+    "09b0ee6_1",
+    "09b0ee6_2",
+    "09b0ee6_3",
+    "21abae1_1",
+    "29a7b7e_2",
+    "3d9a636_3",
+    "59fae45_2",
+    "652485c_2",
+    "8ce6779_2",
+    "a30375d_1",
+    "afc4005_1",
+    "c77c005_3",
+    "d194965_2"
+  ],
+  "our_model": "qwen2.5-coder:32b-instruct-q4_K_M",
+  "our_passed": 11,
+  "solved_by_both": [
+    "024c982_1",
+    "024c982_3",
+    "09b0ee6_1",
+    "09b0ee6_2",
+    "09b0ee6_3",
+    "21abae1_1",
+    "29a7b7e_2",
+    "652485c_2",
+    "afc4005_1",
+    "d194965_2"
+  ],
+  "solved_only_by_gpt4o": [
+    "3d9a636_3",
+    "59fae45_2",
+    "8ce6779_2",
+    "a30375d_1",
+    "c77c005_3"
+  ],
+  "solved_only_by_us": [
+    "9016950_3"
+  ],
+  "caveat": "Not our run. The published run carried no stopping rule and no shield, so this is a reference point, not a controlled contrast."
+}

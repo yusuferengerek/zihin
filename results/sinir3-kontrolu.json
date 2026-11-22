@@ -1,0 +1,739 @@
+{
+  "database": "results/zihin-2.sqlite",
+  "prefix": "sinir3",
+  "model": "openrouter/deepseek/deepseek-v4-flash-0731",
+  "split": "test_normal",
+  "gecen": 13,
+  "episodes": [
+    {
+      "task": "024c982_1",
+      "ceiling": 20,
+      "steps": 13,
+      "termination": "agent_finished",
+      "duration_seconds": 73.27,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 7,
+      "meaningful_total": 7,
+      "trivial_passed": 0
+    },
+    {
+      "task": "024c982_3",
+      "ceiling": 20,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 47.24,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 0
+    },
+    {
+      "task": "7847649_1",
+      "ceiling": 20,
+      "steps": 12,
+      "termination": "agent_finished",
+      "duration_seconds": 35.96,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "a30375d_1",
+      "ceiling": 20,
+      "steps": 12,
+      "termination": "agent_finished",
+      "duration_seconds": 45.03,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 2,
+      "meaningful_total": 2,
+      "trivial_passed": 1
+    },
+    {
+      "task": "afc4005_1",
+      "ceiling": 20,
+      "steps": 11,
+      "termination": "agent_finished",
+      "duration_seconds": 25.26,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "ffe6d5e_1",
+      "ceiling": 20,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 53.86,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 1
+    },
+    {
+      "task": "1150ed6_1",
+      "ceiling": 32,
+      "steps": 10,
+      "termination": "agent_finished",
+      "duration_seconds": 33.42,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 6,
+      "meaningful_total": 6,
+      "trivial_passed": 0
+    },
+    {
+      "task": "21abae1_1",
+      "ceiling": 28,
+      "steps": 11,
+      "termination": "agent_finished",
+      "duration_seconds": 52.34,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "2d9f728_1",
+      "ceiling": 38,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 918.96,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 9,
+      "trivial_passed": 1
+    },
+    {
+      "task": "3b8fb7a_1",
+      "ceiling": 40,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 86.23,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 5,
+      "trivial_passed": 2
+    },
+    {
+      "task": "9016950_3",
+      "ceiling": 40,
+      "steps": 18,
+      "termination": "agent_finished",
+      "duration_seconds": 127.21,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 5,
+      "meaningful_total": 5,
+      "trivial_passed": 2
+    },
+    {
+      "task": "b6d1104_3",
+      "ceiling": 36,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 239.65,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 10,
+      "trivial_passed": 0
+    },
+    {
+      "task": "042a9fc_1",
+      "ceiling": 78,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 130.44,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 5,
+      "trivial_passed": 0
+    },
+    {
+      "task": "29a7b7e_2",
+      "ceiling": 50,
+      "steps": 14,
+      "termination": "agent_finished",
+      "duration_seconds": 201.23,
+      "passed": 1,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 3,
+      "meaningful_total": 3,
+      "trivial_passed": 1
+    },
+    {
+      "task": "3d9a636_3",
+      "ceiling": 70,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 89.98,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 5,
+      "trivial_passed": 0
+    },
+    {
+      "task": "83a7951_2",
+      "ceiling": 60,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 158.26,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 3
+    },
+    {
+      "task": "b9c5c9a_3",
+      "ceiling": 60,
+      "steps": 16,
+      "termination": "no_progress",
+      "duration_seconds": 79.38,
+      "passed": 0,
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 6,
+      "trivial_passed": 1
+    },
+    {
+      "task": "d194965_2",
+      "ceiling": 60,
+      "episode_id": 77,
+      "steps": 16,
+      "actions": 15,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 119.6,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 25709,
+          "input_cache_hit": 76288,
+          "input_cache_write": 0,
+          "output": 4134
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00205672,
+          "input_cache_hit": 0.00610304,
+          "input_cache_write": 0,
+          "output": 0.00074412
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 12,
+        "no_code": 4
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 5,
+      "trivial_passed": 1
+    },
+    {
+      "task": "09b0ee6_3",
+      "ceiling": 150,
+      "episode_id": 78,
+      "steps": 10,
+      "actions": 13,
+      "termination": "agent_finished",
+      "passed": 1,
+      "duration_seconds": 70.5,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 20731,
+          "input_cache_hit": 41728,
+          "input_cache_write": 0,
+          "output": 2481
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00165848,
+          "input_cache_hit": 0.00333824,
+          "input_cache_write": 0,
+          "output": 0.00044658
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 8,
+        "execution_ok_no_action": 2
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "0de03ea_3",
+      "ceiling": 82,
+      "episode_id": 79,
+      "steps": 22,
+      "actions": 10,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 282.1,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 21407,
+          "input_cache_hit": 98560,
+          "input_cache_write": 0,
+          "output": 10792
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00171256,
+          "input_cache_hit": 0.0078848,
+          "input_cache_write": 0,
+          "output": 0.00194256
+        }
+      },
+      "step_categories": {
+        "no_code": 12,
+        "eylem_uretti": 9,
+        "execution_ok_no_action": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2
+    },
+    {
+      "task": "59fae45_2",
+      "ceiling": 150,
+      "episode_id": 80,
+      "steps": 12,
+      "actions": 79,
+      "termination": "agent_finished",
+      "passed": 1,
+      "duration_seconds": 114.1,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 13919,
+          "input_cache_hit": 71424,
+          "input_cache_write": 0,
+          "output": 4588
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00111352,
+          "input_cache_hit": 0.00571392,
+          "input_cache_write": 0,
+          "output": 0.00082584
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 10,
+        "no_code": 2
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 5,
+      "meaningful_total": 5,
+      "trivial_passed": 1
+    },
+    {
+      "task": "652485c_2",
+      "ceiling": 120,
+      "episode_id": 81,
+      "steps": 16,
+      "actions": 29,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 127.3,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 30638,
+          "input_cache_hit": 82176,
+          "input_cache_write": 0,
+          "output": 4655
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00245104,
+          "input_cache_hit": 0.00657408,
+          "input_cache_write": 0,
+          "output": 0.0008379
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 16
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 9,
+      "trivial_passed": 2
+    },
+    {
+      "task": "986aa4e_2",
+      "ceiling": 138,
+      "episode_id": 82,
+      "steps": 16,
+      "actions": 17,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 72.4,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 39862,
+          "input_cache_hit": 71680,
+          "input_cache_write": 0,
+          "output": 2861
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00318896,
+          "input_cache_hit": 0.0057344,
+          "input_cache_write": 0,
+          "output": 0.00051498
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 14,
+        "execution_error_no_action": 1,
+        "no_code": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 8,
+      "trivial_passed": 2
+    },
+    {
+      "task": "c77c005_3",
+      "ceiling": 92,
+      "episode_id": 83,
+      "steps": 13,
+      "actions": 36,
+      "termination": "agent_finished",
+      "passed": 1,
+      "duration_seconds": 91.5,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 29540,
+          "input_cache_hit": 58880,
+          "input_cache_write": 0,
+          "output": 3811
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.0023632,
+          "input_cache_hit": 0.0047104,
+          "input_cache_write": 0,
+          "output": 0.00068598
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 10,
+        "execution_ok_no_action": 3
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 4,
+      "meaningful_total": 4,
+      "trivial_passed": 1
+    },
+    {
+      "task": "09b0ee6_1",
+      "ceiling": 150,
+      "episode_id": 84,
+      "steps": 9,
+      "actions": 16,
+      "termination": "agent_finished",
+      "passed": 1,
+      "duration_seconds": 49.0,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 8107,
+          "input_cache_hit": 48128,
+          "input_cache_write": 0,
+          "output": 2015
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00064856,
+          "input_cache_hit": 0.00385024,
+          "input_cache_write": 0,
+          "output": 0.0003627
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 8,
+        "execution_ok_no_action": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "09b0ee6_2",
+      "ceiling": 150,
+      "episode_id": 85,
+      "steps": 12,
+      "actions": 91,
+      "termination": "agent_finished",
+      "passed": 1,
+      "duration_seconds": 170.3,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 19393,
+          "input_cache_hit": 56064,
+          "input_cache_write": 0,
+          "output": 7346
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00155144,
+          "input_cache_hit": 0.00448512,
+          "input_cache_write": 0,
+          "output": 0.00132228
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 7,
+        "no_code": 4,
+        "execution_ok_no_action": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 1,
+      "meaningful_total": 1,
+      "trivial_passed": 1
+    },
+    {
+      "task": "32616b5_1",
+      "ceiling": 150,
+      "episode_id": 86,
+      "steps": 22,
+      "actions": 55,
+      "termination": "agent_finished",
+      "passed": 0,
+      "duration_seconds": 326.7,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 55120,
+          "input_cache_hit": 108800,
+          "input_cache_write": 0,
+          "output": 15694
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.0044096,
+          "input_cache_hit": 0.008704,
+          "input_cache_write": 0,
+          "output": 0.00282492
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 19,
+        "execution_ok_no_action": 2,
+        "no_code": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 2,
+      "meaningful_total": 7,
+      "trivial_passed": 3
+    },
+    {
+      "task": "32616b5_3",
+      "ceiling": 150,
+      "episode_id": 87,
+      "steps": 16,
+      "actions": 27,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 75.4,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 33214,
+          "input_cache_hit": 67328,
+          "input_cache_write": 0,
+          "output": 2521
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00265712,
+          "input_cache_hit": 0.00538624,
+          "input_cache_write": 0,
+          "output": 0.00045378
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 16
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 3
+    },
+    {
+      "task": "8ce6779_1",
+      "ceiling": 150,
+      "episode_id": 88,
+      "steps": 16,
+      "actions": 15,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 114.7,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 52417,
+          "input_cache_hit": 44288,
+          "input_cache_write": 0,
+          "output": 3880
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00419336,
+          "input_cache_hit": 0.00354304,
+          "input_cache_write": 0,
+          "output": 0.0006984
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 15,
+        "execution_error_no_action": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 2
+    },
+    {
+      "task": "8ce6779_2",
+      "ceiling": 150,
+      "episode_id": 89,
+      "steps": 16,
+      "actions": 30,
+      "termination": "no_progress",
+      "passed": 0,
+      "duration_seconds": 106.2,
+      "usage": {
+        "tokens": {
+          "input_cache_miss": 26112,
+          "input_cache_hit": 70912,
+          "input_cache_write": 0,
+          "output": 3084
+        },
+        "cost_per_token": {
+          "input_cache_miss": 0,
+          "input_cache_hit": 0,
+          "input_cache_write": 0,
+          "output": 0
+        },
+        "cost": {
+          "input_cache_miss": 0.00208896,
+          "input_cache_hit": 0.00567296,
+          "input_cache_write": 0,
+          "output": 0.00055512
+        }
+      },
+      "step_categories": {
+        "eylem_uretti": 15,
+        "execution_error_no_action": 1
+      },
+      "code_commit": "8fe23af4620f4406e7f1e7b8edb928f065d91831",
+      "boot_id": "d404297d-0a27-4851-8ad5-30f94a85745f",
+      "meaningful_passed": 0,
+      "meaningful_total": 7,
+      "trivial_passed": 2
+    }
+  ]
+}

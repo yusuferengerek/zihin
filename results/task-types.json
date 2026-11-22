@@ -1,0 +1,624 @@
+{
+  "what": "what the evaluation sample's tasks ask for: an answer, or a changed world",
+  "split": "test_normal",
+  "tasks_in_split": 168,
+  "touched_and_removed": 49,
+  "sample": 119,
+  "readable": 119,
+  "unreadable": [],
+  "kinds": {
+    "answer+world": 104,
+    "answer": 15
+  },
+  "tests_per_kind": {
+    "answer+world": 765,
+    "answer": 32
+  },
+  "median_tests_per_kind": {
+    "answer+world": 7.0,
+    "answer": 2
+  },
+  "asserts_no_change_per_kind": {
+    "answer": 15
+  },
+  "answer_only": 15,
+  "needs_world_change": 104,
+  "needs_world_change_share": 0.8739,
+  "per_task": {
+    "3d9a636_1": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "3d9a636_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "fd1f8fa_1": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "fd1f8fa_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "fd1f8fa_3": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "325d6ec_1": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "325d6ec_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "325d6ec_3": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "29a7b7e_3": {
+      "kind": "answer+world",
+      "tests": 4,
+      "asserts_no_change": false
+    },
+    "21abae1_2": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "21abae1_3": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "634f342_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "634f342_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "634f342_3": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "8749218_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "8749218_2": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "8749218_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "2d9f728_2": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "2d9f728_3": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "6f4b9a5_1": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "6f4b9a5_2": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "6f4b9a5_3": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "d6ac34d_1": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "d6ac34d_2": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "d6ac34d_3": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "0d01c76_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "0d01c76_2": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "0d01c76_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "ff58e36_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "ff58e36_2": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "d18139b_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "d18139b_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "d18139b_3": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "5a83b05_1": {
+      "kind": "answer+world",
+      "tests": 3,
+      "asserts_no_change": false
+    },
+    "042a9fc_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "042a9fc_3": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "cef9191_1": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "cef9191_2": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "cef9191_3": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "3b8fb7a_3": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "afc4005_2": {
+      "kind": "answer+world",
+      "tests": 2,
+      "asserts_no_change": false
+    },
+    "9dabbc9_1": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "9dabbc9_3": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "425a494_1": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "425a494_2": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "425a494_3": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "a30375d_2": {
+      "kind": "answer",
+      "tests": 3,
+      "asserts_no_change": true
+    },
+    "a30375d_3": {
+      "kind": "answer",
+      "tests": 3,
+      "asserts_no_change": true
+    },
+    "d194965_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "d194965_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "7847649_2": {
+      "kind": "answer+world",
+      "tests": 2,
+      "asserts_no_change": false
+    },
+    "7847649_3": {
+      "kind": "answer+world",
+      "tests": 2,
+      "asserts_no_change": false
+    },
+    "552869a_1": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "552869a_2": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "552869a_3": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "652485c_1": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "ccf4b82_1": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "ccf4b82_2": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "ccf4b82_3": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "522e5e5_1": {
+      "kind": "answer+world",
+      "tests": 4,
+      "asserts_no_change": false
+    },
+    "522e5e5_2": {
+      "kind": "answer+world",
+      "tests": 4,
+      "asserts_no_change": false
+    },
+    "522e5e5_3": {
+      "kind": "answer+world",
+      "tests": 4,
+      "asserts_no_change": false
+    },
+    "0de03ea_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "2c544f9_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "2c544f9_2": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "2c544f9_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "270f1ff_1": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "270f1ff_2": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "270f1ff_3": {
+      "kind": "answer+world",
+      "tests": 11,
+      "asserts_no_change": false
+    },
+    "024c982_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "9ef798c_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "9ef798c_2": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "9ef798c_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "b9c5c9a_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "b9c5c9a_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "90adc3f_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "90adc3f_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "90adc3f_3": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "c77c005_2": {
+      "kind": "answer+world",
+      "tests": 5,
+      "asserts_no_change": false
+    },
+    "f323bae_1": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "f323bae_2": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "f323bae_3": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "13547f5_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "13547f5_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "1150ed6_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "31dc501_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "31dc501_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "59fae45_1": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "59fae45_3": {
+      "kind": "answer+world",
+      "tests": 6,
+      "asserts_no_change": false
+    },
+    "b6d1104_1": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "b6d1104_2": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "f861c32_1": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "f861c32_2": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "f861c32_3": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "166f4ff_2": {
+      "kind": "answer+world",
+      "tests": 2,
+      "asserts_no_change": false
+    },
+    "166f4ff_3": {
+      "kind": "answer+world",
+      "tests": 2,
+      "asserts_no_change": false
+    },
+    "9016950_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "9016950_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "dac78d9_2": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "dac78d9_3": {
+      "kind": "answer",
+      "tests": 2,
+      "asserts_no_change": true
+    },
+    "f3f60f0_1": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "f3f60f0_3": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "ffe6d5e_2": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "ffe6d5e_3": {
+      "kind": "answer+world",
+      "tests": 8,
+      "asserts_no_change": false
+    },
+    "8ce6779_3": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "83a7951_1": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "83a7951_3": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "3aa1a22_1": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "3aa1a22_2": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "3aa1a22_3": {
+      "kind": "answer+world",
+      "tests": 7,
+      "asserts_no_change": false
+    },
+    "32616b5_2": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "986aa4e_1": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "986aa4e_3": {
+      "kind": "answer+world",
+      "tests": 10,
+      "asserts_no_change": false
+    },
+    "6b6ca61_1": {
+      "kind": "answer+world",
+      "tests": 19,
+      "asserts_no_change": false
+    },
+    "6b6ca61_2": {
+      "kind": "answer+world",
+      "tests": 19,
+      "asserts_no_change": false
+    },
+    "6b6ca61_3": {
+      "kind": "answer+world",
+      "tests": 19,
+      "asserts_no_change": false
+    },
+    "bde252e_1": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "bde252e_2": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    },
+    "bde252e_3": {
+      "kind": "answer+world",
+      "tests": 9,
+      "asserts_no_change": false
+    }
+  }
+}

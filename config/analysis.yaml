@@ -1,0 +1,11 @@
+# Analysis parameters. Every value here changes a reported number, so none of
+# them has a silent default: if a key is missing the analysis stops rather than
+# guessing (the rule `max_output_tokens` broke, S-30).
+
+# The bootstrap resamples the task set, so its interval depends on this seed.
+# A reported confidence interval that cannot be reproduced is not a measurement.
+bootstrap_seed: 20260819
+
+# Ten thousand is where the percentile interval stops moving in the third
+# decimal for task sets of the size this study can reach.
+bootstrap_iterations: 10000

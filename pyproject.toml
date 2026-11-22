@@ -1,0 +1,94 @@
+[project]
+name = "zihin"
+version = "0.1.0"
+description = "AppWorld üzerinde beceri ve hata belleği deneyleri için araştırma koşum aracı"
+readme = "README.md"
+requires-python = "==3.11.*"
+license = "Apache-2.0"
+
+# Bağımlılık sayısı bilerek düşük tutuluyor. Gerekçeler:
+#   pyyaml         — koşul yapılandırmaları YAML; standart ve tek okuyucu.
+#   appworld       — deneyin koştuğu benchmark ortamı.
+#   appworld-agents — referans ajan iskelesi; Aşama 1 ve Aşama 5 buna dayanıyor.
+dependencies = [
+    "pyyaml>=6.0.2",
+    "appworld",
+    "appworld-agents",
+]
+
+[dependency-groups]
+# Gerekçeler:
+#   pytest — test koşucusu.
+#   ruff   — lint ve biçimlendirme; ikisini tek araçta topluyor.
+dev = [
+    "pytest>=8.3.4",
+    "ruff>=0.14.0",
+]
+
+[tool.uv.sources]
+# AppWorld PyPI'dan değil, GitHub main dalından tek bir commit'e sabitlenerek
+# geliyor (K-10). PyPI'daki son sürüm 0.1.3.post1, main ise 0.2.0.dev0; ikisi
+# ciddi biçimde ayrışmış ve Aşama 5'in ihtiyaç duyduğu referans iskele yalnız
+# main'de duruyor.
+#
+# lfs = true şart. appworld/.source/apps.bundle ve tests.bundle depoda Git LFS
+# ile duruyor ve `appworld install` onları açıyor. Bayrak olmadan uv pointer
+# dosyasını kuruyor, kurulum da "is a Git LFS pointer and not a bundle file"
+# diye düşüyor. Makinede git-lfs kurulu ve `git lfs install` çalıştırılmış
+# olmalı; önkoşul REPRODUCE.md'de.
+appworld = { git = "https://github.com/StonyBrookNLP/appworld.git", rev = "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a", lfs = true }
+
+# Referans ajan iskelesi ayrı bir dağıtım ama aynı deponun içinden çıkıyor:
+# experiments/pyproject.toml `appworld-agents` adıyla build ediliyor ve
+# `appworld_agents = "."` ile experiments/ dizinini paket köküne bağlıyor.
+# Aynı commit'e sabitleniyor ki iskele ile motor birbirinden ayrışmasın.
+appworld-agents = { git = "https://github.com/StonyBrookNLP/appworld.git", rev = "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a", subdirectory = "experiments", lfs = true }
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "zihin"
+module-root = "src"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+# Bir istisna, örüntüyle değil adıyla: susturulan bir kural görünmez, adıyla
+# yazılan görünür.
+[tool.ruff.lint.per-file-ignores]
+# Defterin koşu satırı nöbetçiyi koşuya `&&` ile bağlıyor ve iki tam betik yolu
+# taşıyor: 113 karakter. Bölmek mümkün değil — başarısız bir `!` satırı
+# sonrakini durdurmuyor, IPython 9.16'ya karşı ölçüldü, ve o zaman nöbetçi nöbet
+# tutmuyor (K-154). Satırı kısaltmanın tek yolu bir yolu kısaltmak, o da adı
+# ikinci bir yerde yaşatmak demek.
+"experiments/colab/zihin-colab.ipynb" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Depo kökü sys.path'e giriyor, çünkü `tests/test_shield_mount.py` sahte
+# istekçiyi `tests.test_api_capture` üzerinden alıyor.
+#
+# Olmadan çağırma biçimine bağlı hâle geliyor ve o fark ölçüldü: `python -m
+# pytest` çalışma dizinini sys.path'e ekliyor, `pytest` betiği eklemiyor. Yerelde
+# birincisi koşuyordu, CI ikincisini koşuyor, ve CI `ModuleNotFoundError: No
+# module named 'tests'` ile düştü. Aynı takımın iki çağırma biçiminde farklı
+# sonuç vermesi testin değil yapılandırmanın kusuru.
+pythonpath = ["."]
+addopts = "-q --strict-markers"
+# `appworld` işaretli testler kurulu AppWorld ve indirilmiş veri istiyor.
+# CI onları `-m "not appworld"` ile eliyor; yerelde tam takım koşuyor.
+markers = [
+    "appworld: kurulu AppWorld ve indirilmiş 198 MB veri gerektirir",
+    "model_server: ayakta bir Ollama sunucusu ve indirilmiş model gerektirir",
+    # Sandbox testleri kendi CI kontrolünde koşuyor, "Testler" işinin içinde
+    # değil (K-97): podman testleri test işini uzatır ve bir düşüşün hangi
+    # katmandan geldiğini belirsizleştirir.
+    "sandbox: kurulu podman ve konteyner çalıştırma izni gerektirir",
+]

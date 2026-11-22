@@ -1,0 +1,232 @@
+{
+  "what": "how many patterns the miner finds from k distinct passing tasks",
+  "database": "results/zihin-2.sqlite",
+  "min_support": 3,
+  "max_gap": 2,
+  "orders": 12,
+  "seed": 123,
+  "passing_episodes": 22,
+  "distinct_passing_tasks": 20,
+  "curve": [
+    {
+      "tasks": 3,
+      "patterns_mean": 1.83,
+      "patterns_min": 1,
+      "patterns_max": 6,
+      "marginal": null
+    },
+    {
+      "tasks": 4,
+      "patterns_mean": 3.92,
+      "patterns_min": 1,
+      "patterns_max": 8,
+      "marginal": 2.08
+    },
+    {
+      "tasks": 5,
+      "patterns_mean": 7.33,
+      "patterns_min": 2,
+      "patterns_max": 15,
+      "marginal": 3.42
+    },
+    {
+      "tasks": 6,
+      "patterns_mean": 10.83,
+      "patterns_min": 5,
+      "patterns_max": 20,
+      "marginal": 3.5
+    },
+    {
+      "tasks": 7,
+      "patterns_mean": 14.5,
+      "patterns_min": 5,
+      "patterns_max": 29,
+      "marginal": 3.67
+    },
+    {
+      "tasks": 8,
+      "patterns_mean": 19,
+      "patterns_min": 8,
+      "patterns_max": 29,
+      "marginal": 4.5
+    },
+    {
+      "tasks": 9,
+      "patterns_mean": 24.75,
+      "patterns_min": 13,
+      "patterns_max": 35,
+      "marginal": 5.75
+    },
+    {
+      "tasks": 10,
+      "patterns_mean": 28.67,
+      "patterns_min": 15,
+      "patterns_max": 38,
+      "marginal": 3.92
+    },
+    {
+      "tasks": 11,
+      "patterns_mean": 32.92,
+      "patterns_min": 18,
+      "patterns_max": 46,
+      "marginal": 4.25
+    },
+    {
+      "tasks": 12,
+      "patterns_mean": 39.08,
+      "patterns_min": 29,
+      "patterns_max": 56,
+      "marginal": 6.17
+    },
+    {
+      "tasks": 13,
+      "patterns_mean": 45.08,
+      "patterns_min": 30,
+      "patterns_max": 63,
+      "marginal": 6.0
+    },
+    {
+      "tasks": 14,
+      "patterns_mean": 54.67,
+      "patterns_min": 41,
+      "patterns_max": 72,
+      "marginal": 9.58
+    },
+    {
+      "tasks": 15,
+      "patterns_mean": 63.83,
+      "patterns_min": 51,
+      "patterns_max": 82,
+      "marginal": 9.17
+    },
+    {
+      "tasks": 16,
+      "patterns_mean": 71.92,
+      "patterns_min": 62,
+      "patterns_max": 88,
+      "marginal": 8.08
+    },
+    {
+      "tasks": 17,
+      "patterns_mean": 81.42,
+      "patterns_min": 65,
+      "patterns_max": 92,
+      "marginal": 9.5
+    },
+    {
+      "tasks": 18,
+      "patterns_mean": 91.08,
+      "patterns_min": 80,
+      "patterns_max": 102,
+      "marginal": 9.67
+    },
+    {
+      "tasks": 19,
+      "patterns_mean": 97.25,
+      "patterns_min": 83,
+      "patterns_max": 104,
+      "marginal": 6.17
+    },
+    {
+      "tasks": 20,
+      "patterns_mean": 105,
+      "patterns_min": 105,
+      "patterns_max": 105,
+      "marginal": 7.75
+    }
+  ],
+  "patterns_at_full_corpus": 105,
+  "tasks_for_half": 14,
+  "tasks_for_eighty_percent": 18,
+  "tasks_for_ninety_percent": 19,
+  "projection": {
+    "scan": "results/b32c-taramasi.json",
+    "model": "qwen2.5-coder:32b-instruct-q4_K_M",
+    "tasks_attempted": 30,
+    "tasks_passed": 11,
+    "pass_rate": 0.3667,
+    "train_tasks": 90,
+    "episodes_for_one_sweep": 90,
+    "expected_new_passing_tasks": 33.0,
+    "corpus_after_one_sweep": 53.0,
+    "marginal_patterns_per_task_at_corpus_end": 7.75
+  },
+  "failure_index": {
+    "min_support": 1,
+    "substrate_episodes": 142,
+    "substrate_tasks": 36,
+    "curve": [
+      {
+        "tasks": 4,
+        "cards_mean": 3.75,
+        "cards_min": 0,
+        "cards_max": 6,
+        "marginal": null
+      },
+      {
+        "tasks": 7,
+        "cards_mean": 5.67,
+        "cards_min": 1,
+        "cards_max": 11,
+        "marginal": 1.92
+      },
+      {
+        "tasks": 11,
+        "cards_mean": 8.75,
+        "cards_min": 4,
+        "cards_max": 14,
+        "marginal": 3.08
+      },
+      {
+        "tasks": 14,
+        "cards_mean": 10.25,
+        "cards_min": 6,
+        "cards_max": 16,
+        "marginal": 1.5
+      },
+      {
+        "tasks": 18,
+        "cards_mean": 12.33,
+        "cards_min": 8,
+        "cards_max": 16,
+        "marginal": 2.08
+      },
+      {
+        "tasks": 22,
+        "cards_mean": 15.25,
+        "cards_min": 9,
+        "cards_max": 18,
+        "marginal": 2.92
+      },
+      {
+        "tasks": 25,
+        "cards_mean": 15.83,
+        "cards_min": 10,
+        "cards_max": 18,
+        "marginal": 0.58
+      },
+      {
+        "tasks": 29,
+        "cards_mean": 17.33,
+        "cards_min": 14,
+        "cards_max": 20,
+        "marginal": 1.5
+      },
+      {
+        "tasks": 32,
+        "cards_mean": 18.5,
+        "cards_min": 15,
+        "cards_max": 20,
+        "marginal": 1.17
+      },
+      {
+        "tasks": 36,
+        "cards_mean": 20,
+        "cards_min": 20,
+        "cards_max": 20,
+        "marginal": 1.5
+      }
+    ],
+    "cards_at_full_substrate": 20
+  }
+}

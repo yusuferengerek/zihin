@@ -1,0 +1,241 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# The jobs read the repository and write nothing back to it. Stated here rather than
+# left to the repository default, so a fork's pull request runs with the same
+# read-only token whatever that default becomes.
+permissions:
+  contents: read
+
+# Geliştirme WSL2 üzerinde Ubuntu 24.04'te yapılıyor; ubuntu-24.04 koşucusu
+# aynı sürüm. Geliştirme ortamı ile CI birebir eşleşsin diye sürüm açıkça
+# yazıldı, `ubuntu-latest` kullanılmadı — o etiket zamanla kayar.
+#
+# `git lfs install` her işte tekrarlanıyor: AppWorld'ün bundle dosyaları depoda
+# Git LFS ile duruyor ve filtre kurulmadan uv onları 131 baytlık pointer olarak
+# indiriyor. Bu adım K-32'nin istediği "AppWorld dahil temiz makine doğrulaması"
+# nın koştuğu yer.
+
+jobs:
+  deps:
+    name: Bağımlılık kurulumu
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.28"
+      - name: Git LFS filtresi
+        run: git lfs install
+      - name: Kilitli bağımlılıkları kur
+        run: uv sync --all-groups --frozen
+      - name: Kilit dosyası güncel mi
+        run: uv lock --check
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.28"
+      - name: Git LFS filtresi
+        run: git lfs install
+      - run: uv sync --all-groups --frozen
+      - name: ruff check
+        run: uv run ruff check .
+      - name: ruff format
+        run: uv run ruff format --check .
+      # Belge adlandırma şeması ve çeviri eşi. Lint işinde, çünkü ikisi de
+      # koşmak için veri istemiyor ve saniyeler sürüyor.
+      - name: Belge adlandırması ve çeviri eşi
+        run: uv run python scripts/check_docs_parity.py
+      # Sınırlamalar haritası üretiliyor; elle tutulan bir kopyası yok. Denetim
+      # belge ile haritanın ayrışmasını yakalıyor (K-103 ile aynı sınıf).
+      - name: Sınırlamalar haritası güncel mi
+        run: uv run python scripts/build_limitations_index.py --check
+      # Sunum iskeleti bir kapsama testi ve özet tablosu üç kez satırlardan
+      # ayrıştı: iki iddia sonradan eklendi, bir bölüm hiç sayılmamıştı.
+      - name: Sunum iskeleti kapsama özeti güncel mi
+        run: uv run python scripts/build_skeleton_coverage.py --check
+      # Karar CSV'si üretilen görünümlerin en eskisiydi ve tek bayatlık
+      # nöbetçisi olmayanıydı; ilan-bağlı süpürmesi bunu buldu (K-114).
+      - name: Karar CSV'si güncel mi
+        run: uv run python scripts/build_decisions_csv.py --check
+      # Koruma gerektiren türlerin her üyesi sayılıyor ve nöbetçisi aranıyor.
+      # İlan edilmemiş çıplak bir bölge kontrolü düşürüyor; bilinenler kendi
+      # gerekçeleriyle listede (K-115).
+      - name: Koruma gerektiren bölgeler sayılıyor
+        run: uv run python scripts/count_guards.py --check
+      # Defter deponun en zayıf denetlenen eseriydi: her betiğin nöbetçisi
+      # varken defterin tek testi bir dal adını çiviliyordu. Hücre hücre bir
+      # tarama on iki arıza çıkardı ve hepsi aynı sınıftandı — bir değer bir
+      # yerde güncellendi, kopyasını taşıyan güncellenmedi (K-154). Veri
+      # istemiyor, saniyeler sürüyor, bu yüzden lint işinde.
+      - name: Colab defteri çağırdığı depoyla tutuyor mu
+        run: uv run python scripts/check_colab_notebook.py
+
+  test:
+    name: Testler
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        # The gitleaks scan at the end reads every commit, so the checkout carries the
+        # full history.
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.28"
+      - name: Git LFS filtresi
+        run: git lfs install
+      - run: uv sync --all-groups --frozen
+      - name: AppWorld verisi önbelleği
+        uses: actions/cache@v4
+        with:
+          path: data
+          # Anahtar sabitlenmiş AppWorld commit'i taşıyor: veri o sürümle
+          # geliyor ve commit değişmedikçe yeniden indirmenin sebebi yok.
+          key: appworld-data-a072b7a86e7c1d5b1d7175659d750ebb9b79f10a
+      - name: AppWorld kurulumu
+        # `appworld install` uygulama modüllerini paketin bundle'larından
+        # açıyor; `download data` 198 MB görev verisini indiriyor. İkisi olmadan
+        # kırk yedi test sessizce atlanıyordu (S-49).
+        run: |
+          uv run appworld install
+          uv run appworld download data
+      - name: Unpack the AppWorld-derived data
+        # The data files derived from AppWorld ship encrypted (README.md, AppWorld data).
+        # This restores them to their original paths before anything reads them.
+        run: uv run python scripts/unpack_derived.py
+      - name: pytest
+        # `model_server` işaretliler ayakta bir Ollama sunucusu istiyor ve CI'da
+        # yok. `sandbox` işaretliler kendi kontrollerinde koşuyor (K-97).
+        # `appworld` artık elenmiyor: veri ve uygulama modülleri yukarıda
+        # kuruldu.
+        #
+        # `-rs` atlanan testlerin gerekçesini yazdırıyor ve bir sonraki adım o
+        # gerekçelere bakıyor. `pipefail` şart: `tee` olmadan çıkış kodu
+        # pytest'ten değil `tee`den gelirdi.
+        run: |
+          set -o pipefail
+          uv run pytest -m "not model_server and not sandbox" -rs | tee pytest-raporu.txt
+      - name: Kurulum boşa gitti mi
+        # Kurulumun başarılı olması yetmez: işaretler ya da kancalar hâlâ
+        # dışlıyorsa kurulum boşa gider ve bunu hiçbir şey söylemez.
+        # Tetiklenmeyen kontrol kontrol değildir; bu adım o kontrolün kontrolü.
+        #
+        # Üç şey doğrulanıyor: uygulama modülleri yüzünden atlanan test kaldı
+        # mı, `appworld` işaretli testler gerçekten toplanıyor mu, ve rota
+        # tablosu kurulabiliyor mu.
+        run: |
+          set -u
+          if grep -q "no installed AppWorld app modules" pytest-raporu.txt; then
+            echo "HATA: uygulama modülleri hâlâ yok; kurulum boşa gitti"
+            grep -c "no installed AppWorld app modules" pytest-raporu.txt
+            exit 1
+          fi
+          toplanan=$(uv run pytest -m appworld --collect-only -q 2>/dev/null | tail -1)
+          echo "appworld işaretli toplanan: $toplanan"
+          case "$toplanan" in
+            0*|"") echo "HATA: appworld işaretli hiçbir test toplanmadı"; exit 1 ;;
+          esac
+          uv run python -c "from zihin.api_routes import route_table; print('rota tablosu:', len(route_table()), 'uygulama')"
+          echo "--- pytest özeti ---"
+          tail -1 pytest-raporu.txt
+      - name: Install gitleaks
+        # The public build's secret gate. One exact release from the official GitHub
+        # release page, checked against the sha256 that release publishes in
+        # gitleaks_8.30.1_checksums.txt before anything is extracted or run. A mismatch
+        # fails the job here.
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+          GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+        run: |
+          set -euo pipefail
+          archive="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          dir="$RUNNER_TEMP/gitleaks"
+          mkdir -p "$dir"
+          curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+            -o "$dir/$archive" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${archive}"
+          (cd "$dir" && echo "${GITLEAKS_SHA256}  ${archive}" | sha256sum --check --strict)
+          tar -xzf "$dir/$archive" -C "$dir" gitleaks
+          rm "$dir/$archive"
+          echo "$dir" >> "$GITHUB_PATH"
+          "$dir/gitleaks" version
+      - name: Scan the repository with gitleaks
+        # Every commit of this repository, read with the gitleaks installed and verified
+        # above. A finding fails the job, and --redact keeps the secret out of the log.
+        run: gitleaks git --no-banner --redact --exit-code 1 .
+
+  build:
+    name: Import ve build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.28"
+      - name: Git LFS filtresi
+        run: git lfs install
+      - run: uv sync --all-groups --frozen
+      - name: Paket import ediliyor
+        run: uv run python -c "import zihin; print(zihin.__version__)"
+      - name: Build
+        run: uv build
+      - name: Üretilen dosyalar
+        run: ls -l dist/
+
+  sandbox:
+    name: Sandbox
+    runs-on: ubuntu-24.04
+    # Beşinci kontrol, "Testler"in içine gizlenmiyor (K-97). İki sebep: podman
+    # testleri imaj çekip konteyner ayağa kaldırıyor, yani test işini uzatır; ve
+    # daha önemlisi, ayrı iş kırmızı yandığında hangi katmanın kırıldığını adıyla
+    # söylüyor.
+    #
+    # Koşucuda podman kurulu ve kök yetkisiz çalışıyor; ölçüldü: 5.8.4, cgroup v2,
+    # crun, devredilen denetleyiciler cpu/memory/pids. Altı korumanın altısı da
+    # ateşlerken görüldü.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.28"
+      - name: Git LFS filtresi
+        run: git lfs install
+      - run: uv sync --all-groups --frozen
+      - name: Ortam
+        run: |
+          podman --version
+          podman info --format 'cgroup={{.Host.CgroupsVersion}} rootless={{.Host.Security.Rootless}} runtime={{.Host.OCIRuntime.Name}} ag={{.Host.NetworkBackend}}'
+      - name: AppWorld verisi önbelleği
+        uses: actions/cache@v4
+        with:
+          path: data
+          key: appworld-data-a072b7a86e7c1d5b1d7175659d750ebb9b79f10a
+      - name: AppWorld kurulumu
+        run: |
+          uv run appworld install
+          uv run appworld download data
+      - name: Unpack the AppWorld-derived data
+        # The data files derived from AppWorld ship encrypted (README.md, AppWorld data).
+        # This restores them to their original paths before anything reads them.
+        run: uv run python scripts/unpack_derived.py
+      - name: Ağ kipi ölçümü
+        # Kararın dayanağı ölçüm, o yüzden ölçüm CI'da da koşuyor: yalıtımın
+        # koşucuda da geçerli olduğu her koşuda yeniden görülüyor.
+        run: |
+          mkdir -p results
+          uv run python scripts/setup/measure_container_network.py
+      - name: Güvenlik testleri
+        # `appworld` işaretli iki test de burada koşuyor: görev verisi ve
+        # uygulama modülleri yukarıda kuruldu. Yedi testin on bir hâlinin
+        # tamamı, her biri korumasız kolu ateşlerken.
+        run: uv run pytest -m sandbox -rs

@@ -1,0 +1,22 @@
+{
+  "ne": "Vekilin telden kurdugu kimlik kayitli tipli kimlikle ayni mi",
+  "kaynak": "results/zihin-2.sqlite",
+  "ceviren_kod": "zihin.api_routes.typed_parameters",
+  "toplam_eylem": 5261,
+  "eslesen": 5261,
+  "eslesmeyen": 0,
+  "eslesme_orani_yuzde": 100.0,
+  "kontrol_kolu_imzasiz_eslesen": 4171,
+  "kontrol_kolu_imzasiz_eslesmeyen": 1090,
+  "kontrol_kolu_notu": "Imzasiz kolda eslesmeyen eylem sayisi, imzadan tur turetmenin kac eylemi kurtardigini soyluyor. Sifir olsaydi olcum hicbir sey sinamiyor olurdu.",
+  "yontem_dagilimi": {
+    "GET": 4242,
+    "POST": 992,
+    "PATCH": 8,
+    "DELETE": 19
+  },
+  "yonteme_gore_eslesmeyen": {},
+  "rotasi_cozulmeyen_eylem": 0,
+  "eslesmeme_sebepleri": {},
+  "ornekler": []
+}

@@ -1,0 +1,134 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# AppWorld verisi ve deney çıktıları.
+# Depoya girmiyor: görev verisi canary damgası taşıyor, ayrıca
+# `appworld download data` ile her temiz kurulumda yeniden üretilebilir.
+data/
+# A bootstrap backed by a cache links `data` instead of creating it, and a
+# symlink is not matched by the `data/` pattern above — the tree then reports
+# itself dirty right after a clean bootstrap. Root-anchored so nothing deeper
+# named `data` is caught by it.
+/data
+experiments/outputs/
+# Test örneği bunun dışında: `data/` kalıbı her düzeydeki data dizinini
+# yakalıyor ve testin çivilediği günlük örneği sessizce depo dışında kalırdı.
+# İçindeki dünya kimlikleri temizlendi (bkz. tests/test_api_routes.py).
+!tests/data/
+
+# Koşu çıktıları. results/ ve pilot/ ağaçta duruyor ama içerikleri
+# koşuya özel; yalnız .gitkeep izleniyor.
+results/*
+!results/.gitkeep
+# Bant taramaları burada kalıyor, çünkü rolleri doğru: bir ölçümün çıktısı.
+# Ama sonraki ölçüm onları GİRDİ olarak okuyor — hangi görevlerin koşacağını
+# seçen dosya bu. İzlenmezlerse taze bir klonda koşu başlamıyor, ve o eksiklik
+# ancak taze ortamda görünüyor. Konumları değil, elenmeleri yanlıştı.
+!results/bant-taramasi.json
+!results/bant-taramasi-anahtar-gocu.json
+# Sunum iskeletinin ve pilot raporunun ATIF VERDİĞİ eserler. Bir belge bir
+# dosyayı kanıt diye gösteriyorsa o dosya depoda olmalı, yoksa atıf yalnız onu
+# üreten makinede çözülür. CI bunu kırmızıyla gösterdi: taze klonda otuz atıfın
+# on sekizi çözülmedi. Kural dar — atıf alan izleniyor, almayan koşuya özel
+# kalıyor — ve `scripts/check_citations.py` ikisini de sınıyor.
+!results/card-arms.json
+!results/card-demo.json
+!results/ci-kapsam.json
+!results/demo-eklenti.json
+!results/pilot-dataset.json
+!results/retriever-discrimination.json
+!results/sandbox-olcum.json
+!results/transparency.json
+!results/wire-identity.json
+# 32B deney ortamının hazırlık ölçümleri: maliyet, tip dağılımı, biriktirme
+# eğrisi. Üçü de karar girdisi ve karar belgeye yazılacak, yani atıf alacaklar.
+!results/compute-cost.json
+!results/task-types.json
+!results/accumulation.json
+# Deney tanımını kapatan üç ölçüm: aralık genişliği, tip dağılımı, naif madenci.
+!results/interval-width.json
+!results/interval-width-action.json
+!results/no-op-example.json
+!results/declared-filters.json
+!results/naive-miner.json
+# Ön kayıttan türetilen geçiş oranı eşiği (K-146).
+!results/pass-threshold.json
+# Staj raporunun atıf verdiği ve önceden eseri olmayan üç sayının eseri.
+!results/failure-index-build.json
+!results/gpt4o-kesisim.json
+!results/recorded-faults.json
+# İki kapanış yolunun fiyatı (K-147).
+!results/stratum-rates.json
+!results/sample-size.json
+# Biriktirme koşusunun defteri ve Colab önyüklemesinin süresi; ikisi de koşu
+# sırasında yazılıyor ve ikisi de atıf alacak (K-150).
+!results/accumulation-ledger.json
+!results/colab-bootstrap.json
+# Staj raporunun atıf tablosunun çözdüğü kalan eserler.
+!results/app-proxy-accuracy.json
+!results/b15l-taramasi.json
+!results/touched-tasks.json
+!results/failure-substrate.json
+!results/mined-skills.json
+!results/retrieval-coverage.json
+# The experiment's declared task order (K-183): the protocol declares it and the
+# driver reads it.
+!results/experiment-order.json
+# The analysis sets, derived from the runner's own slots (K-184).
+!results/experiment-sets.json
+!results/shadow-mode.json
+!results/shield-cost.json
+!results/sinir3-kontrolu.json
+# Eksenin dört ve beşinci noktasının eserleri, biri birleşmemiş bir daldan
+# taşındı (`S-64`).
+!results/b14-taramasi.json
+!results/b32c-taramasi.json
+!results/colab-ortam.json
+pilot/*
+!pilot/.gitkeep
+
+# Kayıt veritabanı ve gözlem dosyaları
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+observations/
+
+# Ortam
+.env
+!results/accumulation-closure.json
+!results/series-3-merge.json
+
+# Editor, OS and notebook leftovers that should never enter the repository.
+.DS_Store
+.ipynb_checkpoints/
+*.log
+.vscode/
+.idea/
+*.swp
+
+# AppWorld-derived data, restored from derived/appworld-derived.bundle by
+# scripts/unpack_derived.py (see PROVENANCE.md).
+/config/recording.yaml
+/inputs/write-set-static.json
+/results/accumulation-closure.json
+/results/card-demo.json
+/results/declared-filters.json
+/results/demo-eklenti.json
+/results/failure-substrate.json
+/results/mined-skills.json
+/results/naive-miner.json
+/results/pilot-dataset.json
+/results/shadow-mode.json
+/results/transparency.json
+/tests/data/api_calls-synthetic.jsonl
+
+# The documentation site: its assembled source and its output.
+/site-src/
+/site/

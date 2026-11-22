@@ -1,0 +1,162 @@
+{
+  "what": "every recorded episode of 0de03ea_1, graded against the no-op baseline",
+  "limitation": "S-77",
+  "cited_by_a5": "demo-0de03ea_1-kart-0de03ea_1-7b",
+  "episodes": [
+    {
+      "series": "zihin-2.sqlite",
+      "run": "demo-0de03ea_1-kart-0de03ea_1-7b",
+      "condition": "skills_failures",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "demo-0de03ea_1-kart",
+      "meaningful_passed": 2,
+      "meaningful_total": 3,
+      "trivial_passed": 1,
+      "trivial_total": 2,
+      "trivial_lost": 1
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "demo-0de03ea_1-taban-0de03ea_1-7b",
+      "condition": "baseline",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "demo-0de03ea_1-taban",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "karsilastirilabilirlik-0de03ea_1-kart-0de03ea_1-7b",
+      "condition": "skills_failures",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "karsilastirilabilirlik-0de03ea_1-kart",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-baseline-0-0de03ea_1-0de03ea_1-7b",
+      "condition": "baseline",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-baseline-0-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-baseline-1-0de03ea_1-0de03ea_1-7b",
+      "condition": "baseline",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-baseline-1-0de03ea_1",
+      "meaningful_passed": 1,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-baseline-2-0de03ea_1-0de03ea_1-7b",
+      "condition": "baseline",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-baseline-2-0de03ea_1",
+      "meaningful_passed": 1,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-cards-0-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-cards-0-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-cards-1-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-cards-1-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-cards-2-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-cards-2-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-irrelevant-0-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures_irrelevant",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-irrelevant-0-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-irrelevant-1-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures_irrelevant",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-irrelevant-1-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    },
+    {
+      "series": "zihin-2.sqlite",
+      "run": "uckol-irrelevant-2-0de03ea_1-0de03ea_1-7b",
+      "condition": "skills_failures_irrelevant",
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "experiment": "uckol-irrelevant-2-0de03ea_1",
+      "meaningful_passed": 0,
+      "meaningful_total": 3,
+      "trivial_passed": 2,
+      "trivial_total": 2,
+      "trivial_lost": 0
+    }
+  ],
+  "carded_episodes": 5,
+  "carded_episodes_that_lost_a_free_test": [
+    "demo-0de03ea_1-kart-0de03ea_1-7b"
+  ],
+  "carded_meaningful_scores": {
+    "demo-0de03ea_1-kart-0de03ea_1-7b": "2/3",
+    "karsilastirilabilirlik-0de03ea_1-kart-0de03ea_1-7b": "0/3",
+    "uckol-cards-0-0de03ea_1-0de03ea_1-7b": "0/3",
+    "uckol-cards-1-0de03ea_1-0de03ea_1-7b": "0/3",
+    "uckol-cards-2-0de03ea_1-0de03ea_1-7b": "0/3"
+  }
+}

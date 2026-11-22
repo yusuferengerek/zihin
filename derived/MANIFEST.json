@@ -1,0 +1,76 @@
+{
+  "appworld": {
+    "commit": "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a",
+    "version": "0.2.0.dev0"
+  },
+  "bundle": "derived/appworld-derived.bundle",
+  "files": [
+    {
+      "bytes": 5525,
+      "path": "config/recording.yaml",
+      "sha256": "23a34c127bc0289c65d1403d36921590450df8eaa2b06a85f4f00ca5f81e6e1e"
+    },
+    {
+      "bytes": 118429,
+      "path": "inputs/write-set-static.json",
+      "sha256": "75838fff5fb93fdbe4c9061e40a646ee72729e4bfbd70881370b75f036635b53"
+    },
+    {
+      "bytes": 9741,
+      "path": "results/accumulation-closure.json",
+      "sha256": "54b03e638dbe58202c6836c90e460e9f1f58e1420eaec10b91503eebd771f1d9"
+    },
+    {
+      "bytes": 13033,
+      "path": "results/card-demo.json",
+      "sha256": "25aff7ddd42633bb3b9cfcd42d219b6cb63c69bffea06eed58a025846e64b80b"
+    },
+    {
+      "bytes": 103444,
+      "path": "results/declared-filters.json",
+      "sha256": "53594e7416dd80cc7bdc1cd63a662ef18789413a066acbe106a3015c712f2205"
+    },
+    {
+      "bytes": 5338,
+      "path": "results/demo-eklenti.json",
+      "sha256": "68cb4cddc5e443849027275bc227421fdd46131c270bdfbcaf01bdf098105dd6"
+    },
+    {
+      "bytes": 1102,
+      "path": "results/failure-substrate.json",
+      "sha256": "95dc0510f415b77e14fc79baa4d565f24aa86188e10ecae3fc47b28afc5e5236"
+    },
+    {
+      "bytes": 30415,
+      "path": "results/mined-skills.json",
+      "sha256": "c699756900db98f930696a4ac7d9472ec456d8eade91184ad74b6207dd19a211"
+    },
+    {
+      "bytes": 3477,
+      "path": "results/naive-miner.json",
+      "sha256": "c2d1c0366f7f53381acd7f746f0cdcfdee1134af50c618a50e5bbf6f1e64d1b5"
+    },
+    {
+      "bytes": 190221,
+      "path": "results/pilot-dataset.json",
+      "sha256": "d2ff34d84fc6d99215a0d709a501f761d3a9e24857c221b01bc6762f3cf9fb44"
+    },
+    {
+      "bytes": 33616,
+      "path": "results/shadow-mode.json",
+      "sha256": "040d005dd7497b0a7bbd29acfda91288f765711f39bc93b997cda306ebbf4b21"
+    },
+    {
+      "bytes": 7079,
+      "path": "results/transparency.json",
+      "sha256": "001f8497febce1c02a104735fbe515e9883f82e99f55e09ba24fa18a404e5577"
+    },
+    {
+      "bytes": 1442,
+      "path": "tests/data/api_calls-synthetic.jsonl",
+      "sha256": "785346f8c108a7fe4a6b3db0711aee7fc652436c264823d1bfb834b4a26e6fa5"
+    }
+  ],
+  "name": "appworld-derived",
+  "packer": "appworld.common.crypto.pack_bundle"
+}

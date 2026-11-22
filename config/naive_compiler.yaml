@@ -1,0 +1,37 @@
+# DÜŞÜRÜLDÜ — K-145, 28 Ağustos 2026. Bu koşul deneye YAZILMADI.
+#
+# Ölçüt koşudan önce ilan edilmişti: iki kütüphane belirgin farklıysa koşul altı
+# koşulun içine girer, aynı becerileri üretiyorsa koşul yazılmaz. Naif madenci
+# aynı korpusta derleyicinin dört becerisinin dördüne de ulaştı; kaçırdığı 0,
+# fazladan bulduğu 0 (`results/naive-miner.json`).
+#
+# Dosya silinmedi çünkü koşulun ne olacağının kaydı; koşulacak bir koşul olarak
+# okunmamalı. Silinip silinmeyeceği bir tasarım kararı ve verilmedi.
+#
+# Koşul: naive_compiler — beceri kütüphanesi naif madenciden geliyor.
+# Derleyici kalitesi kontrolü: skills koşuluyla eşleşiyor, tek fark
+# kütüphaneyi üreten derleyicinin niteliği.
+condition: naive_compiler
+
+skills:
+  source: naive
+
+failures:
+  source: irrelevant
+
+retrieval:
+  mode: symbolic
+  # Declared 25 September 2026 (preregistration A.4, K-175): a skill card must be
+  # expected to save at least one model call. The same in every condition, so no
+  # contrast carries it.
+  min_expected_saving: 1
+
+shield:
+  enabled: true
+
+fill:
+  enabled: true
+
+cards:
+  skill_slots: 5
+  failure_slots: 5

@@ -1,0 +1,213 @@
+decision_id,stage,title,status,supersedes,rationale_summary
+K-01,Ortam ve depo,"Platform WSL2, Ubuntu 24.04",active,,Dört sebep var.
+K-02,Ortam ve depo,WSL bellek sınırı 8 GB,active,,Makinede 15.6 GB var.
+K-03,Ortam ve depo,Ağ kipi şimdilik varsayılan (NAT),superseded,,networkingMode=mirrored köprüyü tek satırda çözerdi ama dışarı yönlü DNS'i bozduğu bilinen durumlar var.
+K-34,Ortam ve depo,Ağ kipi mirrored,active,K-03,"Üç yol vardı, mirrored diğer ikisini gereksiz kıldı."
+K-04,Ortam ve depo,"Özel GitHub deposu, gerçek PR",active,,İki ölçüt de ancak gerçek bir koşucuda doğrulanabilir: CI'nın dördünün yeşil olması ve temiz makinede klonlanıp kurulabilmesi.
+K-05,Ortam ve depo,Python 3.11,active,,AppWorld >=3.11 istiyor.
+K-06,Ortam ve depo,"Bağımlılık yönetimi `uv`, kilit `uv.lock`",active,,"Makinede zaten kurulu, tek ikili dosya, Python sürümünü de kendisi yönetiyor."
+K-07,Ortam ve depo,Aşama 0 bağımlılıkları AppWorld'ü içermiyor,active,,Kural şu: bir aşamanın kabul ölçütü geçmeden sonrakine başlanmaz.
+K-08,Ortam ve depo,Lint aracı `ruff`,active,,Lint ve biçimlendirmeyi tek araçta topluyor.
+K-09,Ortam ve depo,Satır sonları her yerde LF,active,,Aşama 5'in kabul ölçütü bayt bayına aynı prompt istiyor.
+K-10,AppWorld,"AppWorld GitHub `main`, tek bir commit'e sabit",active,,Aşama 5 referans ajan iskelesini değiştirmeden almayı istiyor.
+K-11,AppWorld,Adım tavanının çapası doğrulayıcının beklediği durum değiştiren çağrı sayısı,active,,Yeni çapa kıyaslamanın kendi test tanımından geliyor ve ajan davranışından bağımsız.
+K-43,AppWorld,"Adım tavanı görev başına, tek bir küresel sayı değil",active,,Differansiyel sansür.
+K-44,AppWorld,Normalizasyon tabanı `metadata.num_api_calls`,active,,"Alan 732 görevin hepsinde dolu, hiçbirinde boş değil, ve referans çözümü olan 147 görevde api_calls.json uzunluğuyla birebir tutuyor."
+K-45,AppWorld,Eşzamanlılık ölçülmüş hâliyle: 7B'de tek epizot,active,,K-12 paralel epizot için port başına ayrı sunucu süreci gerektiğini söylüyordu.
+K-46,AppWorld,Künye alanlarının zorunlu-dolu sözleşmesi,active,,Bu alanlar koşu sırasında toplanmazsa sonradan toplanamıyor.
+K-12,AppWorld,"Eşzamanlılık, dünya başına ayrı sunucu süreci",active,,AppWorld motoru ayrı süreçte koşabiliyor.
+K-13,Kayıt şeması,"Gözlem adım düzeyinde, eylem düzeyinde değil",active,,Bağlama giren metin adım düzeyinde bir şey.
+K-14,Kayıt şeması,"`actions` tablosu `api_calls.jsonl` dosyasından, host tarafında",active,,Mimari kural korunuyor.
+K-15,Kayıt şeması,Ham parametreler tam hâliyle saklanıyor,active,,Normalizasyon kuralı değişecek ve projeksiyonun kayıttan yeniden hesaplanabilmesi gerekiyor.
+K-16,Kayıt şeması,Yalnız ekleme tetikleyiciyle zorlanıyor,active,,"Bu bir sözleşme değil, mimari kural."
+K-17,Kayıt şeması,Gözlem boyut sınırı ve disk kotası,active,,"Sessizce kayıt düşürmek, sonradan fark edilmeyen bir veri kaybı üretir."
+K-41,Kayıt şeması,"Kalkanın okuma/yazma yüklemi `method` alanından, on beş istisnayla",active,,Okuma ve yazma ayrımı API dokümanlarındaki method alanında duruyor ve 473 API'nin yüzde yüzünü kapsıyor.
+K-18,Kayıt şeması,"Tanımlayıcılar İngilizce, yorumlar Türkçe",active,,"Tablo ve sütun adları İngilizce, örneğin episodes, run_id ve verifier_results."
+K-36,Kayıt şeması,Adım düzeyi taksonomisi beş kategori taşıyor,active,,"Dördüncüsü ölçüldü: model for playlist in playlists: yazdı, playlists tanımlı değildi, yürütme NameError ile düştü ve hiçbir çağrı sunucuya ulaşmadı."
+K-38,Kayıt şeması,Epizotlar koşullara serpiştirilerek atanıyor,active,,Bloklu koşuda sunucu durumu ile koşul birbirine karışır ve ayırt edilemez.
+K-39,Kayıt şeması,Model yükleme durumu ve sıra numarası epizot başına kaydediliyor,active,,"Yükleme durumu ölçülmüş bir gizli değişken; aynı görev soğuk modelde 19, ısınmış modelde 1 API çağrısı üretti."
+K-40,Kayıt şeması,Çözülmeyen epizot tavanda sansürleniyor,active,,K-36'nın beşinci kategorisi doğrudan bir metrik tehlikesi üretiyor.
+K-19,Model sunumu,`num_ctx` geçirme yolu ve iskeleye dokunmama kısıtının kapsamı,active,,num_ctx Ollama'ya ulaşmazsa varsayılan bağlam penceresi çok küçük kalır ve tasarım sessizce çöker.
+K-20,Model sunumu,"Sıcaklık 0.2, seed deterministik türetiliyor",active,,Sıfır sıcaklıkta seed anlamsızlaşır ve tohumlar arası yayılım ölür.
+K-21,Model sunumu,"`keep_alive` 30 dakika, model değiştirirken açık boşaltma",active,,8 GB VRAM'e üç model aynı anda sığmıyor.
+K-47,Model sunumu,Gereken determinizmin türü,active,,Varyans kestirimimizin kaynağı tohumlar arası yayılım.
+K-48,Model sunumu,"Tekdüzelik tutmazsa ne yapılacağı, şimdiden yazılıyor",superseded,,Bu kural sonuç görülmeden yazıldı.
+K-51,Model sunumu,"Determinizm varsayılmıyor, artık varyans ölçülüyor",active,K-48,Determinizm yoksa tohum yayılımı toplam gürültüyü olduğundan küçük gösterir ve gereğinden fazla gerileme işaretlenir.
+K-49,Model sunumu,"Bir şeyin çalıştığını gördüğünde, doğru sebeple mi çalıştığını ayrıca sor",active,,"Aynı arıza sınıfı kurulum boyunca beş kez tekrarlandı ve beşi de ""yeşil görünen ölçüm"" biçimindeydi."
+K-22,Model sunumu,Ollama sunucusu betikten ve oturumdan bağımsız başlatılıyor,active,,"OLLAMA_KV_CACHE_TYPE ve OLLAMA_FLASH_ATTENTION sunucu sürecine geçmeli, istemciye değil."
+K-37,Model sunumu,"`num_ctx` sunucu tarafında, ama koşu başına doğrulanarak",active,A-05,Bu ayar depo dışında yaşıyor.
+K-23,İskele ve slot,Prompt dosyası depoya kopyalanıyor,active,,Temiz kurulumda tekrarlanabilirlik.
+K-24,İskele ve slot,"Slot konumu yönergelerden sonra, görev talimatından önce",active,,Statik konum prefix cache'i bozmuyor.
+K-25,İskele ve slot,Boş slot bayt bayına aynı prompt üretiyor,active,,Aksi hâlde tokenleştirme değişir ve aynı yörünge ölçütü tesadüfen bozulur.
+K-26,İskele ve slot,İskelenin kendi kesme mantığına şimdilik dokunulmuyor,active,,Referans iskelenin trimmed_messages özelliği eski gözlemleri [NOT SHOWN FOR BREVITY] ile değiştiriyor.
+K-28,Koşul yapılandırması,"`retrieval.mode` getirme yöntemini taşıyor, içerik alakasını değil",active,A-01,Alan artık tek bir soruyu cevaplıyor: getirme hangi yöntemle yapılıyor.
+K-29,Koşul yapılandırması,`fill.enabled` taban dışında bütün koşullarda açık,active,A-02,Kart taşıyan beş koşul görev başına aynı kart sayısını alıyor ve eksik slotlar dolguyla tamamlanıyor.
+K-30,Koşul yapılandırması,`failures.source` üç değer taşıyor,active,A-03,Naif hata indeksi diye bir şey yok.
+K-31,Koşul yapılandırması,İki kritik kontrast,active,,Bu ikisi bozulursa analiz planının tamamı çöker.
+K-27,Aşama ölçütleri ve raporlama,Aşama raporları iki yerde,active,,"PR açıklaması gözden geçirmenin olduğu yer, depo kopyası ise kalıcılık için."
+K-32,Aşama ölçütleri ve raporlama,Temiz makine doğrulaması Aşama 1'de AppWorld dahil tekrarlanıyor,active,,K-07 gereği AppWorld Aşama 0'ın kilidine girmedi.
+K-33,Aşama ölçütleri ve raporlama,Durum ve gözden geçirme dosyaları,active,,"Altı dosya iskelete taslak olarak giriyor: PROJECT_STATUS.md, REPRODUCE.md, PILOT_REPORT.md, docs/10-external-review.tr.md, docs/11-falsification.tr.md ve experiments/decisions.csv."
+K-42,Aşama ölçütleri ve raporlama,Biriktirme havuzu ve değerlendirme örneklemi ön kayda giriyor,active,,Zorluk bölmesi elimizdeki tek gerçekten görülmemiş uygulama verisi.
+K-35,Aşama ölçütleri ve raporlama,Yerel-yalnız kontroller listelenip her birleşmeden önce koşuluyor,active,,Liste tutulmazsa altı hafta sonra o testin en son ne zaman geçtiğini kimse bilmez.
+K-50,Kurulum sonrası sıra,Bağımlılık zinciri ve ön kaydın donma kuralı,active,,Kurulum sonrası iş şu sırayla yürüyor.
+K-52,Kurulum sonrası sıra,Önyükleme biriktirmesi deneyin parçası değil,active,,Aynı epizotlar hem aracı ayarlamak hem de aracın çıktısını ölçmek için kullanılırsa ölçüm kendi ayar kümesinde yapılmış olur.
+K-53,Kurulum sonrası sıra,İki ayrı nicelik: tavana çarpma oranı ve sansür oranı,active,,Tanı ile ölçüt aynı şey değil.
+K-54,Kurulum sonrası sıra,Kategori 4 oranı koşul başına raporlanıyor,active,,Bu kategori mekanizmanın çalışıp çalışmadığını başarı oranından önce gösteriyor.
+K-55,Kurulum sonrası sıra,Güç hesabı çıkarılan nicelik üzerinden,active,,"Ham kazanç, mekanizmanın etkisini modelin görevi bitirme yeteneğinden geçirerek ölçüyor."
+K-56,Kurulum sonrası sıra,"İlgisiz getirme koşulu isteğe bağlı değil, taşıyıcı",active,,"S-19 şu riski işaret ediyordu: mekanizmanın etkisi kartın içeriğinden değil, bağlama fazladan bir metin eklenmesinden gelebilir."
+K-57,Kurulum sonrası sıra,"Önyükleme biriktirmesi durduruldu, önce bant taraması",active,,Beceriler yalnız başarılı epizotlardan madenciliyor.
+K-58,Kurulum sonrası sıra,Ön koşul kapısı: taban çözemiyorsa hipotez test edilmemiştir,active,,"Bütün analiz planı ""çözülmüş görev var"" ön koşulunun üzerinde duruyor: estimand, sansür kuralı, totoloji tartışması, çıkarıcı kontrol, güç hesabı."
+K-69,Kurulum sonrası sıra,"Kalkan okumayı kapsamıyor, ve gerekçesi ölçüldü",active,,Kalkanın birinci aşama yüklemi yalnız yazmayı süzüyor.
+K-149,Kurulum sonrası sıra,Ne gerekirdi: (b) yolunun fiyatı bir sonuç olarak yazılıyor,active,,Ezberleme kapısını menzile sokmanın fiyatı bir ölçüm sonucu olarak kaydediliyor.
+K-206,Kurulum sonrası sıra,Geçmişi yeniden yazma yasağının kapsamı,active,,"""Bu depoda geçmiş yeniden yazılmaz"" kuralı şunları kapsıyor: main, main'e birleşmiş her şey, her etiket, ve herhangi bir kayıt veritabanındaki bir code_commit anahtarının gösterdiği her commit."
+K-205,Kurulum sonrası sıra,"Açık depo ""mind"" bu arşivden bir betikle kuruluyor",active,,Bu depo (zihin) özel kalıyor ve kaydın sistemi olmaya devam ediyor.
+K-204,Kurulum sonrası sıra,"CI, konteyner ve yapılandırma dosyalarındaki Türkçe çevrilmiyor",active,,".github/workflows/ci.yml, Containerfile ve config/.yaml'daki Türkçe ne bu depoda ne açık depoda çevriliyor: CI iş adları, konteyner dosyası ve yapılandırma yorumları."
+K-203,Kurulum sonrası sıra,Birleşen her dal birleşmeden sonra siliniyor,active,,"main'e birleşen her dal, ayrı bir karar beklemeden birleşmeden sonra siliniyor."
+K-202,Kurulum sonrası sıra,"`SKILL_SPEC` düzeltiliyor, kod değil; ölçüleni `skills` tablosu tanımlıyor",active,,skills tablosu ölçümü tanımlayan kodun parçası (src/zihin/schema.sql) ve o kod 4a04e50'de dondu.
+K-201,Kurulum sonrası sıra,`tasarim-katmani` bir arşiv etiketinde tutuluyor; üç dal silindi,active,,K-192'nin ayrı karar beklediği iki dal ve public-readiness için: - ceviri-hazirligi silindi.
+K-200,Kurulum sonrası sıra,Üç giriş belgesi çevriliyor; kalan Türkçe belgeler README'lerde listeleniyor,active,,"REPRODUCE.md, DATA_MODEL.md ve SKILL_SPEC.md İngilizceye çevriliyor."
+K-199,Kurulum sonrası sıra,README'lerin durum bölümü ve proje durumu bugüne çekildi,active,,İki README'nin durum bölümü bugünü anlatıyor: - Birincil hücre qwen2.5-coder:32b-instruct-q4_K_M'ye ve Colab A100'e taşındı; aynı otuz görevde 11/30.
+K-198,Kurulum sonrası sıra,Yönteme ait model adları ve vendored AppWorld wheel'leri kalıyor,active,,"Şunlar olduğu gibi kalıyor: - Dış incelemede danışılan modellerin adları (docs/10-external-review.tr.md, satır 32, 35, 70, 75)."
+K-197,Kurulum sonrası sıra,"Staj raporu bu depoda kalıyor, açık kopyadan çıkarılıyor",active,,docs/13-internship-report.tr.md ve docs/13-internship-report.en.md bu depoda kalıyor.
+K-196,Kurulum sonrası sıra,Commit yazar kimlikleri olduğu gibi kabul edildi,active,,Geçmişteki yazar kimlikleri kabul edildi: dört kişisel kimlik ve Colab koşucusunun kimliği.
+K-195,Kurulum sonrası sıra,Kişisel ve makineye özgü yollar olduğu gibi kalıyor,active,,Denetimin bulduğu yolların hiçbiri düzenlenmiyor: - config/models.yaml satır 55 dahil.
+K-194,Kurulum sonrası sıra,"Kayıt veritabanları yalnız şifreli bir sürüm eki olarak, AppWorld'ün yöntemiyle",active,,"Dört kayıt veritabanı yalnız şifreli bir sürüm eki olarak yayımlanıyor: - zihin.sqlite - zihin-2.sqlite - zihin-3.sqlite - facd233'teki b1ceb78 blob'undan geri alınan results/zihin-3-colab.sqlite Bağlayan şart, AppWorld'ün data/LICENSE dosyasından harfi harfine: > The contents of this folder are part of the protected portion of AppWorld, released as > an encrypted .bundle file under the Apache 2.0 license with the additional requirement > that any public redistribution of it (or of its derivatives) must also be done in an > encrypted format."
+K-193,Kurulum sonrası sıra,AppWorld türevleri kimlik ve sha256 ile değiştirildi; rota testinin örneği bir train görevinden,active,,- (a) results/demo-eklenti.json satır 71'deki test yönergesi yerine görev kimliği ve sha256 kondu (S-78).
+K-192,Kurulum sonrası sıra,Birleşmiş 56 uzak dal siliniyor; iki dal ayrı karar bekliyor,active,,"main'e birleşmiş 56 uzak dal, bu temizliğin PR'ı birleştikten sonra siliniyor."
+K-191,Kurulum sonrası sıra,`colab-sonuclari` dalı siliniyor,active,,"Uzak colab-sonuclari dalı, bu temizliğin PR'ı birleştikten sonra siliniyor."
+K-190,Kurulum sonrası sıra,PR #1 için GitHub'a başvurulmuyor,active,,Kapalı PR #1'in başı (refs/pull/1/head) bu depoda kalıyor.
+K-189,Kurulum sonrası sıra,Bu depo özel kalıyor ve kaydın sistemi; açık depo main'in süzülmüş bir kopyasından,active,,Bu depo özel kalıyor ve kaydın sistemi olmaya devam ediyor.
+K-188,Kurulum sonrası sıra,Deney iki fazda; `Y-6.2` faz 1'de `skills_failures` ile; `Y-1` kapsanan görevlerde,active,,"Ön kayda üç ilan girdi, hepsi 26 Eylül tarihli ve ilk dny epizodundan önce."
+K-187,Kurulum sonrası sıra,"Deneyin şartlar bölümü: her satır okunuyor, her satır kaynağıyla karşılaştırılıyor",active,,"Kurulum protokolüne iki bölüm girdi, iki dilde."
+K-186,Kurulum sonrası sıra,Kısmi okuma yasağı ve dilimlerin karşılaştırılabilirliği makineyle,active,,Tam küme bitmeden hiçbir onaylayıcı yorum yapılmıyor.
+K-185,Kurulum sonrası sıra,"Deneyin sürücüsü: dilim, durma kuralı, `dnyk` ön kontrolü, havuzlanmış özet",active,,scripts/run_experiment.py dny --tasks N faz 1'i koşuyor.
+K-184,Kurulum sonrası sıra,Analiz kümeleri koşucunun kendi slotlarından türetiliyor,active,,Her onaylayıcı kontrastın okunduğu görev kümesi elle yazılmıyor.
+K-183,Kurulum sonrası sıra,"Görev sırası ilan edilmiş bir tohumdan, dosyada, yeniden üretilerek sınanıyor",active,,"Önceki dilim görüldükten sonra seçilen görev, sonuca göre seçilmiş bir görevdir."
+K-182,Kurulum sonrası sıra,Deney epizodu nereye ait olduğunu kendi işleminde yazıyor; koşucu donuyor,active,,Kayda iki tablo girdi.
+K-181,Kurulum sonrası sıra,Eşleşemeyen görevde kol eksik koşar ve işaretlenir; beş koşul tek seçimden,active,,"K-179'un ""koşmuyor"" hükmü benim seçimimdi."
+K-180,Kurulum sonrası sıra,Deneyin komutu `--allow-dirty-tree` taşıyamaz,active,,"A.9'un sıfır bütçesi ""değişiklik koşuyu durdurur"" diyor ve bunu zorlayan kapılardan biri kirli ağaç kapısı; bu bayrak kapıyı atlıyor."
+K-179,Kurulum sonrası sıra,Kart sayısı iki kolda eşit; eşleşemeyen görevde kontrol kolu koşmuyor,active,,"A.4 görev başına eşit kart sayısı istiyor; yeni kontrol kolu çoğu görevde kartlı koldan fazla kart verebiliyordu, iki görevde az."
+K-178,Kurulum sonrası sıra,Deney sınırı `dny` öneki; ölçüm olmayan deney koşuları `dnyk`,active,,Kural sınır bilmiyordu; deneyin ilk epizodu bir değerlendirme görevine dokunduğu anda liste reddedilirdi.
+K-177,Kurulum sonrası sıra,Ayar bütçesi sıfır; ön kaydın Bölüm A'sı donmuş,active,,"Bütçe sayısı yokken ""tükendi"" hükmü verilemiyordu ve A.9'un kuralı işlemiyordu; Bölüm A bu yüzden donmuş sayılmıyordu."
+K-176,Kurulum sonrası sıra,"Alakasız kol yalnız alakada farklı: aynı süzgeçler, hata kartları dahil",active,,Kontrol kolu yalnız alakada farklı olmalı.
+K-175,Kurulum sonrası sıra,`min_expected_saving = 1`: bir beceri kartı en az bir model çağrısı kazandırmalı,active,,"Metriğin tanımından: birincil metrik model çağrısı, ve bir beceri en az bir çağrı kazandırmalı."
+K-174,Kurulum sonrası sıra,Aralık genişliği taraması eylem tabakasında; havuzlanmış tablo süperseded,active,,Tarama tabakalamadan (K-144) önce yazılmıştı ve birincil tahminin okunmadığı bir örneklemi anlatıyordu (ön kayıt A.6'nın 25 Eylül düzeltmesi).
+K-173,Kurulum sonrası sıra,Colab önyüklemesi Drive'daki seriyi doğruluyor; bulamazsa ya da tutmazsa duruyor,active,,Kullanıcı yerel birleşik dosyayı Drive'a kopyalayacak; kopyanın doğru dosya olduğunu insanın gözü değil önyükleme söylemeli.
+K-172,Kurulum sonrası sıra,Seri 3'ün birleşme doğrulaması sürekli bir denetim oldu,active,,"Birleşmenin kendi doğrulaması bir kez koştu (S-74), ve bir kez koşan bir denetim koşmamış sayılır."
+K-171,Kurulum sonrası sıra,"`run_ledger` gerçek kayda hiç girmemişti; göç uygulandı, ön koşul denetimi soruyor",active,,Seri 3 zihin.records.open_database üzerinden bir kez açıldı ve şemanın kendi CREATE TABLE'ı run_ledger'ı kısıtlarıyla birlikte kurdu.
+K-170,Kurulum sonrası sıra,Kapsam dışı iki iş kuyruğa alındı; dil denetiminin kapsamı bir sınırlama,active,,Kullanıcının kararı: ikisi de bu turun kapsamı dışında.
+K-169,Kurulum sonrası sıra,Birincil hücrenin modeli 32B; keşifsel etiket yalnız seçime bağlı,active,,"Birincil hücre fiilen 32B'ye taşınmıştı — biriktirme 32B'de koştu, kütüphane onun epizotlarından — ama depoda bunu ilan eden bir ek yoktu."
+K-168,Kurulum sonrası sıra,"(b) yolunun fiyatı bir nokta değil, bir aralık",active,,"28 Ağustos'un listesi ve kaydıyla, yalnız bootstrap tohumunu bir kaydırmak manşeti %20/%30/%50 için 500/500/500'den 623/ulaşılamaz/400'e taşıdı."
+K-167,Kurulum sonrası sıra,Aşağı akış birleşik kayıtla yeniden üretildi; örneklem ölçümü sayı kopyalamıyor,active,,"Üç sayı başka ölçümlerin kopyasıydı: PASS_RATE = 0.280, current_sample: 105 ve 623'te biten boy ızgarası."
+K-166,Kurulum sonrası sıra,Dokunulan görev listesi kayıttan üretiliyor ve okunduğu yerde denetleniyor,active,,Liste bir kez elle yazılmıştı ve kayıttan dört görev geride kaldı; dördü de değerlendirme örneklemindeydi.
+K-165,Kurulum sonrası sıra,Seri 3'ün yerel yarısı kayda geri kondu; bölünme bir sınırlama olarak yazıldı,active,,K-139'un kuralı çiğnenmişti ve çiğnendiği ölçüldü: 13 Eylül'den beri depodaki kayıt dört tarama eserinin kendi database alanında adlandırdığı önekleri taşımıyordu.
+K-164,Kurulum sonrası sıra,Biriktirme üçüncü bir dalla kapandı: duran şey aletin kendisi,active,,"İlan edilen iki dalın ikisi de ateşlemedi ve koşu yine de durdu; durduran şey ölçüt değil, ölçüm aracıydı."
+K-163,Kurulum sonrası sıra,Duran koşu sayıldı; ilan edilen destek eşiği bu korpusta kapanmıyor (K-104),active,,"K-158'in karar ağacı: bir nöbetçi bütçe ise yükseltilir; yükseltilince yine bağlıyorsa ya da yararlı sürede bitmiyorsa, artık bütçe sorusu değildir."
+K-162,Kurulum sonrası sıra,Koşunun durumu iki depoya bölünmüştü; A dalı bir kez bile değerlendirilmedi,active,,"Colab her oturumda checkout'u yeniden klonluyor; kayıt Drive'a sembolik bağlı, defter değildi."
+K-161,Kurulum sonrası sıra,Elli yedi uzun örüntü bir öğe-başına-çağrı döngüsü; derinlik tavanı 256'lık bir bütçe,active,,"Taze kayıtta (15:42; 29 geçen, 1102 çağrı, alfabe 43) tavan 12'de 105 örüntü ve 57 uzayabilen örüntü; 64'te de bağlıyor; 128, 256 ve 512 bağlamıyor ve üçü aynı 68 örüntü, aynı 9 beceri."
+K-160,Kurulum sonrası sıra,"Süpürme 0 doksanın seksen dokuzu: iki sayım hatası, ve tavanın tesisatı",active,,Çıktı [29/30]'da kesildi ve [30/30] yoktu.
+K-159,Kurulum sonrası sıra,Korpus kuralı: model etiketi VE bölme; nöbetçiyi bağlayan dizi sızıntıydı,active,,"İlan ""modelin kendi epizotları"" diyordu; madenci dosyadaki her geçen epizodu okuyordu."
+K-158,Kurulum sonrası sıra,Madencinin nöbetçisi kendini adlandırıyor; okuduğu korpus ilan edilen değil,active,,"""The search hit a guard and the result is incomplete"" cümlesi bir turu Colab'a geri gönderdi ve düğüm bütçesi ile derinlik tavanı arasında, ya da kıl payı ile patlama arasında seçim yapacak hiçbir bilgi taşımıyordu (K-125)."
+K-157,Kurulum sonrası sıra,Koşucunun her yazması listelendi; ön kontrol bir sağlık kontrolü,active,,Üç yeniden başlatma üç ayrı devam arızası verdi ve üçü de ancak koşarak bulundu; hiçbir test koşucuyu iki kez başlatmamıştı.
+K-156,Kurulum sonrası sıra,"Blok sınırı: eşikler ilan edilmemişti, sınır oturumdan sayılıyordu",active,,"--dry-run epizot harcamadığı için blok sınırına hiç ulaşmıyor; madencilik çağrısı ilk kez Colab'da, altmış epizot yazıldıktan sonra koştu."
+K-155,Kurulum sonrası sıra,"Devam epizot düzeyinde kurulmuştu, künye düzeyinde değil",active,,"İki şeyin uyuşması gerekiyordu ve yalnız biri devam-farkında yapılmıştı; unutulanı, Colab'ın oturumu geri aldığı ilk anda koşuyu tamamen durdurdu."
+K-154,Kurulum sonrası sıra,"Defterin hücre hücre denetimi: on iki arıza, tek sınıf, ve nöbetçisi",active,,"Nöbetçisi olmayan eser, arızası ancak koşarak bulunan eserdir; bu defterde her biri bir Colab oturumuna mal olan beş tur bunu ölçtü."
+K-153,Kurulum sonrası sıra,"Yetenek eklendi, çağıran öğretilmedi; ve ""önek yok"" artık bir cevap değil",active,,"Bir yeteneğin eklenmesi kullanıldığı anlamına gelmiyor, ve bunu söyleyen şey bir test olmalı."
+K-152,Kurulum sonrası sıra,"Temiz kurulumun çıkardığı üç arıza: özne, taban, ve eksik bir satır",active,,"Üç arıza da düzeltildi ve üçünün de sebebi düzeltmeden önce ölçüldü: ön koşul denetimi gereksinimi koşu tipine bağlıyor, check_language'in tabanı boyuttan özneye taşındı, ve GIT_ASKPASS süreç ortamına yazılıyor."
+K-151,Kurulum sonrası sıra,"Klonlanacak dal tek yerde, ve bayat bir kopya kendini söylüyor",active,,Colab defterinin çektiği dal main.
+K-150,Kurulum sonrası sıra,"Biriktirme koşusu koşudan önce ilan edildi, ve durma kararı deftere bakıyor",active,,"Biriktirme koşusunun şartları, durma ölçütü ve yorumu experiments/setup-protocol.tr.md §18'de, koşu başlamadan yazıldı."
+K-148,Kurulum sonrası sıra,"Onaylayıcı küme daraltıldı: iki kapı yönsel oldu, koşudan önce",active,,Güç sorununun üç kapanış yolundan (c) seçildi: hangi ayrımların onaylayıcı sayılacağı daraltılıyor.
+K-147,Kurulum sonrası sıra,İki kapanış yolu fiyatlandırıldı; yorum önceden yazılmıştı ve ateşledi,active,,"Güç sorununun üç kapanış yolundan ikisi ölçüldü, üçüncüsü bedava."
+K-146,Kurulum sonrası sıra,"Geçiş oranı eşiği seçilmedi, ön kayıttan türetildi",active,,Eşik ne benim ne kullanıcının seçtiği bir sayı.
+K-145,Kurulum sonrası sıra,"Naif madenci ölçütü koştu: koşul yazılmıyor, ve sebebi yazılıyor",active,,naive_compiler koşulu yazılmıyor.
+K-144,Kurulum sonrası sıra,"Cevap tipi görevler çıkarılmıyor, tabakalanıyor",active,,"İki tabakada doğrulayıcı aynı güçte değil: - Cevap tipi görevlerin hepsinde ""hiçbir model değişmedi"" iddiası var, ve o testi hiçbir şey yapmayan bir ajan tanım gereği geçiyor."
+K-143,Kurulum sonrası sıra,Kütüphanenin yeri açık bir sabit; koşunun yazdığı yer değil,active,,"ACTIVE_SERIES ""koşu nereye yazıyor"" sorusunun cevabı ve bir seri şema sebebiyle açılıyor — ALTER TABLE'ın ekleyemediği bir CHECK kısıtı yüzünden (S-29)."
+K-142,Kurulum sonrası sıra,Atıf alan eser izleniyor; atıf ancak çözülebiliyorsa atıftır,active,,"Bir belge bir dosyayı kanıt diye gösteriyorsa, o dosyayı yalnız üreten makinede bulmak kanıt değil."
+K-141,Kurulum sonrası sıra,"PR #49 dört yığılı PR'a bölünüyor, tarih yeniden yazılmadan",active,,On dokuz Ağustos'tan yirmi altı Ağustos'a kadar biriken otuz beş commit tek bir PR olarak birleşmiyor.
+K-140,Kurulum sonrası sıra,"Kendi tarihini yazan her ek, onu yazan commit'le karşılaştırılıyor",active,,"""Koşudan önce ilan edildi"" bir zaman iddiası, ve onu ancak kayıt çözer."
+K-139,Kurulum sonrası sıra,"Başka bir makineden gelen kayıt önce doğrulanıyor, sonra seriye katılıyor",active,,Bu deponun bütün disiplini her sayının onu üreten commit'le birlikte gezmesi.
+K-138,Kurulum sonrası sıra,"Doğru koşan ama yanlış özne üzerinde koşan bir denetim, düşen denetimden kötüdür",active,,"Colab'da önyükleme 14B çekti, ölçüm 32B istedi."
+K-137,Kurulum sonrası sıra,"Eksene beşinci nokta: 32B, ve bu kez açılan bir kilit yok",active,,qwen2.5-coder:32b-instruct-q4_K_M ölçek eksenine beşinci nokta olarak giriyor.
+K-136,Kurulum sonrası sıra,"İlan edilen koşul, koşunun okuduğu yerden verilir; ve bir denetim ikisini karşılaştırır",active,,"S-58 iki kez ""koşul göreli yazıldı"" diye kapandı ve mutlak yazmaya geçildi."
+K-135,Kurulum sonrası sıra,"Aynı şeyi iki yerde çözmek, iki cevap demek; ve yerelde ikisi kazara aynı çıkıyor",active,,Sunucu günlüğünün yolu iki yerde ayrı çözülüyordu.
+K-134,Kurulum sonrası sıra,"Dizin rol ilan eder; bir girdi çıktı dizininde durmuyor, ve üçüncü kez aynı sınıf",active,,write-set-static.json results/ altındaydı.
+K-133,Kurulum sonrası sıra,"Ölçek ekseni 14B ile bir nokta yukarı taşınıyor; açılan kilit yerel donanım, aile değil",active,A-06,qwen2.5-coder:14b-instruct-q4_K_M ölçek eksenine dördüncü nokta olarak giriyor.
+K-132,Kurulum sonrası sıra,"Bir nöbetçiyi uydurma girdiyle sınamak, o girdiyi üreteni sınamıyor",active,,require_colab_environment.py dört durumda yerelde sınanmıştı ve dördünde de doğru davrandı — ama dört durum da elle yazılmış JSON'du.
+K-131,Kurulum sonrası sıra,"""Belirlenemedi"" bir ""hayır"" değil",active,,"Colab ortam ölçümü fully in VRAM: False, resident: None yazdı ve koruma bunu ""yerleşik değil"" diye okudu."
+K-130,Kurulum sonrası sıra,Ön koşullar önden ve topluca soruluyor; arıza olmadan eksik kendini adlandırıyor,active,,"Colab önyüklemesi beş turda beş ayrı eksik ön koşulda düştü: jetonsuz klon, yukarı akış LFS bütçesi, boş veri önbelleği, yanlış Python ortamı, zstd."
+K-129,Kurulum sonrası sıra,"Bir paketin var olması, doğru ortamda var olması değil",active,,"Colab'da yansı tekerlekleri kuruldu ve kullanılamadı: uv pip install Using Python 3.12.13 environment at: /usr dedi, yani appworld sistem yorumlayıcısına gitti, geri kalan 110 paket ise .venv'de kaldı."
+K-128,Kurulum sonrası sıra,"Koşmayan bir adım, geçen bir adım gibi görünmüyor; ve kuran adımlar denetleyenlerden önce koşuyor",active,,Colab önyüklemesi D adımında düştü.
+K-127,Kurulum sonrası sıra,"Bir kabın varlığı, içeriğinin varlığı değil",active,,"Önyüklemenin veri adımı [ -d ""$DATA_CACHE"" ] diye soruyordu: önbellek dizini var mı."
+K-126,Kurulum sonrası sıra,"Yukarı akış erişilemez olduğunda depodaki yansıdan kuruluyor, ve yansı sessiz değil",active,,"Sabitlenen AppWorld commit'i yukarı akıştan kurulamadığında, aynı commit'ten üretilmiş iki tekerlek vendor/appworld/ altından kuruluyor."
+K-125,Kurulum sonrası sıra,"Aynı çıkış kodunu veren birden çok sebep varsa, gösterilecek şey kod değil aracın kendi cümlesi",active,,"Colab defterinin klon adımı subprocess.run(..., check=True) ile koşuyordu."
+K-124,Kurulum sonrası sıra,"Sır komut satırına girmiyor, çünkü hata izi komut satırını basıyor",active,,Defterin klon adımı jetonu https://x-access-token:JETON@github.com/...
+K-123,Kurulum sonrası sıra,Bildirilen belirti ile ona iliştirilen sebep ayrı şeyler; damga yalnız belirtinin,active,,Colab'ın ilk denemesinde defter GitHub'dan açılmadı ve 404 geldi; bu gözlemdi.
+K-122,Kurulum sonrası sıra,"Başka bir ortama gidecek bir adım, yerelde ortamın kolaylıkları söküldükten sonra sınanıyor",active,,Colab defterinin klonlama adımı özel depoyu jetonsuz klonluyordu ve orada düştü: fatal: could not read Username for 'https://github.com'.
+K-121,Kurulum sonrası sıra,"Kullanıcıya özgü yollar yapılandırmada, gerekçe gizlilik değil tekrarlanabilirlik",active,,REPRODUCE.md bir teslim maddesi ve talimat niteliğinde.
+K-120,Kurulum sonrası sıra,Geçmiş yeniden yazılmıyor: ölçüm kişisel içerik olmadığını gösterdi,active,,Talimat kişisel içeriğin silinmesiydi.
+K-119,Kurulum sonrası sıra,Yarım kalan iş oturum sonunda dala commit'leniyor,active,,Bir önceki turda itilmemiş bir commit kayboldu ve PR onsuz birleşti (K-116).
+K-118,Kurulum sonrası sıra,Kümeye bakmak üyeye bakmanın yerine geçmiyor,active,,"Üç ölçüm koşucusundan measure_band devam korumasını taşımıyordu, measure_rule_off ön kontrolü taşımıyordu, ve measure_boundary_control ikisini de taşıyordu."
+K-117,Kurulum sonrası sıra,Bir denetimin cevabı ortama bağlıysa denetim değil,active,,1.
+K-116,Kurulum sonrası sıra,"CI'ın yeşil olduğu değil, hangi commit'te yeşil olduğu doğrulanıyor",active,,Denetim süpürmesinin commit'i (7feb45c) itilmedi.
+K-115,Kurulum sonrası sıra,"Koruma gerektiren türler sayılıyor, ilan edilen korumalar değil",active,,Düzyazı taraması üç ölçüm koşucusu tanıyordu.
+K-114,Kurulum sonrası sıra,"Bir denetimden söz ederken soru ""şartnamede var mı"" değil ""bağlı mı""",active,,"Protokol ve tasarım belgelerinde ilan edilen her denetim, CI ve local_checks.sh içinde gerçekten bağlı olanlara karşı tarandı (docs/reports/denetim-bosluk-raporu.md)."
+K-113,Kurulum sonrası sıra,"Bir denetim ölçekte de sınanıyor, ve sessiz arıza biçimi adlandırılıyor",active,,"Çeviri çapası denetimi sekiz belgede kuruldu, dördü gerçek dört uyuşmazlık buldu, ve doğru çalışıyor göründü."
+K-112,Kurulum sonrası sıra,"Denetlenecek alan yoksa denetim atlamıyor, düşüyor",active,,Belge eş denetimi üç kategoriyle kuruldu ve üçüne de girmeyen bir belgenin kontrolü düşürmesi bilerek yazılmıştı.
+K-111,Kurulum sonrası sıra,"Çeviri çapaları sayıyla karşılaştırılıyor, kümeyle değil",active,,Mekanik çeviri bu depoda üç kez gömülü bir adı düşürdü.
+K-110,Kurulum sonrası sıra,Kapanış artığı ya kayda dönüşüyor ya da kayda gerek olmadığı yazılıyor,active,,S-36 kapatılırken artık adıyla yazılmıştı: kayıtta hiç görülmemiş bir yol/yöntem çifti sınanmadı.
+K-109,Kurulum sonrası sıra,"Her açık sınırlama kapanma sınıfını taşıyor, ve ölçüt işin kimin elinde olduğu",active,,Kapanma turunda otuz üç madde üç ölçütle süpürüldü ve sonuç PR gövdesinde üç sınıf hâlinde raporlandı.
+K-108,Kurulum sonrası sıra,"Türetilmiş bir görünümün şekli, girdilerinin üzerinde bir kontroldür",active,,Sınırlama haritası önce sınırlama anahtarlıydı: her kaydın hangi iddiayı kısıtladığı.
+K-107,Kurulum sonrası sıra,"Her sınırlama bir iddia eksenine yerleşiyor, ve ölçüt iddianın adı",active,,docs/09-limitations içindeki her açık kayıt iki sınıftan birine giriyor.
+K-106,Kurulum sonrası sıra,Hiçbir şeyi değiştirmeyen bir düzenleme arızadır; biçimlendirici dize eşleşmelerini bayatlatır,active,,"readme_problems fonksiyonu yazıldı, check_docs_parity.py içine kondu, ve main içinden çağrılması için bir replace yazıldı."
+K-105,Kurulum sonrası sıra,"Belgelerde tek adlandırma şeması, ve README'nin ayrı ele alınışı",active,,Dosya adı da bir tanımlayıcı ve bu depoda tanımlayıcılar İngilizce (K-102).
+K-104,Kurulum sonrası sıra,"Her önceden ilan tablosunun bir ""hiçbirine uymuyor"" dalı var",active,,"Üç kollu kart koşusunun yorum tablosu üç satır taşıyordu: alakasız kol kartlıya yakın, kartsıza yakın, ya da arada."
+K-103,Kurulum sonrası sıra,Karar girdilerinin başlık kümesi şemaya karşı doğrulanıyor,active,,K-102 yazılırken başlık Gerekçe ölçüldü.
+K-102,Kurulum sonrası sıra,PR raporu yeni modül adlarını ve public tanımlayıcıları listeliyor,active,,Dil kuralı tanımlayıcıların İngilizce olmasını istiyor ve kural yeniden adlandırma turundan önce kondu.
+K-101,Kurulum sonrası sıra,Aile taraması iptal; ölçüm silinmiyor,active,,"Aile kilidi sınır kontrolünden sonra yeniden açılmıştı: düzenek doğrulandı, sıfırlar modelden geliyordu, ve daha yeni bir aile aynı boyutta daha yetenekli olabilirdi."
+K-100,Kurulum sonrası sıra,CI `appworld install` ve veriyi kuruyor; bedeli ölçüldü,active,,S-49'da kırk beş testin CI'da hiç koşmadığı ortaya çıkmıştı ve çözüm testleri işaretleyip elemekti — yani gereksinimi görünür kıldı ama kapsamayı kapatmadı.
+K-99,Kurulum sonrası sıra,"Test işaretleri bağımlılığa göre, ve CI simülasyonu standart ön kontrolün parçası",active,,"S-49'da kırk beş test CI'da kırıldı çünkü gereksinimleri işaretlerinde yazmıyordu; o turda CI ortamını yerelde yeniden üreten bir simülasyon elle kuruldu, işe yaradı ve silindi."
+K-98,Kurulum sonrası sıra,"Bir koşu, başlattığı şeyle konuştuğunu doğrulamadan sayılmaz",active,,"Artakalan bir durum üç kez yanlış yeşil üretti: mutasyon betiği kirli zeminde koştu, doğrulama aleti bayat dosya okudu, ve madde 8'de konteyner hiç başlamadığı hâlde epizot artakalan bir ortam sunucusuna koşup temiz göründü."
+K-97,Kurulum sonrası sıra,"Sandbox güvenlik testleri beşinci CI kontrolü, mevcut test işinin içine girmiyorlar",active,,İki sebep.
+K-96,Kurulum sonrası sıra,"Şeffaflık testi üç kollu, referansı tekrar kararlılığı ölçülmüş bir epizot",active,,"İki değişiklik aynı anda iniyor: taşıma katmanı süreç içi ASGI'den gerçek HTTP'ye geçiyor, ve araya vekil giriyor."
+K-95,Kurulum sonrası sıra,Konteynerin tek kanalı salt okunur bağlanan bir unix soket; yönetim rotaları vekilde yapısal olarak kesiliyor,active,,Şart şu: konteyner tam olarak tek host portuna ulaşsın.
+K-94,Kurulum sonrası sıra,"Günlükler epizot sonunda `podman cp` ile alınıyor, yazılabilir bağlama yok",active,,AppWorld'ün kendi docker tasarımı experiments/outputs dizinini yazılabilir bağlıyor.
+K-93,Kurulum sonrası sıra,"Sunulan kipte durum sondası HTTP üzerinden yapılıyor, iki ölçütlü kural korunuyor",active,,"Sunulan kipte world.models None oluyor, state_probe.snapshot {} dönüyor ve diff({}, {}) de {} dönüyor — None değil."
+K-92,Kurulum sonrası sıra,Vekil parametre tipini AppWorld'ün kendi rota imzasından türetiyor,active,,"K-63'ün tekniğinin aynısı, yalnız yol parametresi yerine sorgu parametresine uygulanmış hâli: orada path_regex yolu çözüyor, burada rotanın alanları değeri çeviriyor."
+K-91,Kurulum sonrası sıra,"Demoda ayrıştırma ile kullanma ayrı ölçülüyor, ve kullanım ölçümü eşleştirilmiş taban gerektiriyor",active,,Model kartı ayrıştırabilir ve yine de yok sayabilir.
+K-90,Kurulum sonrası sıra,"Karakter tavanı bizim parametremiz: künyeye giriyor, montajcının bütçesi karakterle yazılıyor",active,,S-47 bağlayıcı bağlam sınırının jeton penceresi değil iskelenin karakter tavanı olduğunu gösterdi.
+K-89,Kurulum sonrası sıra,"Pilotun sayıları tek veri dosyasında, rapor ona atıf veriyor",active,,"Sayılar sekiz ayrı ölçüm çıktısında, sekiz ayrı günde üretildi."
+K-88,Kurulum sonrası sıra,"Bağlam maliyeti ölçüldü; bağlayıcı sınır jeton penceresi değil, iskelenin karakter tavanı",active,,Bağlam montajcısının girdisi olan üç sayı ölçüldü ve 03-architecture.tr.md'deki ölçülmemiş iddia düzeltildi.
+K-87,Kurulum sonrası sıra,"Kart biçimi kilitlendi: yedi alan, beş alan, ve okuma anında filtrelenen alan karta basılmıyor",active,,"Kart jeton bütçeleri — beceri kartı ≤180, hata kartı ≤120 — ve alan sayıları şartnamede sayı olarak duruyordu ama hiçbir kart biçimi depoda yazılmamıştı: getirici kart nesnesi döndürüyor, basılmış hâli yoktu."
+K-86,Kurulum sonrası sıra,"Getirici uygulamayı sembol alıyor, ve altyapıyı kalkandan farklı ele alıyor",active,,Sembolik eşleşmenin sembolü uygulama.
+K-85,Kurulum sonrası sıra,"İndeks her şeyi kökeniyle saklıyor, getirici okuma anında filtreliyor",active,,1.
+K-84,Kurulum sonrası sıra,"İki mekanizma aynı darboğazı hedefliyor, toplanabilirlik muhtemelen tutmayacak",active,,Ayna bulgusu.
+K-83,Kurulum sonrası sıra,"Koşul dili kapalı kalıyor; argüman şekli kalıbın parçası, koşulun değil",active,,Dile dördüncü bir biçim eklenmiyor.
+K-82,Kurulum sonrası sıra,"Beklenen tasarruf model çağrısıyla ölçülüyor, API çağrısıyla değil",active,,"Bu projenin birincil metriği model çağrısı, bir adım bir model çağrısı, ve beceri tek adımda çağrılıyor."
+K-81,Kurulum sonrası sıra,"Boşluk parametresi verime göre değil, yürütülebilirliğe göre seçiliyor",active,,Boşluk madencilik ile yürütme için farklı anlam taşıyor.
+K-80,Kurulum sonrası sıra,"`complete_task` beceri gövdesinden de çıkarıldı, yalnız etki sonekinden değil",active,,Gövdesinde complete_task olan bir beceri çağrıldığında epizodu sonlandırır.
+K-79,Kurulum sonrası sıra,Son koşul yalnız tek çağrılı adımlardan okunuyor,active,,On bir çağrı yapmış bir adımda farkın hangi çağrıdan geldiği bilinemez.
+K-78,Kurulum sonrası sıra,"Kalkan ile derleyici ""etki"" sorusunu ayrı ayrı yanıtlıyor",active,,İki ölçüt ayrıldı.
+K-77,Kurulum sonrası sıra,Belge çevirisi mekanizma pilotunun koşuları sırasında yapılacak,active,,Pilot koşuları saatler sürecek ve çeviri ölçümü belirleyen yollara dokunmuyor.
+K-76,Kurulum sonrası sıra,Kirli ağaç kapısı ölçümü belirleyen yollara daraltılıyor,active,,"Kapı bugün bütün ağaca bakıyor, yani bir koşu sürerken hiçbir dosyaya dokunulamıyor — belgeye, rapora, ilgisiz bir betiğe de."
+K-75,Kurulum sonrası sıra,Salt okuma örüntüleri beceri kütüphanesine girmiyor,active,,"Birleştirme kuralı etki sonekine bakıyor; boş sonekler birbirine eşit, dolayısıyla bütün salt okuma örüntüleri tek beceriye çöker ve kural bir ayrım aracı olmaktan çıkar."
+K-74,Kurulum sonrası sıra,"Yazma kümesinde yöntem karar veriyor, gövde taraması yalnız GET'e kalıyor",active,,"Bir DELETE ucunun durum değiştirmesi kaza değil, protokolün anlamı."
+K-73,Kurulum sonrası sıra,Künye kalkanın kipini ve yapılandırma özetini taşıyor,active,,shield_violations satırları yalnız onları üreten yazma kümesine göre anlam taşıyor.
+K-72,Kurulum sonrası sıra,Engelleme oranı ile yanlış pozitif oranı ayrı raporlanıyor,active,,Bir engellemenin yanlış olup olmadığını yalnız yer gerçeği söyler.
+K-71,Kurulum sonrası sıra,"Kalkan bugün yalnız gölge modunda monte, zorlama kasten kurulmadı",active,,"Engellemek çağrının sunucuya hiç gitmemesi demek, yani ajanın beklediği yanıtın yerine bir şey konması gerekiyor."
+K-70,Kurulum sonrası sıra,Kalkanın izinli uygulama kümesi görev metninden,active,,Kümeyi ground truth'tan türetmek kalkana kıyaslama dışında sahip olmayacağı bir oracle vermek olurdu.
+K-68,Kurulum sonrası sıra,Sandbox sıranın sonuna alındı,active,,"Sandbox en pahalı madde ve bağımlılığı sıfır: kalkan, derleyici, indeks ve getirici hiçbiri onu beklemiyor."
+K-67,Kurulum sonrası sıra,"Sandbox kaynak sınırları ölçülecek, tahmin edilmeyecek",active,,Kapsam belgesi 512 MiB öneriyordu; tam appworld paketi konteynerde olacağı için o değer sınırda olabilir.
+K-66,Kurulum sonrası sıra,Konteynerde tam `appworld` paketi,active,,İnce istemci ajanın gördüğü arayüzü sessizce değiştirirdi.
+K-65,Kurulum sonrası sıra,Sandbox'ta kayıt loopback vekilinde yapılacak,active,,"Ajan kodu konteynere taşındığında API kaydı, konteyner ile AppWorld sunucusu arasında loopback üzerinde duran bir kayıt vekilinde yapılacak."
+K-64,Kurulum sonrası sıra,"Durma kuralının bedeli bilerek ödeniyor: eşik 40, elli beş saat",active,,Durma kuralının eşiği 40.
+K-63,Kurulum sonrası sıra,İlerleme kimliği somut çağrı,active,,"Durma kuralının ""yeni çağrı"" ölçütünde kimlik, yapılan çağrının kendisi: uygulama.somut_yol|istek_parametreleri."
+K-62,Kurulum sonrası sıra,Yorumlanma kuralı önceden yazılmamış ölçüm sonuç değildir,active,,"Kurulum sonrası dört PR'da rapor edilen sonuçların dördü geri alındı ya da geçersiz oldu, biri yanlış ölçütle değerlendirildi, biri alt sınıra indi."
+K-61,Kurulum sonrası sıra,Ana eksen aile şartları ve ayrılmış roller,active,,Ölçek ekseninin ailesi şu dört şartı birlikte tutmalı.
+K-60,Kurulum sonrası sıra,Sıfır yorumlanmadan önce bağlayıcı olmayan parametreler gösterilir,active,,"Sınır kontrolünde aynı model ve aynı görevlerde yalnız çıktı bütçesi değişince geçen görev 6/30'dan 20/30'a çıktı, kodsuz adım oranı %25,0'ten %6,9'a düştü (S-26)."
+K-59,Kurulum sonrası sıra,"İlgisiz getirme kontrastının üç sonucu, yorumları sonuç görülmeden yazılı",active,,"Teşhis, ajanın en tekrar eden arızasının yapısal olduğunu gösterdi: giriş jetonu sözlük hâlinde dönüyor ve model sözlüğün tamamını access_token parametresine geçiriyor; parola listesinden yanlış satır seçiliyor; aynı blok onlarca kez tekrarlanıyor."
+A-01,Açık sorular,`retrieval.mode` hangi ekseni taşıyor? ,superseded,,
+A-02,Açık sorular,`fill.enabled` taban dışında açık mı? ,superseded,,
+A-03,Açık sorular,`failures.source` enum'u kaç değer taşıyor? ,superseded,,
+A-04,Açık sorular,`experiments/decisions.csv` hangi sütunları taşıyor?,open,,Dosya taslak olarak isteniyor ama sütunları söylenmedi.
+A-05,Açık sorular,`num_ctx` Ollama'ya hangi yoldan geçecek? ,superseded,,
+A-06,Açık sorular,Ölçek ekseni yerel donanımla sınırlı kalıyor mu? ,superseded,,"""Model yerel koşuyor, uzak sunucu yok"" kısıtı tasarımın en başından beri varsayılıyordu ve karar kaydında ayrı bir madde olarak yazılmamıştı."

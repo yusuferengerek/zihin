@@ -1,0 +1,38 @@
+{
+  "comment": "The record databases, published as encrypted assets in the repository's releases (K-194). scripts/restore_records.py opens each asset with `appworld unpack <name>`, checks the restored file against `bytes` and `sha256`, and writes it to `path`. No bundle sha256 is listed: a bundle's bytes change with every packing (K-205), so the restored file is the stable identity. `episodes` is the row count of the database's episodes table.",
+  "packer": "appworld.common.crypto.pack_bundle, appworld 0.2.0.dev0 at a072b7a86e7c1d5b1d7175659d750ebb9b79f10a, with the package's own constants; files under <name>/",
+  "databases": [
+    {
+      "asset": "zihin.bundle",
+      "name": "zihin",
+      "path": "results/zihin.sqlite",
+      "sha256": "8650042f79b4200a273d19299ba79b20ef9a2eaf259a799f1508aa63ea448752",
+      "bytes": 2670592,
+      "episodes": 62
+    },
+    {
+      "asset": "zihin-2.bundle",
+      "name": "zihin-2",
+      "path": "results/zihin-2.sqlite",
+      "sha256": "52d2ee9be9b65b11f104fc48e2b6c0241ce1da179ad61c877e54d8b9c087aa80",
+      "bytes": 11476992,
+      "episodes": 164
+    },
+    {
+      "asset": "zihin-3.bundle",
+      "name": "zihin-3",
+      "path": "results/zihin-3.sqlite",
+      "sha256": "b08a4911bd2ddd182bd0fcf624654bd5b2d5e6a921a08d769fa62f6150e370e4",
+      "bytes": 16953344,
+      "episodes": 389
+    },
+    {
+      "asset": "zihin-3-colab.bundle",
+      "name": "zihin-3-colab",
+      "path": "results/zihin-3-colab.sqlite",
+      "sha256": "2e46b7d726881d8a7656f80915c33c3713d2af39c84e07d0a6afc4f3c4aeb8c9",
+      "bytes": 2707456,
+      "episodes": 62
+    }
+  ]
+}

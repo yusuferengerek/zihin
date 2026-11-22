@@ -1,0 +1,86 @@
+{
+  "what": "what the series-3 merge restored, and that it changed nothing the library read",
+  "limitation": "S-74",
+  "files": {
+    "before": {
+      "name": "zihin-3-colab-269-before-merge.sqlite",
+      "bytes": 11313152,
+      "sha256": "095a4849de443c971978c276b09c60c0987377ecb3e569066daede51b35b1268"
+    },
+    "source": {
+      "name": "zihin-3-yerel.sqlite",
+      "bytes": 5795840,
+      "sha256": "549869111cf1af9067200902c5dc04d284ef7256745e748d69cf127c62808654"
+    },
+    "merged": {
+      "name": "zihin-3.sqlite",
+      "bytes": 16916480,
+      "sha256": "96d9373ceb205a1daa45a1272ecde97c01b94d50a6e7fb538d92af23db3face0"
+    }
+  },
+  "episodes_by_prefix": {
+    "before": {
+      "b14": 31,
+      "b32c": 31,
+      "bir1": 207
+    },
+    "after": {
+      "b14": 31,
+      "b15l": 31,
+      "b32": 27,
+      "b32c": 31,
+      "b3l": 31,
+      "b7l": 31,
+      "bir1": 207
+    }
+  },
+  "carried_unchanged": {
+    "before": {
+      "runs": 269,
+      "identical_in_merged": 269
+    },
+    "source": {
+      "runs": 120,
+      "identical_in_merged": 120
+    }
+  },
+  "scan_artefacts_naming_the_series": [
+    {
+      "artefact": "results/b14-taramasi.json",
+      "prefix": "b14",
+      "episodes_before": 31,
+      "episodes_after": 31
+    },
+    {
+      "artefact": "results/b15l-taramasi.json",
+      "prefix": "b15l",
+      "episodes_before": 0,
+      "episodes_after": 31
+    },
+    {
+      "artefact": "results/b32-taramasi.json",
+      "prefix": "b32",
+      "episodes_before": 0,
+      "episodes_after": 27
+    },
+    {
+      "artefact": "results/b3l-taramasi.json",
+      "prefix": "b3l",
+      "episodes_before": 0,
+      "episodes_after": 31
+    },
+    {
+      "artefact": "results/b7l-taramasi.json",
+      "prefix": "b7l",
+      "episodes_before": 0,
+      "episodes_after": 31
+    }
+  ],
+  "corpus_rule": {
+    "model": "qwen2.5-coder:32b-instruct-q4_K_M",
+    "split": "train",
+    "before": 207,
+    "after": 207
+  },
+  "problems": []
+}

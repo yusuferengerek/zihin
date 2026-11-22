@@ -1,0 +1,1423 @@
+{
+  "library_id": "v0-gap2-sup3-142662f",
+  "index_id": "v0-sup1-4bb340a",
+  "splits": {
+    "train": {
+      "tasks": 90,
+      "ceiling": {
+        "tasks": 90,
+        "covered": 87,
+        "coverage": 0.9667,
+        "skill_coverage": 0.9,
+        "failure_coverage": 0.9667,
+        "skill_cards": 93,
+        "failure_cards": 186
+      },
+      "unseen_tasks": 90,
+      "unseen_covered": 87,
+      "unseen_coverage": 0.9667,
+      "apps_named_per_task": {
+        "0": 3,
+        "1": 72,
+        "2": 12,
+        "3": 3
+      },
+      "grid": {
+        "saving0-capNone-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 186
+        },
+        "saving0-capNone-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 186
+        },
+        "saving0-cap10-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 186
+        },
+        "saving0-cap10-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 186
+        },
+        "saving0-cap5-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 165
+        },
+        "saving0-cap5-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 165
+        },
+        "saving0-cap2-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 114
+        },
+        "saving0-cap2-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.9667,
+          "skill_cards": 93,
+          "failure_cards": 114
+        },
+        "saving0-cap1-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.2333,
+          "skill_cards": 93,
+          "failure_cards": 21
+        },
+        "saving0-cap1-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.9,
+          "failure_coverage": 0.2333,
+          "skill_cards": 93,
+          "failure_cards": 21
+        },
+        "saving8-capNone-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 186
+        },
+        "saving8-capNone-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 186
+        },
+        "saving8-cap10-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 186
+        },
+        "saving8-cap10-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 186
+        },
+        "saving8-cap5-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 165
+        },
+        "saving8-cap5-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 165
+        },
+        "saving8-cap2-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 114
+        },
+        "saving8-cap2-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.9667,
+          "skill_cards": 45,
+          "failure_cards": 114
+        },
+        "saving8-cap1-unverified1": {
+          "tasks": 90,
+          "covered": 45,
+          "coverage": 0.5,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.2333,
+          "skill_cards": 45,
+          "failure_cards": 21
+        },
+        "saving8-cap1-unverified0": {
+          "tasks": 90,
+          "covered": 45,
+          "coverage": 0.5,
+          "skill_coverage": 0.4,
+          "failure_coverage": 0.2333,
+          "skill_cards": 45,
+          "failure_cards": 21
+        },
+        "saving10-capNone-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving10-capNone-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving10-cap10-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving10-cap10-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving10-cap5-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 165
+        },
+        "saving10-cap5-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 165
+        },
+        "saving10-cap2-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 114
+        },
+        "saving10-cap2-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 114
+        },
+        "saving10-cap1-unverified1": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.2333,
+          "skill_cards": 24,
+          "failure_cards": 21
+        },
+        "saving10-cap1-unverified0": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.2333,
+          "skill_cards": 24,
+          "failure_cards": 21
+        },
+        "saving20-capNone-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving20-capNone-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving20-cap10-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving20-cap10-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 186
+        },
+        "saving20-cap5-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 165
+        },
+        "saving20-cap5-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 165
+        },
+        "saving20-cap2-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 114
+        },
+        "saving20-cap2-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.9667,
+          "skill_cards": 24,
+          "failure_cards": 114
+        },
+        "saving20-cap1-unverified1": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.2333,
+          "skill_cards": 24,
+          "failure_cards": 21
+        },
+        "saving20-cap1-unverified0": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.2333,
+          "failure_coverage": 0.2333,
+          "skill_cards": 24,
+          "failure_cards": 21
+        },
+        "saving30-capNone-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 186
+        },
+        "saving30-capNone-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 186
+        },
+        "saving30-cap10-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 186
+        },
+        "saving30-cap10-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 186
+        },
+        "saving30-cap5-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 165
+        },
+        "saving30-cap5-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 165
+        },
+        "saving30-cap2-unverified1": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving30-cap2-unverified0": {
+          "tasks": 90,
+          "covered": 87,
+          "coverage": 0.9667,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.9667,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving30-cap1-unverified1": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.2333,
+          "skill_cards": 15,
+          "failure_cards": 21
+        },
+        "saving30-cap1-unverified0": {
+          "tasks": 90,
+          "covered": 30,
+          "coverage": 0.3333,
+          "skill_coverage": 0.1667,
+          "failure_coverage": 0.2333,
+          "skill_cards": 15,
+          "failure_cards": 21
+        }
+      }
+    },
+    "dev": {
+      "tasks": 57,
+      "ceiling": {
+        "tasks": 57,
+        "covered": 54,
+        "coverage": 0.9474,
+        "skill_coverage": 0.8947,
+        "failure_coverage": 0.9474,
+        "skill_cards": 60,
+        "failure_cards": 129
+      },
+      "unseen_tasks": 57,
+      "unseen_covered": 54,
+      "unseen_coverage": 0.9474,
+      "apps_named_per_task": {
+        "0": 3,
+        "1": 42,
+        "2": 12
+      },
+      "grid": {
+        "saving0-capNone-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 129
+        },
+        "saving0-capNone-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 129
+        },
+        "saving0-cap10-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 129
+        },
+        "saving0-cap10-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 129
+        },
+        "saving0-cap5-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 114
+        },
+        "saving0-cap5-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 114
+        },
+        "saving0-cap2-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 75
+        },
+        "saving0-cap2-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.9474,
+          "skill_cards": 60,
+          "failure_cards": 75
+        },
+        "saving0-cap1-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.2632,
+          "skill_cards": 60,
+          "failure_cards": 15
+        },
+        "saving0-cap1-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.8947,
+          "failure_coverage": 0.2632,
+          "skill_cards": 60,
+          "failure_cards": 15
+        },
+        "saving8-capNone-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 129
+        },
+        "saving8-capNone-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 129
+        },
+        "saving8-cap10-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 129
+        },
+        "saving8-cap10-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 129
+        },
+        "saving8-cap5-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 114
+        },
+        "saving8-cap5-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 114
+        },
+        "saving8-cap2-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 75
+        },
+        "saving8-cap2-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.9474,
+          "skill_cards": 30,
+          "failure_cards": 75
+        },
+        "saving8-cap1-unverified1": {
+          "tasks": 57,
+          "covered": 24,
+          "coverage": 0.4211,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.2632,
+          "skill_cards": 30,
+          "failure_cards": 15
+        },
+        "saving8-cap1-unverified0": {
+          "tasks": 57,
+          "covered": 24,
+          "coverage": 0.4211,
+          "skill_coverage": 0.3684,
+          "failure_coverage": 0.2632,
+          "skill_cards": 30,
+          "failure_cards": 15
+        },
+        "saving10-capNone-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving10-capNone-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving10-cap10-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving10-cap10-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving10-cap5-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving10-cap5-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving10-cap2-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 75
+        },
+        "saving10-cap2-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 75
+        },
+        "saving10-cap1-unverified1": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.2632,
+          "skill_cards": 15,
+          "failure_cards": 15
+        },
+        "saving10-cap1-unverified0": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.2632,
+          "skill_cards": 15,
+          "failure_cards": 15
+        },
+        "saving20-capNone-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving20-capNone-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving20-cap10-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving20-cap10-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 129
+        },
+        "saving20-cap5-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving20-cap5-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 114
+        },
+        "saving20-cap2-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 75
+        },
+        "saving20-cap2-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.9474,
+          "skill_cards": 15,
+          "failure_cards": 75
+        },
+        "saving20-cap1-unverified1": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.2632,
+          "skill_cards": 15,
+          "failure_cards": 15
+        },
+        "saving20-cap1-unverified0": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.2105,
+          "failure_coverage": 0.2632,
+          "skill_cards": 15,
+          "failure_cards": 15
+        },
+        "saving30-capNone-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 129
+        },
+        "saving30-capNone-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 129
+        },
+        "saving30-cap10-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 129
+        },
+        "saving30-cap10-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 129
+        },
+        "saving30-cap5-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 114
+        },
+        "saving30-cap5-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 114
+        },
+        "saving30-cap2-unverified1": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 75
+        },
+        "saving30-cap2-unverified0": {
+          "tasks": 57,
+          "covered": 54,
+          "coverage": 0.9474,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.9474,
+          "skill_cards": 6,
+          "failure_cards": 75
+        },
+        "saving30-cap1-unverified1": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.2632,
+          "skill_cards": 6,
+          "failure_cards": 15
+        },
+        "saving30-cap1-unverified0": {
+          "tasks": 57,
+          "covered": 15,
+          "coverage": 0.2632,
+          "skill_coverage": 0.1053,
+          "failure_coverage": 0.2632,
+          "skill_cards": 6,
+          "failure_cards": 15
+        }
+      }
+    },
+    "test_normal": {
+      "tasks": 168,
+      "ceiling": {
+        "tasks": 168,
+        "covered": 168,
+        "coverage": 1.0,
+        "skill_coverage": 0.9464,
+        "failure_coverage": 1.0,
+        "skill_cards": 205,
+        "failure_cards": 534
+      },
+      "unseen_tasks": 150,
+      "unseen_covered": 150,
+      "unseen_coverage": 1.0,
+      "apps_named_per_task": {
+        "1": 98,
+        "2": 58,
+        "3": 12
+      },
+      "grid": {
+        "saving0-capNone-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 534
+        },
+        "saving0-capNone-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 510
+        },
+        "saving0-cap10-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 534
+        },
+        "saving0-cap10-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 510
+        },
+        "saving0-cap5-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 465
+        },
+        "saving0-cap5-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 441
+        },
+        "saving0-cap2-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 296
+        },
+        "saving0-cap2-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 1.0,
+          "skill_cards": 205,
+          "failure_cards": 272
+        },
+        "saving0-cap1-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 0.381,
+          "skill_cards": 205,
+          "failure_cards": 82
+        },
+        "saving0-cap1-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.9464,
+          "failure_coverage": 0.3274,
+          "skill_cards": 205,
+          "failure_cards": 58
+        },
+        "saving8-capNone-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 534
+        },
+        "saving8-capNone-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 510
+        },
+        "saving8-cap10-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 534
+        },
+        "saving8-cap10-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 510
+        },
+        "saving8-cap5-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 465
+        },
+        "saving8-cap5-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 441
+        },
+        "saving8-cap2-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 296
+        },
+        "saving8-cap2-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 1.0,
+          "skill_cards": 160,
+          "failure_cards": 272
+        },
+        "saving8-cap1-unverified1": {
+          "tasks": 168,
+          "covered": 138,
+          "coverage": 0.8214,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 0.381,
+          "skill_cards": 160,
+          "failure_cards": 82
+        },
+        "saving8-cap1-unverified0": {
+          "tasks": 168,
+          "covered": 138,
+          "coverage": 0.8214,
+          "skill_coverage": 0.7321,
+          "failure_coverage": 0.3274,
+          "skill_cards": 160,
+          "failure_cards": 58
+        },
+        "saving10-capNone-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 534
+        },
+        "saving10-capNone-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 510
+        },
+        "saving10-cap10-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 534
+        },
+        "saving10-cap10-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 510
+        },
+        "saving10-cap5-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 465
+        },
+        "saving10-cap5-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 441
+        },
+        "saving10-cap2-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 296
+        },
+        "saving10-cap2-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 272
+        },
+        "saving10-cap1-unverified1": {
+          "tasks": 168,
+          "covered": 103,
+          "coverage": 0.6131,
+          "skill_coverage": 0.506,
+          "failure_coverage": 0.381,
+          "skill_cards": 91,
+          "failure_cards": 82
+        },
+        "saving10-cap1-unverified0": {
+          "tasks": 168,
+          "covered": 100,
+          "coverage": 0.5952,
+          "skill_coverage": 0.506,
+          "failure_coverage": 0.3274,
+          "skill_cards": 91,
+          "failure_cards": 58
+        },
+        "saving20-capNone-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 534
+        },
+        "saving20-capNone-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 510
+        },
+        "saving20-cap10-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 534
+        },
+        "saving20-cap10-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 510
+        },
+        "saving20-cap5-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 465
+        },
+        "saving20-cap5-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 441
+        },
+        "saving20-cap2-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 296
+        },
+        "saving20-cap2-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.506,
+          "failure_coverage": 1.0,
+          "skill_cards": 91,
+          "failure_cards": 272
+        },
+        "saving20-cap1-unverified1": {
+          "tasks": 168,
+          "covered": 103,
+          "coverage": 0.6131,
+          "skill_coverage": 0.506,
+          "failure_coverage": 0.381,
+          "skill_cards": 91,
+          "failure_cards": 82
+        },
+        "saving20-cap1-unverified0": {
+          "tasks": 168,
+          "covered": 100,
+          "coverage": 0.5952,
+          "skill_coverage": 0.506,
+          "failure_coverage": 0.3274,
+          "skill_cards": 91,
+          "failure_cards": 58
+        },
+        "saving30-capNone-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 534
+        },
+        "saving30-capNone-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 510
+        },
+        "saving30-cap10-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 534
+        },
+        "saving30-cap10-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 510
+        },
+        "saving30-cap5-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 465
+        },
+        "saving30-cap5-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 441
+        },
+        "saving30-cap2-unverified1": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 296
+        },
+        "saving30-cap2-unverified0": {
+          "tasks": 168,
+          "covered": 168,
+          "coverage": 1.0,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 1.0,
+          "skill_cards": 60,
+          "failure_cards": 272
+        },
+        "saving30-cap1-unverified1": {
+          "tasks": 168,
+          "covered": 103,
+          "coverage": 0.6131,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 0.381,
+          "skill_cards": 60,
+          "failure_cards": 82
+        },
+        "saving30-cap1-unverified0": {
+          "tasks": 168,
+          "covered": 100,
+          "coverage": 0.5952,
+          "skill_coverage": 0.3571,
+          "failure_coverage": 0.3274,
+          "skill_cards": 60,
+          "failure_cards": 58
+        }
+      }
+    }
+  }
+}

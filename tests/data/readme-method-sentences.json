@@ -1,0 +1,5 @@
+{
+  "comment": "The method sentence each public README must carry, word for word, as the owner wrote it (15 November 2026). tests/test_build_public_tree.py checks the rendered READMEs against these.",
+  "en": "The code was written with an AI coding agent under the author's direction. Every change was reviewed by the author through pull requests, tests and guards.",
+  "tr": "Kod, yazarın yönetiminde bir yapay zekâ kodlama ajanıyla yazıldı. Her değişiklik pull request'ler, testler ve bekçiler üzerinden yazarın incelemesinden geçti."
+}

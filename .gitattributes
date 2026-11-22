@@ -1,0 +1,13 @@
+# Depo Linux üzerinde geliştiriliyor, CI da Linux'ta koşuyor.
+# Satır sonlarını her yerde LF'e sabitliyoruz ki prompt dosyalarının
+# özet değerleri platformdan platforma kaymasın — Aşama 5'in "bayt bayına
+# aynı prompt" ölçütü buna bağlı.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.sqlite binary
+# The vendored AppWorld wheels. Without this the eol=lf rule above would treat
+# a zip as text and corrupt it.
+*.whl binary
+*.db binary

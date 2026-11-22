@@ -1,0 +1,86 @@
+{
+  "what": "each measured run's pass rate on the action stratum, on the same thirty tasks",
+  "task_set_from": "results/b32c-taramasi.json",
+  "action_tasks": 25,
+  "answer_tasks": 5,
+  "answer_task_ids": [
+    "09b0ee6_1",
+    "09b0ee6_2",
+    "09b0ee6_3",
+    "21abae1_1",
+    "a30375d_1"
+  ],
+  "derived_threshold": [
+    0.75,
+    0.85
+  ],
+  "runs": [
+    {
+      "run": "deepseek-v4-flash-0731, union",
+      "total": 20,
+      "action_passed": 15,
+      "action_total": 25,
+      "action_rate": 0.6,
+      "answer_passed": 5,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "the union of two runs; thinking was on (S-34)"
+    },
+    {
+      "run": ".. stopping rule on",
+      "total": 13,
+      "action_passed": 8,
+      "action_total": 25,
+      "action_rate": 0.32,
+      "answer_passed": 5,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "thirteen passes"
+    },
+    {
+      "run": ".. rule off, on the sixteen it cut",
+      "total": 7,
+      "action_passed": 7,
+      "action_total": 25,
+      "action_rate": 0.28,
+      "answer_passed": 0,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "seven more passes"
+    },
+    {
+      "run": "gpt-4o-2024-05-13, published",
+      "total": 15,
+      "action_passed": 10,
+      "action_total": 25,
+      "action_rate": 0.4,
+      "answer_passed": 5,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "no stopping rule, no shield; not our run"
+    },
+    {
+      "run": "qwen2.5-coder:32b",
+      "total": 11,
+      "action_passed": 7,
+      "action_total": 25,
+      "action_rate": 0.28,
+      "answer_passed": 4,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "our own axis point"
+    },
+    {
+      "run": "qwen2.5-coder:14b",
+      "total": 3,
+      "action_passed": 1,
+      "action_total": 25,
+      "action_rate": 0.04,
+      "answer_passed": 2,
+      "answer_total": 5,
+      "clears_threshold": false,
+      "note": "our own axis point"
+    }
+  ],
+  "qualification": "DeepSeek's 20/30 is the union of two runs -- thirteen with the stopping rule on, seven more when the sixteen it cut were re-run with it off -- and in those runs thinking was on, which was not the declared condition (S-34)."
+}

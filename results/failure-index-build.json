@@ -1,0 +1,57 @@
+{
+  "what": "the group count behind the failure index, at build time and today",
+  "database": "results/zihin-2.sqlite",
+  "min_support": 1,
+  "stored_index": [
+    {
+      "index_id": "v0-sup1-4bb340a",
+      "cards": 15
+    }
+  ],
+  "stored_cards_by_status_code": {
+    "401": 11,
+    "409": 1,
+    "422": 3
+  },
+  "at_build": {
+    "episodes": 102,
+    "actions": 5308,
+    "groups": 22,
+    "cards": 15,
+    "eliminated": 7,
+    "eliminated_breakdown": {
+      "no_expressible_condition": 7,
+      "below_support": 0
+    },
+    "kept_breakdown": {
+      "discriminated_by_condition": 13,
+      "discriminated_by_shape": 0,
+      "no_known_success": 2
+    },
+    "status_codes": {
+      "401": 11,
+      "409": 1,
+      "422": 3
+    }
+  },
+  "today": {
+    "episodes": 142,
+    "actions": 10935,
+    "groups": 28,
+    "cards": 20,
+    "eliminated": 8,
+    "eliminated_breakdown": {
+      "no_expressible_condition": 8,
+      "below_support": 0
+    },
+    "kept_breakdown": {
+      "discriminated_by_condition": 14,
+      "discriminated_by_shape": 1,
+      "no_known_success": 5
+    },
+    "status_codes": {}
+  },
+  "later_episodes_excluded": 45,
+  "later_prefix": "uckol",
+  "note": "The stored index matches the at_build column. The today column is the gap S-65 records; re-mining is a design decision and this script does not make it."
+}

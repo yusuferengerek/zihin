@@ -1,0 +1,95 @@
+# Sandbox yapılandırması.
+#
+# Bu dosya koşul yapılandırması değil; `config/` altındaki altı koşul dosyası
+# aynı şemayı taşımak zorunda, bu dosya o kümeye girmiyor.
+#
+# Buradaki her değer ölçümü etkiliyor ve künyeye yazılıyor. Ortama konan bir
+# sandbox parametresi, koşuyu başlatan kabuğa göre değişen bir ölçüm demek
+# olurdu.
+
+# İmajın adı ve damgası. Damga imajın `Containerfile`ından ve içine giren
+# sürümlerden türetiliyor, elle artırılmıyor: elle artırılan bir sayıyı el
+# unutuyor (kalkanın `config_digest` gerekçesiyle aynı).
+image_name: localhost/zihin-sandbox
+image_tag: v1
+
+# Ağ kipi. `none` dışında bir değer kabul edilmiyor ve sebebi ölçülmüş: dört kip
+# iki platformda sınandı, varsayılan (netavark), `pasta` ve `slirp4netns`
+# üçünün de dış ağa çıktığı görüldü — 1.1.1.1'e yapılan istek 403 dönüyor, yani
+# istek internete ulaşıp cevap alıyor. Yalnız `none` `Network unreachable`
+# veriyor (K-95, results/container-network.json).
+network_mode: none
+
+# Vekilin dinlediği unix soketin host tarafındaki dizini. Konteynere **salt
+# okunur** bağlanıyor; bağlanabildiği ölçüldü, çünkü unix sokete `connect` yazma
+# izni istiyor ve salt okunur bağlamanın onu kesmesi bekleniyordu.
+socket_directory: /tmp/zihin-vekil
+socket_name: apis.sock
+
+# Konteynerin içinde köprünün dinlediği port. Ajanın gördüğü `remote_apis_url`
+# bu portu gösteriyor.
+#
+# Host'taki API sunucusunun portuyla **bilerek aynı sayı**. `remote_apis_url` tek
+# bir dize ve iki tarafta da kullanılıyor: konteynerin içinde `127.0.0.1:8123`
+# köprü, host'ta aynı numara API sunucusu. Ağ ad alanları ayrı olduğu için aynı
+# dize her iki tarafta doğru şeye çözülüyor ve AppWorld'e ikinci bir parametre
+# eklemek gerekmiyor.
+bridge_port: 8123
+
+# Host'ta ortam köprüsünün dinlediği port. `remote_environment_url` bunu
+# gösteriyor ve konteynerin içindeki ortam sunucusuna bağlanan unix sokete
+# iletiyor.
+#
+# `bridge_port`tan farklı olmak **zorunda** ve bu ayrım ölçülerek öğrenildi: iki
+# köprü aynı sayıyı kullandığında host tarafındaki ortam köprüsü API sunucusunun
+# portuna bağlanamıyor, ve daha kötüsü hazırlık denetimi API sunucusunun 200'ünü
+# görüp "ortam hazır" diyor. Yanlış sebeple yeşil yanan bir denetim (K-49).
+environment_port: 8124
+
+# Kaynak sınırları — ölçüldü ve donduruldu.
+#
+# K-C tahmin değil ölçüm istiyordu. Ölçüm yapıldı: `6104387_1` görevi konteynerde
+# üç kez koşuldu (20 adım, yerel 7B modeli, gerçek epizot), kullanım iki saniyede
+# bir örneklendi ve tepe değerler alındı. Sayılar `results/sandbox-olcum.json`
+# içinde.
+#
+#   ölçülen tepe          sınır        pay      kullanım oranı
+#   bellek  158,0 MiB     512 MiB      3,2 kat  %29,4
+#   süreç   4             128          32 kat   %3
+#   tmpfs   ~32 KiB       64 MiB       2000 kat %0,05
+#   CPU     %62,5         1 çekirdek   —        %62,5
+#
+# **Hiçbiri bağlamadı** ve K-D'nin göstergesi bu: sınıra çarparak biten epizot
+# sayısı üç epizotta 0. Sınıra çarpan bir epizot çıkarsa `exited_at_limit`
+# sonlanma sebebini söylüyor ve künyedeki sınır değerleriyle birlikte okunuyor;
+# oran sıfıra yakın değilse sınır gevşetilir ve sonuç alt sınır olarak
+# işaretlenir.
+#
+# Değerler değişmedi, ama artık tahmin değil: tepe kullanımın en az üç katı pay
+# taşıyorlar ve payın nereden geldiği yazılı. Ölçümün sınırı da yazılı: tek görev,
+# tek model, 20 adım. Uzun ve daha çok veri işleyen bir epizot tepeyi yükseltebilir
+# ve örnekleme aralığı bir tepeyi kaçırabilir, yani ölçülen değer bir alt sınır.
+memory_bytes: 536870912
+pids_limit: 128
+step_timeout_seconds: 60
+tmpfs_bytes: 67108864
+cpus: 1.0
+
+# Konteynerin içinde yazılabilir iki alan, ikisi de tmpfs. Kök salt okunur ve
+# **hiçbiri host'tan bağlanmıyor** (K-94): `experiments/outputs`u yazılabilir
+# bağlamak birinci tehdidin tam yüzeyi, çünkü o dizin doğrulayıcının okuduğu
+# veritabanlarını da taşıyor.
+#
+# `writable_path` geçici dosyalar ve ev dizini için. `outputs_path` ise AppWorld'ün
+# günlüklerini yazdığı yer; ortam sunucusu oraya yazıyor ve epizot bittikten
+# sonra `podman cp` ile alınıyor. İkisinin ayrı olmasının sebebi ölçüldü: kök
+# salt okunurken AppWorld `experiments/outputs` altına yazmaya çalışıyor ve
+# yazamadığında epizot düşüyor.
+writable_path: /tmp
+outputs_path: /zihin/experiments/outputs
+
+# Konteynerin okuduğu veri dizini, salt okunur bağlanıyor. İmaja gömmek damganın
+# veriyi de kapsamasını sağlardı ama veriyi ikinci bir yerde çoğaltırdı; bağlama
+# tek kaynak bırakıyor ve veri sürümü künyeye `data/version.txt`ten yazılıyor
+# (K-96).
+data_directory: data

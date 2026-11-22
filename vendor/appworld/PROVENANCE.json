@@ -1,0 +1,40 @@
+{
+  "why": "Upstream Git LFS refuses to serve the pinned commit's bundle objects: HTTP 403, 'This repository exceeded its LFS budget.' Measured on 2026-08-20 both from a Colab runtime and from the development machine, so it is an upstream fact and not a property of either network.",
+  "status": "fallback",
+  "primary_path": "uv sync --all-groups --frozen, against the upstream git source",
+  "source": {
+    "repository": "https://github.com/StonyBrookNLP/appworld.git",
+    "commit": "a072b7a86e7c1d5b1d7175659d750ebb9b79f10a",
+    "commit_date": "2026-02-17T14:41:39-08:00",
+    "commit_subject": "Fix bundle files (#210)"
+  },
+  "mirror_taken": "2026-08-20",
+  "built_with": "uv 0.11.28 (x86_64-unknown-linux-gnu)",
+  "built_from": "the uv git cache checkout of the pinned commit on the development machine, whose LFS objects were fetched while upstream still served them",
+  "wheels": [
+    {
+      "file": "appworld-0.2.0.dev0-py3-none-any.whl",
+      "bytes": 741441,
+      "sha256": "13965100b4e6191e5503c06a24f9b9140b0f04a95a56c8394c29bc6f094c67e3"
+    },
+    {
+      "file": "appworld_agents-0.1.0.dev0-py3-none-any.whl",
+      "bytes": 436934,
+      "sha256": "32fcd23f68b86c08fdf357fe409a8823fdc7ae64582d784dcf046374cd739e73"
+    }
+  ],
+  "bundles_inside_the_appworld_wheel": [
+    {
+      "file": "apps.bundle",
+      "bytes": 193950,
+      "sha256": "88d21fc526c1655bb3eee4adfca78ccac793921e4506f28f734ecdb19af77a62"
+    },
+    {
+      "file": "tests.bundle",
+      "bytes": 204426,
+      "sha256": "04aa898cb015c53468c355d5ded662757c5234835a4de5cf4f7d7947bef159ec"
+    }
+  ],
+  "identity_check": "Each bundle's sha256 is its Git LFS object id, so a bundle that matches here is the object upstream names at that commit. Both match the objects installed on the development machine.",
+  "recheck": "uv run python scripts/check_upstream_lfs.py"
+}

@@ -1,0 +1,31 @@
+{
+  "false_positives": {
+    "missed_app_instances": 39,
+    "missed_where_reference_writes": 6,
+    "per_app_missed": {
+      "phone": 30,
+      "file_system": 3,
+      "venmo": 6
+    },
+    "per_app_missed_and_written": {
+      "file_system": 3,
+      "venmo": 3
+    },
+    "tasks_a_legitimate_write_would_be_blocked": 6
+  },
+  "coverage": {
+    "named_apis": 478,
+    "write_set_keys": 478,
+    "named_apis_without_a_method": 0,
+    "examples": []
+  },
+  "unknown_branch": {
+    "recorded_calls": 5213,
+    "by_predicate": {
+      "read": 4892,
+      "cross_app_write_outside_allowed_apps": 35,
+      "write_within_allowed_apps": 286
+    },
+    "unresolved_examples": {}
+  }
+}

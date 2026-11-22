@@ -1,0 +1,81 @@
+{
+  "model": "qwen2.5-coder:14b-instruct-q4_K_M",
+  "base_url": "http://127.0.0.1:11434",
+  "host": {
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "python": "3.11.16"
+  },
+  "gpu": {
+    "name": "NVIDIA L4",
+    "vram_total_mib": 23034,
+    "vram_used_mib": 0,
+    "driver": "580.82.07"
+  },
+  "server_settings": {
+    "source": "/tmp/zihin-ollama.log",
+    "OLLAMA_CONTEXT_LENGTH": "32768",
+    "OLLAMA_KV_CACHE_TYPE": "q8_0",
+    "OLLAMA_FLASH_ATTENTION": "true",
+    "OLLAMA_KEEP_ALIVE": "5m0s",
+    "OLLAMA_HOST": "http://127.0.0.1:11434",
+    "ollama_version": "0.32.15"
+  },
+  "residency": {
+    "state": "resident",
+    "fully_resident": true,
+    "resident_fraction": 1.0,
+    "total_bytes": 12266745363,
+    "vram_bytes": 12266745363,
+    "total_gib": 11.424,
+    "vram_gib": 11.424,
+    "fully_on_gpu": true,
+    "context_window": 32768
+  },
+  "load_times": {
+    "repeats": 3,
+    "seconds": [
+      4.69,
+      4.69,
+      4.69
+    ],
+    "median": 4.69,
+    "min": 4.69,
+    "max": 4.69,
+    "local_reference_median_seconds": {
+      "1.5b": 2.72,
+      "3b": 3.01,
+      "7b": 3.55
+    }
+  },
+  "runtime_facts": {
+    "source": "/tmp/zihin-ollama.log",
+    "layers_offloaded": 49,
+    "layers_total": 49,
+    "all_layers_on_gpu": true,
+    "flash_attention_effective": "enabled",
+    "kv_cache_type_effective": "q8_0",
+    "kv_cache_type_effective_value": "q8_0",
+    "kv_cache_mib": 3264.0,
+    "flash_attention_requested": "on",
+    "kv_cache_type_requested": "q8_0",
+    "kv_cache_type_honoured": true,
+    "flash_attention_honoured": true
+  },
+  "comparability": {
+    "state": "comparable",
+    "checks": {
+      "all layers on the GPU": true,
+      "KV cache type honoured": true,
+      "flash attention honoured": true
+    },
+    "unreadable": [],
+    "differing": [],
+    "local_reference": {
+      "layers": "29/29 at 7B",
+      "flash_attention": "requested on, effective enabled",
+      "kv_cache_type": "requested q8_0, effective q8_0",
+      "kv_cache_mib_at_7b": 952.0
+    },
+    "meaning": "the environment ran the locked configuration; numbers can sit beside the local ones"
+  }
+}

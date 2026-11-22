@@ -1,0 +1,176 @@
+{
+  "ne": "Madde 8 kurulduktan sonra alinan olcumler. Kapsam belgesi ve karar kayitlari buna atif veriyor.",
+  "tarih": "2026-08-17",
+  "podman": {
+    "wsl": "4.9.3",
+    "github_kosucusu": "5.8.4",
+    "ag_arka_ucu": "netavark (ikisinde de)"
+  },
+  "imaj": {
+    "ad": "localhost/zihin-sandbox:v1",
+    "boyut_mb": 643,
+    "taban": "docker.io/library/python:3.11-slim-bookworm",
+    "data_iceride_mi": false,
+    "data_nasil": "salt okunur baglama (K-96)"
+  },
+  "seffaflik_testi": {
+    "arac": "scripts/setup/measure_transparency.py",
+    "cikti": "results/transparency.json",
+    "gorev": "6104387_1",
+    "gorev_gerekcesi": "determinizmi olculmus (6 tekrar, 1 yorunge), 20 cagri tasiyor",
+    "olcut": "sha256(logs/environment_io.md)[:16]",
+    "kollar": {
+      "1-surec-ici": "5e4812502f278f0b",
+      "2-sunulan": "5e4812502f278f0b",
+      "3-sunulan-vekilli": "5e4812502f278f0b"
+    },
+    "transcript_bayt": 5291,
+    "ucu_de_ayni": true,
+    "vekilin_kaydettigi_cagri": 8,
+    "reddedilen_istek": 0
+  },
+  "konteyner_kaynak_kullanimi": {
+    "kaynak": "podman stats, iki saniyede bir ornekleme, gercek epizot",
+    "gorev": "6104387_1",
+    "kosu_sayisi": 3,
+    "adim": 20,
+    "model": "yerel 7B (qwen2.5-coder:7b-instruct-q4_K_M)",
+    "ornek_sayisi_kosu_basina": 25,
+    "tepe_bellek_mb": [
+      157.8,
+      157.8,
+      158.0
+    ],
+    "bellek_siniri_mb": 536.9,
+    "bellek_kullanim_orani_yuzde": 29.4,
+    "tepe_surec": 4,
+    "pids_siniri": 128,
+    "tepe_cpu_yuzde": [
+      58.52,
+      62.47,
+      62.49
+    ],
+    "tmpfs_kullanimi_kb": 32,
+    "tmpfs_siniri_kb": 65536,
+    "ag_giris_cikis": "0B / 0B",
+    "blok_giris_cikis": "0B / 0B",
+    "sinira_carparak_biten_epizot": 0,
+    "olcumun_siniri": "tek gorev, tek model, 20 adim; ornekleme araligi bir tepeyi kacirabilir, yani deger bir alt sinir"
+  },
+  "yonetim_trafigi": {
+    "arac": "vekil gozlem kipinde kosturuldu",
+    "kurulumda": 8,
+    "adim_basina": 1,
+    "kapanista": 2,
+    "toplam": 11,
+    "rotalar": [
+      "POST /dbs",
+      "GET /dbs",
+      "POST /date_time",
+      "GET /date_time",
+      "POST /seed",
+      "POST /show_api_response_schemas",
+      "GET /show_api_response_schemas",
+      "POST /dbs/save",
+      "DELETE /dbs/cache",
+      "DELETE /date_time"
+    ],
+    "tahmin_edilip_yanlis_cikan_alanlar": [
+      "tohumun anahtari: random_seed degil seed",
+      "POST /dbs goreli yolu ./ ile basliyor",
+      "hedef :memory:task_output-<gorev>",
+      "DELETE /date_time calisma aninda uretilen UUID tasiyor",
+      "POST /dbs/save app_names alanini dolduruyor ve sirasi kararli degil"
+    ],
+    "politika_olcumu": {
+      "gercek_trafik_gecen": "11/11",
+      "kurcalanmis_kesilen": "12/12",
+      "korumasiz_kolda_dosya_yazildi": true
+    }
+  },
+  "guvenlik_testleri": {
+    "dosya": "tests/test_sandbox_security.py",
+    "test_sayisi": 11,
+    "isaret": "sandbox",
+    "ci_kontrolu": "Sandbox (besinci kontrol, K-97)",
+    "hepsi_iki_kollu": true
+  },
+  "test_takimi": {
+    "gecen": 453,
+    "atlanan": 8,
+    "onceki_gecen": 398
+  },
+  "kurulum_sirasinda_bulunan_kendi_hatalarimiz": [
+    "dup2(fd, 3) ebeveynde yapiliyordu ve vekil once basladiginda vekilin soketini eziyordu: hata vermeyen ama calismayan bir kopru",
+    "kabukla fd tasima dash'te 'Bad fd number' ile dustu: dash tek haneli olmayan tanimlayiciyi reddediyor",
+    "hazirlik denetimi yalniz 200'e bakiyordu ve yanlis portta host'un API sunucusunu 'ortam hazir' sandi",
+    "kopru portu bir is parcaciginda baglaniyordu ve 'port mesgul' istisnasi yutuluyordu",
+    "Popen cagrisi bir refactor sirasinda return'un altinda kaldi: konteyner hic baslamadi, epizot artakalan bir sunucuya kosuldu",
+    "uv run calisma aninda yazilabilir onbellek istiyor ve salt okunur kokte dustu"
+  ],
+  "epizot_kaydi": {
+    "epizot": 118,
+    "adim": 20,
+    "eylem": 19,
+    "vekil_istegi": 30,
+    "reddedilen": 0,
+    "not": "kayit vekilden geldi; ayni epizot once iki kez sessizce eksik kayit uretti (montaj noktasi batch_execute, ve ikinci kaynagin yoklugu)"
+  },
+  "ajan_tetikli_dbs_save": {
+    "soru": "sondanin gorecegi degisiklikleri tuketiyor mu",
+    "cevap": "hayir",
+    "nasil": "set_volume ile satir sayisini degistirmeyen bir degisiklik yapildi, sonda gordu, ajanin gonderebilecegi izinli /dbs/save gonderildi, sonda tekrar kosuldu",
+    "birinci_sonda": {
+      "spotify": {
+        "MusicPlayer": 1
+      }
+    },
+    "ajan_cagrisindan_sonra": {
+      "spotify": {
+        "MusicPlayer": 1
+      }
+    },
+    "ucuncu_sonda": {
+      "spotify": {
+        "MusicPlayer": 1
+      }
+    },
+    "yeni_degisiklikten_sonra": {
+      "spotify": {
+        "MusicPlayer": 2
+      }
+    },
+    "yorum": "cagri yinelenen bir yazma; kayit korlesmiyor ve sonda canli kaliyor"
+  },
+  "so_peercred": {
+    "soru": "vekil ortam sunucusunun kontrol trafigini ajanin kodundan ayirabilir mi",
+    "cevap": "hayir, ve iki sebepten",
+    "birinci_sebep": "ikisi ayni surec: konteynerde ajanin kodu pid 1, yani uvicorn ile ayni",
+    "ikinci_sebep": "arada kopru var ve kopru ayni surecin bir is parcacigi; vekile baglanan sey her zaman o",
+    "vekilin_gordugu_kimlik_sayisi": 1,
+    "kazanc": "ayni bilgi konteynerin kimligini teyit etmek icin kullanildi (K-98)"
+  },
+  "ajanin_erisebildigi_ag_yuzeyi": {
+    "soru": "ajanin kodu yonetim rotalarina ulasabiliyor mu",
+    "appworld_safetyguard_kesenler": [
+      "requests",
+      "socket",
+      "subprocess",
+      "urllib.request.urlopen"
+    ],
+    "izin_verilenler": [
+      "urllib.request modul importu (urlopen kesili)",
+      "os"
+    ],
+    "istekci_nesnesi": "apis uzerinden ulasilamiyor: apis.api_docs.requester 'No API named' hatasi veriyor, __dict__ icinde req alani yok",
+    "denenen_yol_sayisi": 5,
+    "sonuc": "calisan bir yol bulunamadi",
+    "uyari": "yol bulunamamasi yolun olmadiginin kaniti degil; vekilin alan olcutu bu guvence uzerine kurulmuyor"
+  },
+  "kimlik_teyidi": {
+    "kural": "bir kosu, baslattigi seyle konustugunu dogrulamadan sayilmaz (K-98)",
+    "olcut": "ortam soketinin SO_PEERCRED pid'i ile podman inspect .State.Pid",
+    "olculdu": "birebir esitler",
+    "neden_nonce_degil": "nonce icin fazladan bir execute cagrisi gerekirdi ve o cagri seffaflik testinin karsilastirdigi metni kirletirdi"
+  }
+}

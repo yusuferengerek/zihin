@@ -1,0 +1,27 @@
+# Koşul: skills — beceri kartları gerçek, hata kartları alakasız.
+# Hata slotları alakasız içerikle doluyor ki bağlam hacmi
+# skills_failures ile eşit kalsın; fark yalnız içerikte olsun.
+condition: skills
+
+skills:
+  source: standard
+
+failures:
+  source: irrelevant
+
+retrieval:
+  mode: symbolic
+  # Declared 25 September 2026 (preregistration A.4, K-175): a skill card must be
+  # expected to save at least one model call. The same in every condition, so no
+  # contrast carries it.
+  min_expected_saving: 1
+
+shield:
+  enabled: true
+
+fill:
+  enabled: true
+
+cards:
+  skill_slots: 5
+  failure_slots: 5

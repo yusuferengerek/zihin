@@ -1,0 +1,64 @@
+{
+  "ne": "CI'a appworld install ve verisi girdikten sonra kapsam ve sure olcumu.",
+  "tarih": "2026-08-17",
+  "neden": "Kirk yedi test CI'da sessizce atlaniyordu (S-49). Kurulum eklendi; bedeli bilerek odendi ve sayisi burada.",
+
+  "onceki_kosu": {
+    "commit": "17c21a3",
+    "kosu": 32054062503,
+    "secim_testler": "not appworld and not model_server and not sandbox",
+    "secim_sandbox": "sandbox and not appworld"
+  },
+  "sonraki_kosu": {
+    "commit": "992f10e",
+    "kosu": 32059348281,
+    "secim_testler": "not model_server and not sandbox",
+    "secim_sandbox": "sandbox",
+    "onbellek": "ilk kosu, onbellek sogugu; onbellek adim sonunda dolduruldu"
+  },
+
+  "test_sayisi": {
+    "testler_gecen": {"once": 356, "sonra": 435, "fark": 79},
+    "testler_atlanan": {"once": 47, "sonra": 7, "fark": -40},
+    "testler_elenen": {"once": 58, "sonra": 19, "fark": -39},
+    "sandbox_gecen": {"once": 9, "sonra": 11, "fark": 2},
+    "toplam_kosan": {"once": 365, "sonra": 446, "fark": 81}
+  },
+
+  "sure_saniye": {
+    "testler_isi_toplam": {"once": 53, "sonra": 53, "fark": 0},
+    "testler_pytest_adimi": {"once": 33.0, "sonra": 17.3},
+    "testler_appworld_kurulumu": {"once": null, "sonra": 9.6},
+    "testler_dogrulama_adimi": {"once": null, "sonra": 8.7},
+    "sandbox_isi_toplam": {"once": 66, "sonra": 92, "fark": 26},
+    "sandbox_guvenlik_testleri": {"once": 7.7, "sonra": 22.5},
+    "sandbox_appworld_kurulumu": {"once": null, "sonra": 10.0},
+    "duvar_saati_en_uzun_is": {"once": 66, "sonra": 92, "fark": 26}
+  },
+  "sure_notu": "Testler isi ayni surede kaldi: kurulum 9,6 s ve dogrulama 8,7 s eklendi ama pytest adimi 33,0 s'den 17,3 s'ye indi. pytest'in hizlanmasi beklenmedik ve tek kosudan; kosucu degiskenligi olabilir. Sayilar iki kosunun olcumu, kestirim degil.",
+
+  "kurulum_gercekten_kostu_mu": {
+    "soru": "isaretler hala disliyorsa kurulum bosa gider ve bunu hicbir sey soylemez",
+    "nasil": "pytest raporu -rs ile yazdiriliyor, ayri bir adim uc sey doguruluyor",
+    "atlanan_uygulama_modulu_gerekcesiyle": 0,
+    "appworld_isaretli_toplanan": "sifirdan buyuk",
+    "rota_tablosu": "12 uygulama",
+    "sonuc": "kurulum bosa gitmedi"
+  },
+
+  "kalan_atlananlar": {
+    "sayi": 7,
+    "hepsi_yapisal": true,
+    "gerekce": [
+      {"test": "test_api_routes.py:198", "sebep": "experiments/outputs bu makinede yok"},
+      {"test": "test_recorded_run.py (5 test)", "sebep": "results/zihin.sqlite yok; kayitli kosu gerektiriyor"},
+      {"test": "test_shield.py:267", "sebep": "results/write-set-static.json yok"}
+    ],
+    "not": "Ucu de results/ ya da experiments/outputs/ altindaki uretilmis artefaktlara bagli. Ikisi de gitignore'da ve kod ile sonuc ayni commit'i paylasmiyor, yani bu atlamalar tasarimin sonucu, gizlenmis bir ariza degil."
+  },
+
+  "elenenler": {
+    "sayi": 19,
+    "gerekce": "model_server (ayakta Ollama yok) ve sandbox (kendi kontrolunde kosuyor, K-97)"
+  }
+}

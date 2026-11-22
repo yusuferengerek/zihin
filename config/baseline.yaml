@@ -1,0 +1,26 @@
+# Koşul: baseline — hiçbir mekanizma yok, kart yok.
+# Diğer beş koşulun karşılaştırıldığı zemin.
+condition: baseline
+
+skills:
+  source: none
+
+failures:
+  source: none
+
+retrieval:
+  mode: none
+  # Declared 25 September 2026 (preregistration A.4, K-175): a skill card must be
+  # expected to save at least one model call. The same in every condition, so no
+  # contrast carries it.
+  min_expected_saving: 1
+
+shield:
+  enabled: true
+
+fill:
+  enabled: false
+
+cards:
+  skill_slots: 0
+  failure_slots: 0

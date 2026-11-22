@@ -1,0 +1,71 @@
+site_name: zihin
+site_description: A research harness for skill and failure memory experiments on AppWorld.
+# scripts/build_site.py copies the tracked tree here, so every relative link between
+# documents resolves exactly as it does in the repository.
+docs_dir: site-src
+site_dir: site
+strict: true
+theme:
+  name: material
+  features:
+    - navigation.sections
+nav:
+  - Overview: README.md
+  - Question and design:
+      - Problem definition: docs/01-problem-definition.en.md
+      - Research question: docs/02-research-question.en.md
+      - Architecture: docs/03-architecture.en.md
+      - Threat model: docs/04-threat-model.en.md
+      - Experiment design: docs/05-experiment-design.en.md
+      - Skill language: docs/06-skill-language.en.md
+      - Failure taxonomy: docs/07-failure-taxonomy.en.md
+      - Setup protocol: experiments/setup-protocol.en.md
+      - Sandbox scope: docs/12-sandbox-scope.en.md
+      - Alternatives ledger: docs/14-alternatives-ledger.en.md
+      - Axis extension: docs/reports/eksen-uzatma.en.md
+  - Limitations: docs/09-limitations.en.md
+  - Reproduce: REPRODUCE.md
+  - Data model: DATA_MODEL.md
+  - Skill spec: SKILL_SPEC.md
+  - Provenance: PROVENANCE.md
+  - Turkish documents:
+      - CHANGELOG.md
+      - PILOT_REPORT.md
+      - PROJECT_STATUS.md
+      - PULL_REQUESTS.md
+      - docs/08-decisions.tr.md
+      - docs/10-external-review.tr.md
+      - docs/11-falsification.tr.md
+      - docs/appworld-facts.tr.md
+      - docs/reports/asama-0.md
+      - docs/reports/asama-1.md
+      - docs/reports/asama-2.md
+      - docs/reports/asama-3.md
+      - docs/reports/asama-4.md
+      - docs/reports/asama-5.md
+      - docs/reports/b32-olcumu.md
+      - docs/reports/bant-taramasi.md
+      - docs/reports/bant3-taramasi.md
+      - docs/reports/bosluk-raporu.md
+      - docs/reports/denetim-bosluk-raporu.md
+      - docs/reports/hizalama-denetimi.md
+      - docs/reports/izinli-uygulama-vekili.md
+      - docs/reports/kapanis-raporu.md
+      - docs/reports/kurulum-sonrasi-1.md
+      - docs/reports/kurulum-sonrasi-2.md
+      - docs/reports/kurulum-sonrasi-3.md
+      - docs/reports/kurulum-sonrasi-4.md
+      - docs/reports/mekanizma-kapanis-notlari.md
+      - docs/reports/model-ailesi-taramasi.md
+      - docs/reports/sinir-kontrolu.md
+      - docs/reports/sunum-iskeleti.md
+      - docs/reports/teknik-olgular.md
+      - docs/reports/teshis.md
+      - docs/reports/uc-kollu-kart-kosusu.md
+      - docs/reports/uctan-uca-demo.md
+      - experiments/colab/README.md
+      - experiments/pilot-plan.md
+      - experiments/preregistration.md
+      - inputs/README.md
+      - scripts/setup/README.md
+      - vendor/appworld/README.md
