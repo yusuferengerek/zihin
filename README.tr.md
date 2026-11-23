@@ -77,8 +77,8 @@ betiklerin `--check` kipleri. Hepsi CI'da ve `scripts/local_checks.sh` içinde k
 Bir bekçi, yakalamak için yazıldığı arızayı yakaladığı görülmeden kabul edilmiyor: arıza bilerek
 yapılan bir düzenlemeyle, yani bir mutasyonla geri konuyor ve bekçinin onu
 reddetmesi gerekiyor (K-49). Sınırlamalar ve kararlar tarihli kayıtlar olarak
-tutuluyor: `docs/09-limitations.tr.md` içinde 82 sınırlama,
-`docs/08-decisions.tr.md` içinde 206 karar.
+tutuluyor: `docs/09-limitations.tr.md` içinde 83 sınırlama,
+`docs/08-decisions.tr.md` içinde 207 karar.
 
 Kod, yazarın yönetiminde bir yapay zekâ kodlama ajanıyla yazıldı. Her değişiklik pull
 request'ler, testler ve bekçiler üzerinden yazarın incelemesinden geçti.

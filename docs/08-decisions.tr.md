@@ -1272,6 +1272,69 @@ görevi, %30'da yedi tekrarın ikisinde ve %50'de birinde havuzun tamamı da
 yetmiyor. Tabaka artık 104, havuz 557; epizot tarafı 6000–8355, yaklaşık 180–250
 oturum-saati. Nitelik paragrafı ve `S-66` olduğu gibi geçerli.
 
+### K-207 — Uyarı taşıyan bağımlılıklar deneyden önce güncellendi, litellm AppWorld'ün sabitlemesiyle kaldı
+
+**Karar, kullanıcının, 23 Kasım 2026.** Açık depo yusuferengerek/zihin'in Dependabot
+uyarılarını taşıyan bağımlılıklar arşivde şimdi, deneyden önce güncelleniyor. Her paket
+uyarılarını kapatan en düşük sürüme geçiyor, var olan kısıtların içinde kalarak. Genel bir
+yükseltme yapılmadı.
+
+**Önce kurallar soruldu.** Hiçbiri `uv.lock`'u ya da ortamı deney koşana kadar sabitlemiyor.
+- `K-204` üç dosyayı donduruyor: `.github/workflows/ci.yml`, `Containerfile` ve
+  `config/*.yaml`. `uv.lock` aralarında değil.
+- Ön kayıt koşucuyu ve ölçümü tanımlayan kodu donduruyor (`K-181`, `K-182`). Kurulum
+  protokolünün 19.6 şartlar tablosu paket sürümü taşımıyor.
+- `uv.lock` ve `pyproject.toml` ölçümü tanımlayan yollar listesinde değil
+  (`zihin.records.MEASUREMENT_DEFINING_PATHS`). Paket sürümünü okuyan ya da ortamın parmak
+  izini alan bir bekçi yok.
+- `K-19` iskelenin ajan mantığına dokunmayı yasaklıyor ve taşıma katmanındaki bir
+  değişikliği "aynı mesajlar gitsin ve aynı metin dönsün" şartıyla kabul ediyor. Model
+  çağrısını yapan litellm değişmedi. Onun bağımlılığı olan aiohttp değişti ve bu şart onun
+  için sınanmadı (`S-85`).
+
+**Sürümler.**
+
+| Paket | Önce | Sonra | Kapanan uyarı |
+|---|---|---|---|
+| aiohttp | 3.14.3 | 3.14.4 | 17 |
+| certifi | 2026.7.22 | 2026.10.18 | 1 |
+| dnspython | 2.8.0 | 2.9.2 | 2 |
+| filelock | 3.32.2 | 4.2.1 | 12 |
+| multidict | 6.7.1 | 6.9.1 | 1 |
+| pyjwt | 2.13.0 | 2.15.0 | 15 |
+| urllib3 | 2.7.0 | 2.8.0 | 3 |
+| yarl | 1.24.5 | 1.25.1 | uyarısı yok, aiohttp 3.14.4 `yarl>=1.25.1` istiyor |
+| litellm | 1.80.0 | 1.80.0 | yok, 24 uyarı açık |
+
+`uv.lock`'un sha256'sı önce `9dd670ad3a6b19195dead419bab0bcf78b39a3b6d321a00cb17e10939f94b551`,
+sonra `7390fdefcfc872aec1b2af5a7e5a7907cd04cafd304d1f10577650e59cf7b17d`.
+
+**Kapanan ve açık kalan uyarılar.** Uyarılar açık depodaki numaralarıyla, 23 Kasım 2026'da
+API'den okundu: sekiz pakette 75 uyarı, hepsi geçişli ve çalışma zamanı bağımlılığı. Yeni
+sürümler 51 uyarının savunmasız aralığının dışında kalıyor:
+- aiohttp #41–48 ve #67–75,
+- certifi #53,
+- dnspython #56 ve #66,
+- filelock #50–52 ve #57–65,
+- multidict #39,
+- pyjwt #22–32, #36, #38, #40 ve #49,
+- urllib3 #33–35.
+
+Açık depoda bu uyarılar ancak yeni kilit oraya bir eşitlemeyle ulaşınca kapanır. Açık kalan
+24 uyarının hepsi litellm'in: #1–21, #37, #54 ve #55. Sebebi AppWorld'ün sabitlemesi:
+appworld-agents 0.1.0.dev0 `openai<=1.99.8` istiyor, uyarı kapatan her litellm sürümü
+(1.82.0 ve üstü) `openai>=2.8.0` istiyor. uv'nin çözücüsü projeye `litellm>=1.82.0` kısıtı
+eklenince çözüm bulamadı ve sebep olarak bu iki şartı gösterdi. Ön sürümler denenmedi. Bu
+çözülmedi.
+
+**Kayıtlı koşular ve deney.** Bugüne kadar kaydedilen her koşu önceki kilitle alındı. Dört
+kayıt veritabanının `run_manifests`'indeki 28 `code_commit`'in hepsinde `uv.lock` aynı
+blob: `8d14d5cc`. Kilit 10 Ağustos 2026'dan (`04de94b`) beri değişmemişti. Deney yeni
+kilitle koşacak. Bunun karşılaştırılabilirliğe etkisi `S-85`'te.
+
+**Açık depodaki iki Dependabot pull request'i** (#1 dnspython, #2 aiohttp) açık kalıyor. Açık
+depo yalnız eşitleme commit'leri alıyor. Bu güncelleme oraya bir sonraki eşitlemeyle gidiyor.
+
 ### K-206 — Geçmişi yeniden yazma yasağının kapsamı
 
 **Karar, kullanıcının.** "Bu depoda geçmiş yeniden yazılmaz" kuralı şunları kapsıyor:
@@ -1476,6 +1539,49 @@ Kasım ekinde iki parça o güne ait değil: uydurulan adreslerin maskelenmesi v
 birlikte `supervisor.account_passwords` paragrafı. İkisi de 22 Kasım 2026'da `211aeef` ile
 yazıldı. Ekin geri kalanı 17 Kasım 2026'da `fcb4ce0` ile yazıldı. Tam adresler o commit'te,
 arşivin geçmişinde kalıyor. Kullanıcının kararı: dal yeniden kurulmuyor.
+
+**Ek — 23 Kasım 2026: açık depo yayımlandı.** Adımları kullanıcı yönetti, bu ek sonucu
+kaydediyor.
+- Açık depo `yusuferengerek/zihin` herkese açık. Tek commit'i
+  `40e14aac57dd574ecafb82772373814a780b2d10` ve arşivin
+  `937b48564c31e2f9da30e1fe882ceda2613fca2f` commit'ini, #80'in birleştirme commit'ini,
+  yansıtıyor. Arşivin GitHub adı artık `yusuferengerek/zihin-archive`.
+- Sürüm `initial-release`, etiketi doğrudan `40e14aa`'yı gösteriyor. Dört eki:
+
+  | Ek | Bayt | sha256 |
+  |---|---|---|
+  | zihin.bundle | 347 667 | `f07b0ca883fc96921e62c26693198d22674b86a304b8ad398f54a70fdd19e827` |
+  | zihin-2.bundle | 1 582 171 | `45459f70b1e47dd72fbd0115badfeb75d8a774f57c4ca327cef87b2cff77304b` |
+  | zihin-3.bundle | 2 712 136 | `35bd366ebb63d4af425a86d458b83af10125228f1b6f2b6000ab7699a8839dd0` |
+  | zihin-3-colab.bundle | 419 872 | `041ef988b2e11cf08331c5ea6e2971801ade39f2715e3b22257b955dc688096e` |
+
+  Geri yükledikleri dosyaların boyutu ve sha256'sı `records/MANIFEST.json`'da. Kimliksiz bir
+  okur dört eki düz HTTPS ile indirdi, sha256'ları yukarıdakilerle aynı çıktı.
+- Adresler: depo https://github.com/yusuferengerek/zihin, site
+  https://yusuferengerek.github.io/zihin/, sürüm
+  https://github.com/yusuferengerek/zihin/releases/tag/initial-release.
+- 23 Kasım 2026'da uygulanan ayarlar, her biri API'den geri okundu:
+  - Pages'ın kaynağı GitHub Actions.
+  - Wiki ve projeler kapalı, issues açık, birleşen dallar otomatik siliniyor.
+  - İş akışı belirteci salt okunur, iş akışları pull request onaylayamıyor, dış
+    katkıcıların her koşusu onay istiyor.
+  - Gizli bilgi taraması ve push koruması, Dependabot uyarıları ve güvenlik güncellemeleri
+    ve özel açık bildirimi açık.
+  - `main` korumalı: beş CI işi zorunlu denetim (Testler, Lint, Sandbox, Import ve build,
+    Bağımlılık kurulumu), dal ilerlemeden önce güncel olmalı, force push ve silme kapalı,
+    kural yöneticilere de uygulanıyor.
+  - Açıklama "A research harness for skill and failure memory experiments on AppWorld.", ana
+    sayfa sitenin adresi.
+- Silinen koşu: Pages iş akışının 45076725246 numaralı koşusu, depo özelken `40e14aa`'nın
+  push'uyla başladı. "Build the site" işi geçti, "Deploy to GitHub Pages" işi dağıtımı
+  oluştururken 404 ile düştü, çünkü depoda Pages açık değildi. Başarısızlık ağaçtan değil
+  depo ayarından geliyordu. Koşu, kullanıcının kararıyla depo açılmadan önce silindi. Günlüğü
+  ve meta verisi depo dışında saklanıyor. Depo herkese açık olunca Pages açıldı ve iş akışı
+  elle başlatıldı (45082391913, `40e14aa` üzerinde), iki işi de geçti.
+- Açık nokta: `main`'e doğrudan bir push'un reddedildiği gösterilmedi. Git'in kuru denemesi
+  GitHub'ın koruma denetimine ulaşmıyor. Korumanın etkin olduğunu yalnız API söylüyor. İlk
+  eşitleme bunu sınayacak.
+- Eşitleme yordamı `REPRODUCE.md`'de ve `REPRODUCE.tr.md`'de, açık yansı bölümünün altında.
 
 ### K-204 — CI, konteyner ve yapılandırma dosyalarındaki Türkçe çevrilmiyor
 

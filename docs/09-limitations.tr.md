@@ -5,11 +5,11 @@ Kapatılabilenlerin üstü kapatıldıklarında çizilecek.
 
 <!-- HARITA BASLANGIC: uretilmis, elle duzenlenmiyor -->
 
-**82 sınırlama: 64 açık, 18 kapandı.** Bu tablo üretiliyor; elle düzenlenen bir kopyası yok (`scripts/build_limitations_index.py`). Kayda gitmek için kimliği arayın.
+**83 sınırlama: 65 açık, 18 kapandı.** Bu tablo üretiliyor; elle düzenlenen bir kopyası yok (`scripts/build_limitations_index.py`). Kayda gitmek için kimliği arayın.
 
-**Açık maddelerin ekseni:** 53 bir iddiayı sınırlıyor, 11 kapsam, 0 sınıflandırılmadı, 0 henüz işaretsiz. Eksen her kaydın başlığının altındaki ilk alıntı satırından okunuyor; bir maddeyi “sınırlıyor” saymak için sınırladığı iddia adıyla yazılıyor (K-107).
+**Açık maddelerin ekseni:** 53 bir iddiayı sınırlıyor, 12 kapsam, 0 sınıflandırılmadı, 0 henüz işaretsiz. Eksen her kaydın başlığının altındaki ilk alıntı satırından okunuyor; bir maddeyi “sınırlıyor” saymak için sınırladığı iddia adıyla yazılıyor (K-107).
 
-**Açık maddelerin kapanma sınıfı:** 11 dış olgu, 11 ölçüldü ve kısıt gerçek çıktı, 29 sonraki tur, 13 kalıcı kayıt, 0 sınıfsız. Ölçüt tek soru: *bu kaydı kapatacak iş kimin elinde?* Yalnız üçüncü sınıf kapanabilir — yani 64 açık maddenin 29 tanesi geçici, kalan 35 tanesi belgede kalıcı.
+**Açık maddelerin kapanma sınıfı:** 11 dış olgu, 11 ölçüldü ve kısıt gerçek çıktı, 30 sonraki tur, 13 kalıcı kayıt, 0 sınıfsız. Ölçüt tek soru: *bu kaydı kapatacak iş kimin elinde?* Yalnız üçüncü sınıf kapanabilir — yani 65 açık maddenin 30 tanesi geçici, kalan 35 tanesi belgede kalıcı.
 
 | | Sınırlama | Durum | Eksen | Kapanma |
 |---|---|---|---|---|
@@ -95,6 +95,7 @@ Kapatılabilenlerin üstü kapatıldıklarında çizilecek.
 | `S-82` | Eski taramalar boşlukları normalleştirmiyordu; bir train talimatı alıntısı iki yerde kaldı | açık | kapsam | Kalıcı kayıt |
 | `S-83` | Bir testin AppWorld çıktıları gölge kipi korpusuna girdi; engellemelerden biri testin kendi çağrısıydı | açık | kapsam | Kalıcı kayıt |
 | `S-84` | Dil denetimi açık bir klonda, kayıt veritabanları geri yüklense bile geçemiyor | açık | kapsam | Ölçüldü |
+| `S-85` | Kayıtlı koşular eski kilitle alındı, deney yenisiyle koşacak | açık | kapsam | Sonraki tur |
 
 <!-- HARITA BITIS -->
 
@@ -150,6 +151,38 @@ Haritadaki 81, kayıtların sayısı.
 | §18.3 dal A | 1 | `S-73` |
 
 <!-- IDDIA HARITASI BITIS -->
+
+---
+
+## S-85 — Kayıtlı koşular eski kilitle alındı, deney yenisiyle koşacak
+
+> **Kapsam.** Deneyden önceki koşulardan gelen sayılarla deneyin epizotları arasındaki bağımlılık farkı (`K-207`)
+
+> **Kapanma sınıfı.** Sonraki tur — kayıtlı bir epizot kümesini yeni kilitle yeniden koşup yörüngeleri karşılaştırmak bu kaydı kapatır
+
+**Ne değişti.** `K-207` sekiz paketi güncelledi: aiohttp, certifi, dnspython, filelock,
+multidict, pyjwt, urllib3 ve yarl. Kaydın bütün koşuları önceki kilitle alındı, deneyin bütün
+epizotları yenisiyle alınacak. Deneyin kendi karşıtlıkları bundan etkilenmiyor, çünkü
+koşulların hepsi aynı kilitle koşacak.
+
+**Neyi etkiliyor.** Ön kayıt ve kurulum protokolü bazı sayıları deneyden önceki koşulardan
+alıyor ve deneyde değiştirmeden kullanıyor:
+- adım tavanının çapaları, bant taramasından,
+- güç hesabının dayandığı eylem tabakası oranı (`results/stratum-rates.json`),
+- 32B'nin kendi `train` epizotlarından madenlenen kütüphane ve indeks.
+
+Bunlar eski kilitle ölçüldü. Değişen paketlerin hiçbiri modelde, iskelenin ajan mantığında ya
+da ölçümü tanımlayan kodda değil. AppWorld'ün sunucusunda duruyorlar (pyjwt fastapi-login
+üzerinden, dnspython email-validator üzerinden, filelock), HTTP istemcilerinde (urllib3
+requests üzerinden, certifi httpx ve requests üzerinden) ve litellm'in bağımlılıklarında
+(aiohttp, multidict, yarl). Bir epizodun yörüngesini değiştirip değiştirmedikleri ölçülmedi.
+`K-19`'un taşıma katmanı şartı, "aynı mesajlar gitsin ve aynı metin dönsün", bu sürümler için
+sınanmadı.
+
+**Görmeyen bir denetim.** `uv.lock` ölçümü tanımlayan yollar listesinde değil
+(`zihin.records.MEASUREMENT_DEFINING_PATHS`). Kilit deney sırasında yeniden değişirse
+`scripts/analyze_experiment.py` dilimleri bu değişikliğe göre ayırmaz. Sandbox imajı da
+`uv.lock`'u içine kopyalıyor, yani `Containerfile` değişmeden imajın içeriği değişebiliyor.
 
 ---
 

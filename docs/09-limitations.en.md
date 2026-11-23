@@ -7,11 +7,11 @@ measured. The closable ones get struck through when they close.
 
 <!-- HARITA BASLANGIC: uretilmis, elle duzenlenmiyor -->
 
-**82 limitations: 64 open, 18 closed.** This table is generated; there is no hand-edited copy (`scripts/build_limitations_index.py`). Search the identifier to reach a record.
+**83 limitations: 65 open, 18 closed.** This table is generated; there is no hand-edited copy (`scripts/build_limitations_index.py`). Search the identifier to reach a record.
 
-**Axis of the open items:** 53 bound a claim, 11 are scope. The axis is read from the first quoted line under each record's heading; calling an item “bounds” requires naming the claim it bounds (K-107).
+**Axis of the open items:** 53 bound a claim, 12 are scope. The axis is read from the first quoted line under each record's heading; calling an item “bounds” requires naming the claim it bounds (K-107).
 
-**Closure class of the open items:** 11 external fact, 11 measured and the constraint is real, 29 next round, 13 permanent record. The test is one question: *whose hands is the work that would close this record in?* Only the third class can close — so 29 of the 64 open items are provisional and the remaining 35 are permanent in this document.
+**Closure class of the open items:** 11 external fact, 11 measured and the constraint is real, 30 next round, 13 permanent record. The test is one question: *whose hands is the work that would close this record in?* Only the third class can close — so 30 of the 65 open items are provisional and the remaining 35 are permanent in this document.
 
 | | Limitation | Status | Axis | Closure |
 |---|---|---|---|---|
@@ -97,6 +97,7 @@ measured. The closable ones get struck through when they close.
 | `S-82` | Earlier scans did not normalize whitespace; a quote of a train instruction stayed in two places | open | scope | Permanent record |
 | `S-83` | A test's AppWorld outputs entered the shadow-mode corpus; one of the blocks was the test's own call | open | scope | Permanent record |
 | `S-84` | The language check cannot pass in a public clone, even with the record databases restored | open | scope | Measured |
+| `S-85` | The recorded runs were taken under the earlier lock, the experiment runs under the new one | open | scope | Next round |
 
 <!-- HARITA BITIS -->
 
@@ -153,6 +154,39 @@ S-54. No entry was lost. The map's 81 is the number of entries.
 | §18.3 branch A | 1 | `S-73` |
 
 <!-- IDDIA HARITASI BITIS -->
+
+---
+
+## S-85 — The recorded runs were taken under the earlier lock, the experiment runs under the new one
+
+> **Scope.** The dependency difference between numbers taken from runs before the experiment and the experiment's own episodes (`K-207`)
+
+> **Closure class.** Next round — rerunning a recorded set of episodes under the new lock and comparing the trajectories closes this record
+
+**What changed.** `K-207` updated eight packages: aiohttp, certifi, dnspython, filelock,
+multidict, pyjwt, urllib3 and yarl. Every run in the record was taken under the earlier lock,
+and every episode of the experiment will be taken under the new one. The experiment's own
+contrasts are not affected, because all its conditions run under the same lock.
+
+**What it affects.** The preregistration and the setup protocol take some numbers from runs
+before the experiment and use them unchanged in it:
+- the anchors of the step ceiling, from the band scan,
+- the action-stratum rate the power calculation rests on (`results/stratum-rates.json`),
+- the library and the index mined from the 32B's own `train` episodes.
+
+These were measured under the earlier lock. None of the changed packages is in the model, in
+the scaffold's agent logic or in the measurement-defining code. They sit in AppWorld's server
+(pyjwt through fastapi-login, dnspython through email-validator, filelock), in the HTTP
+clients (urllib3 through requests, certifi through httpx and requests) and in litellm's
+dependencies (aiohttp, multidict, yarl). Whether they change an episode's trajectory was not
+measured. The transport condition of `K-19`, "the same messages go out and the same text comes
+back", was not tested for these versions.
+
+**A check that does not see it.** `uv.lock` is not on the list of measurement-defining paths
+(`zihin.records.MEASUREMENT_DEFINING_PATHS`). If the lock changes again during the experiment,
+`scripts/analyze_experiment.py` does not separate the slices by that change. The sandbox image
+also copies `uv.lock` into itself, so the image's contents can change while `Containerfile`
+does not.
 
 ---
 

@@ -1,5 +1,6 @@
 site_name: zihin
 site_description: A research harness for skill and failure memory experiments on AppWorld.
+site_url: https://yusuferengerek.github.io/zihin/
 # scripts/build_site.py copies the tracked tree here, so every relative link between
 # documents resolves exactly as it does in the repository.
 docs_dir: site-src

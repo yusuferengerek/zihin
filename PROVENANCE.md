@@ -6,8 +6,8 @@ carried over.
 
 | | |
 |---|---|
-| Archive commit | `937b48564c31e2f9da30e1fe882ceda2613fca2f` |
-| Test outcome in the READMEs | measured on a tree built from archive commit `2789cfbc962b7c999d24f0766e2d31fcb53cdec9`, the same tree file for file |
+| Archive commit | `6ae2b9ed1cc9ed9f0101ae01552fdbd52dfea31f` |
+| Test outcome in the READMEs | measured on a tree built from archive commit `8771d9783639d70b5c2d5475e4d27e206a34b95c`, the same tree file for file |
 | Build script | `scripts/build_public_tree.py` in the archive, sha256 `9b63719e1c9b295231ddc70207f1a8eea16c439fda44614589c0ebc731ed1d44` |
 | AppWorld package used to pack | `appworld` 0.2.0.dev0, git commit `a072b7a86e7c1d5b1d7175659d750ebb9b79f10a` |
 | Derived-data manifest | `derived/MANIFEST.json`, 13 files, sha256 `4d11fa3dcd20b951d27ef51e4572e77b9410c46e8b9e4afdf03520da09217573` |

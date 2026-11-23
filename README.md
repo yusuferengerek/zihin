@@ -83,8 +83,8 @@ the rules after it). The rules are enforced by guards: the `check_*` scripts and
 `scripts/local_checks.sh`. A guard is accepted only after it has been seen to fire
 on the fault it exists for: the fault is put back by a deliberate edit, a mutation,
 and the guard has to refuse it (K-49). Limits and decisions are kept as dated
-records: 82 limitations in
-[docs/09-limitations.en.md](docs/09-limitations.en.md) and 206 decisions in
+records: 83 limitations in
+[docs/09-limitations.en.md](docs/09-limitations.en.md) and 207 decisions in
 `docs/08-decisions.tr.md` (in Turkish).
 
 The code was written with an AI coding agent under the author's direction. Every

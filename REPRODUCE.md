@@ -331,3 +331,78 @@ archive commit and applies the difference to the public repository as one commit
 `Sync with archive <hash>`. The test outcome and the experiment episode count that the
 READMEs cite are measured again with `--measure` before a sync. If the tree changed
 after the measurement, the build refuses to produce the public tree.
+
+### Syncing
+
+From 23 November 2026, `main` of the public repository is protected. It requires the five
+jobs of `.github/workflows/ci.yml` as status checks. The branch must be up to date before it
+moves, force pushes and deletion are blocked, and the rule applies to administrators. A sync
+commit therefore reaches `main` only after the five checks have passed on that exact commit.
+
+The input is `A`, the archive commit to mirror. It is on the archive's `main`, and
+`uv run python scripts/build_public_tree.py --check --commit A` reports the measurement fresh
+and the verification clean. Below, `<A7>` stands for the first seven characters of `A`.
+
+1. Build the tree of `A` into an empty directory `<out>` outside the archive:
+
+   ```bash
+   uv run python scripts/build_public_tree.py --commit A --out <out> --report <report.json>
+   ```
+
+   The build refuses a stale measurement. The dry-run table must show the verification clean,
+   gitleaks 0 and the measurement fresh.
+
+2. In a fresh clone of the public repository, branch from `origin/main` and empty the tree:
+
+   ```bash
+   git switch -c sync/<A7> origin/main
+   git rm -r -q .
+   ```
+
+   Copy the contents of `<out>` in, without any `.git` directory, and run `git add -A`. Commit
+   once, with the owner as author and committer, the same identity as the earlier public
+   commits. The subject is `Sync with archive <A>` (K-205). The last line of the body is
+   `Archive: <A>`, with the full hash of `A`. Every public commit names the archive commit it
+   mirrors in such a final line (PROVENANCE). No other trailer. Before pushing, `git ls-files`
+   must equal the build's output list, and the diff against `origin/main` must be the change
+   the build report describes.
+
+3. Push the branch only and open a pull request from it to `main`:
+
+   ```bash
+   git push origin sync/<A7>
+   ```
+
+   CI runs on pull requests and on pushes to `main`, not on pushes to other branches, so the
+   pull request is what starts the checks. Wait until all five have passed on the branch's
+   head commit. If one fails, fix the cause in the archive, build again from the new archive
+   commit and replace the branch. Nothing is fixed in the public repository itself.
+
+4. When the five checks have passed and the branch is up to date with `main`, move `main` to
+   that same commit with a fast-forward push:
+
+   ```bash
+   git push origin sync/<A7>:main
+   ```
+
+   This keeps the verified commit and its hash. A squash or rebase merge in the web interface
+   would write a different commit, and a merge commit would add a second commit for every
+   sync. GitHub marks the pull request merged once its head commit is on `main`.
+
+5. Delete the sync branch if it is still there. The push to `main` starts CI and the Pages
+   workflow. Confirm that both pass and that the site serves the new tree. Record the public
+   commit's hash next to `A` in the archive.
+
+The procedure does not cover three things:
+- The record databases. A change to them needs new assets and a new release. That is decided
+  separately and is not part of a tree sync.
+- The status check names. They are the job names in `.github/workflows/ci.yml`. If a job is
+  renamed in the archive, the branch protection must be updated to the new name before that
+  sync, or `main` can never move.
+- Dependabot pull requests. They change `uv.lock` in the public repository only. Merging one
+  would make the public tree differ from the archive. The owner decides how they are handled.
+
+Not yet verified: that the branch protection lets the fast-forward push of step 4 through
+once the five checks have passed on that commit. No review requirement is set, so it is
+expected to. It has not been tried. If GitHub refuses it, merge through the pull request
+instead and record the choice.

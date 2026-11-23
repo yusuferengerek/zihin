@@ -324,3 +324,78 @@ Açık depo yusuferengerek/zihin, bu arşivin ağacından `scripts/build_public_
 açık depoya tek bir commit olarak uyguluyor: `Sync with archive <hash>`. README'lerin
 aktardığı test sonucu ve deney epizodu sayısı, eşitlemeden önce `--measure` ile yeniden
 ölçülüyor. Ağaç ölçümden sonra değiştiyse yapı açık ağacı kurmayı reddediyor.
+
+### Eşitleme
+
+23 Kasım 2026'dan beri açık deponun `main` dalı korumalı. `.github/workflows/ci.yml`'deki beş
+işi zorunlu denetim olarak istiyor. Dal ilerlemeden önce güncel olmalı, force push ve silme
+kapalı ve kural yöneticilere de uygulanıyor. Bu yüzden bir eşitleme commit'i `main`'e ancak
+beş denetim tam o commit üzerinde geçtikten sonra ulaşıyor.
+
+Girdi `A`, yansıtılacak arşiv commit'i. Arşivin `main`'inde duruyor ve
+`uv run python scripts/build_public_tree.py --check --commit A` ölçümün taze, doğrulamanın
+temiz olduğunu söylüyor. Aşağıda `<A7>`, `A`'nın ilk yedi karakteri.
+
+1. `A`'nın ağacını arşivin dışındaki boş bir `<out>` dizinine kur:
+
+   ```bash
+   uv run python scripts/build_public_tree.py --commit A --out <out> --report <report.json>
+   ```
+
+   Yapı bayat bir ölçümü reddediyor. Kuru deneme tablosu doğrulamayı temiz, gitleaks'i 0 ve
+   ölçümü taze göstermeli.
+
+2. Açık deponun taze bir klonunda `origin/main`'den bir dal aç ve ağacı boşalt:
+
+   ```bash
+   git switch -c sync/<A7> origin/main
+   git rm -r -q .
+   ```
+
+   `<out>`'un içeriğini `.git` dizini olmadan içeri kopyala ve `git add -A` koş. Tek bir
+   commit at. Yazar ve commit'leyen sahip, yani açık deponun önceki commit'leriyle aynı kimlik.
+   Konu satırı `Sync with archive <A>` (K-205). Gövdenin son satırı `A`'nın tam hash'iyle
+   `Archive: <A>`. Açık deponun her commit'i yansıttığı arşiv commit'ini böyle bir son satırda
+   adlandırıyor (PROVENANCE). Başka trailer yok. Push etmeden önce `git ls-files` yapının çıktı
+   listesine eşit olmalı ve `origin/main`'e karşı fark yapı raporunun anlattığı değişiklik
+   olmalı.
+
+3. Yalnız dalı push et ve ondan `main`'e bir pull request aç:
+
+   ```bash
+   git push origin sync/<A7>
+   ```
+
+   CI pull request'lerde ve `main`'e push'larda koşuyor, öteki dallara push'larda koşmuyor.
+   Denetimleri bu yüzden pull request başlatıyor. Beşi de dalın uç commit'inde geçene kadar
+   bekle. Biri düşerse sebebi arşivde düzelt, yeni arşiv commit'inden yeniden kur ve dalı
+   değiştir. Açık depoda hiçbir şey düzeltilmiyor.
+
+4. Beş denetim geçtiğinde ve dal `main`'e göre güncelken `main`'i ileri sarma push'uyla aynı
+   commit'e taşı:
+
+   ```bash
+   git push origin sync/<A7>:main
+   ```
+
+   Böylece doğrulanan commit hash'iyle birlikte aynen kalıyor. Web arayüzündeki squash ya da
+   rebase birleştirmesi başka bir commit yazar, birleştirme commit'i de her eşitlemeye ikinci
+   bir commit ekler. Pull request'in uç commit'i `main`'e ulaşınca GitHub onu birleşmiş
+   sayıyor.
+
+5. Eşitleme dalı hâlâ duruyorsa sil. `main`'e push CI'ı ve Pages iş akışını başlatıyor.
+   İkisinin de geçtiğini ve sitenin yeni ağacı sunduğunu doğrula. Açık commit'in hash'ini
+   arşivde `A`'nın yanına kaydet.
+
+Yordam üç şeyi kapsamıyor:
+- Kayıt veritabanları. Onlardaki bir değişiklik yeni ekler ve yeni bir sürüm ister. Bu ayrıca
+  kararlaştırılıyor, bir ağaç eşitlemesinin parçası değil.
+- Zorunlu denetimlerin adları. Bunlar `.github/workflows/ci.yml`'deki iş adları. Arşivde bir
+  iş yeniden adlandırılırsa dal koruması o eşitlemeden önce yeni ada güncellenmeli, yoksa
+  `main` hiç ilerleyemez.
+- Dependabot pull request'leri. Yalnız açık depodaki `uv.lock`'u değiştiriyorlar. Birini
+  birleştirmek açık ağacı arşivden ayırır. Nasıl ele alınacağına sahip karar veriyor.
+
+Henüz doğrulanmadı: beş denetim o commit üzerinde geçtikten sonra dal korumasının 4. adımdaki
+ileri sarma push'unu geçirip geçirmediği. İnceleme şartı konmadı, bu yüzden geçirmesi
+bekleniyor. Denenmedi. GitHub reddederse pull request üzerinden birleştir ve seçimi kaydet.
